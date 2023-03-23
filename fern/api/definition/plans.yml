@@ -1,0 +1,129 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/fern-api/fern/main/fern.schema.json
+
+service:
+  auth: false
+  base-path: /api
+  endpoints:
+    get:
+      path: /apps/{app}/plans
+      method: GET
+      display-name: Get app plan information.
+      path-parameters:
+        app:
+          docs: The name of the app.
+          type: string
+      response: PlansDto
+
+    update:
+      path: /apps/{app}/plan
+      method: PUT
+      display-name: Change the app plan.
+      path-parameters:
+        app:
+          docs: The name of the app.
+          type: string
+      request:
+        body: ChangePlanDto
+      response: PlanChangedDto
+
+    getTeamPlan:
+      path: /teams/{team}/plans
+      method: GET
+      display-name: Get team plan information.
+      path-parameters:
+        team:
+          docs: The name of the team.
+          type: string
+      response: PlansDto
+
+    updateTeamPlan:
+      path: /teams/{team}/plan
+      method: PUT
+      display-name: Change the team plan.
+      path-parameters:
+        team:
+          docs: The name of the team.
+          type: string
+      request:
+        body: ChangePlanDto
+      response: PlanChangedDto
+
+types:
+  PlansDto:
+    properties:
+      plans:
+        docs: The available plans.
+        type: list<PlanDto>
+      currentPlanId:
+        docs: The current plan id.
+        type: optional<string>
+      planOwner:
+        docs: The plan owner.
+        type: optional<string>
+      portalLink:
+        docs: The link to the management portal.
+        type: optional<string>
+      referral: optional<ReferralInfo>
+      locked: optional<PlansLockedReason>
+
+  PlanDto:
+    properties:
+      id:
+        docs: The ID of the plan.
+        type: string
+      name:
+        docs: The name of the plan.
+        type: string
+      costs:
+        docs: The monthly costs of the plan.
+        type: string
+      confirmText:
+        docs: An optional confirm text for the monthly subscription.
+        type: optional<string>
+      yearlyConfirmText:
+        docs: An optional confirm text for the yearly subscription.
+        type: optional<string>
+      yearlyCosts:
+        docs: The yearly costs of the plan.
+        type: optional<string>
+      yearlyId:
+        docs: The yearly ID of the plan.
+        type: optional<string>
+      maxApiBytes:
+        docs: The maximum number of API traffic.
+        type: optional<integer>
+      maxApiCalls:
+        docs: The maximum number of API calls.
+        type: optional<integer>
+      maxAssetSize:
+        docs: The maximum allowed asset size.
+        type: optional<integer>
+      maxContributors:
+        docs: The maximum number of contributors.
+        type: optional<integer>
+
+  ReferralInfo:
+    properties:
+      code: optional<string>
+      earned: optional<string>
+      condition: optional<string>
+
+  PlansLockedReason:
+    docs: ""
+    enum:
+      - None
+      - NotOwner
+      - NoPermission
+      - ManagedByTeam
+
+  ChangePlanDto:
+    properties:
+      planId:
+        docs: The new plan id.
+        type: string
+
+  PlanChangedDto:
+    properties:
+      redirectUri:
+        docs: Optional redirect uri.
+        type: optional<string>

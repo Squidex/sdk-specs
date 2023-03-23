@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/fern-api/fern/main/fern.schema.json
+
+service:
+  auth: false
+  base-path: /api
+  endpoints:
+    getInfo:
+      path: /info
+      method: GET
+      display-name: Get API information.
+      response: ExposedValues
+
+    get:
+      path: /ping
+      method: GET
+      docs: Can be used to test, if the Squidex API is alive and responding.
+      display-name: Get ping status of the API.
+
+    getAppPing:
+      path: /ping/{app}
+      method: GET
+      docs: Can be used to test, if the Squidex API is alive and responding.
+      display-name: Get ping status.
+      path-parameters:
+        app:
+          docs: The name of the app.
+          type: string
+
+types:
+  ExposedValues: map<string, string>

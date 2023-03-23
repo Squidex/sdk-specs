@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/fern-api/fern/main/fern.schema.json
+
+service:
+  auth: false
+  base-path: /api/diagnostics
+  endpoints:
+    getDump:
+      path: /dump
+      method: GET
+      display-name: Creates a dump and writes it into storage..
+
+    getGCDump:
+      path: /gcdump
+      method: GET
+      display-name: Creates a gc dump and writes it into storage.

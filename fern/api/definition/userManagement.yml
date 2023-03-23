@@ -1,0 +1,125 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/fern-api/fern/main/fern.schema.json
+
+imports:
+  commons: commons.yml
+
+service:
+  auth: false
+  base-path: /api/user-management
+  endpoints:
+    getUsers:
+      path: ""
+      method: GET
+      display-name: Get users by query.
+      request:
+        name: GetUsersRequest
+        query-parameters:
+          query:
+            docs: Optional query to search by email address or username.
+            type: optional<string>
+          skip:
+            docs: The number of users to skip.
+            type: optional<integer>
+          take:
+            docs: The number of users to return.
+            type: optional<integer>
+      response: UsersDto
+
+    createUser:
+      path: ""
+      method: POST
+      display-name: Create a new user.
+      request:
+        body: CreateUserDto
+
+    getUser:
+      path: /{id}
+      method: GET
+      display-name: Get a user by ID.
+      path-parameters:
+        id:
+          docs: The ID of the user.
+          type: string
+      response: commons.UserDto
+
+    updateUser:
+      path: /{id}
+      method: PUT
+      display-name: Update a user.
+      path-parameters:
+        id:
+          docs: The ID of the user.
+          type: string
+      request:
+        body: UpdateUserDto
+      response: commons.UserDto
+
+    deleteUser:
+      path: /{id}
+      method: DELETE
+      display-name: Delete a User.
+      path-parameters:
+        id:
+          docs: The ID of the user to delete.
+          type: string
+
+    lockUser:
+      path: /{id}/lock
+      method: PUT
+      display-name: Lock a user.
+      path-parameters:
+        id:
+          docs: The ID of the user to lock.
+          type: string
+      response: commons.UserDto
+
+    unlockUser:
+      path: /{id}/unlock
+      method: PUT
+      display-name: Unlock a user.
+      path-parameters:
+        id:
+          docs: The ID of the user to unlock.
+          type: string
+      response: commons.UserDto
+
+types:
+  UsersDto:
+    extends: commons.Resource
+    properties:
+      total:
+        docs: The total number of users.
+        type: optional<integer>
+      items:
+        docs: The users.
+        type: list<commons.UserDto>
+
+  CreateUserDto:
+    properties:
+      email:
+        docs: The email of the user. Unique value.
+        type: string
+      displayName:
+        docs: The display name (usually first name and last name) of the user.
+        type: string
+      password:
+        docs: The password of the user.
+        type: string
+      permissions:
+        docs: Additional permissions for the user.
+        type: list<string>
+
+  UpdateUserDto:
+    properties:
+      email:
+        docs: The email of the user. Unique value.
+        type: string
+      displayName:
+        docs: The display name (usually first name and last name) of the user.
+        type: string
+      password:
+        docs: The password of the user.
+        type: optional<string>
+      permissions:
+        docs: Additional permissions for the user.
+        type: list<string>

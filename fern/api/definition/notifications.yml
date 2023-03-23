@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/fern-api/fern/main/fern.schema.json
+
+imports:
+  commons: commons.yml
+
+service:
+  auth: false
+  base-path: /api/users/{userId}/notifications
+  path-parameters:
+    userId:
+      docs: The user id.
+      type: string
+  endpoints:
+    getAll:
+      path: ""
+      method: GET
+      docs: When passing in a version you can retrieve all updates since then.
+      display-name: Get all notifications.
+      request:
+        name: GetAllNotificationsRequest
+        query-parameters:
+          version:
+            docs: The current version.
+            type: optional<integer>
+      response: commons.CommentsDto
+
+    deleteComment:
+      path: /{commentId}
+      method: DELETE
+      display-name: Delete a notification.
+      path-parameters:
+        commentId:
+          docs: The ID of the comment.
+          type: string

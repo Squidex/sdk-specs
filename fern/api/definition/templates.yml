@@ -1,0 +1,55 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/fern-api/fern/main/fern.schema.json
+
+imports:
+  commons: commons.yml
+
+service:
+  auth: false
+  base-path: /api/templates
+  endpoints:
+    getAll:
+      path: ""
+      method: GET
+      display-name: Get all templates.
+      response: TemplatesDto
+
+    get:
+      path: /{name}
+      method: GET
+      display-name: Get template details.
+      path-parameters:
+        name:
+          docs: The name of the template.
+          type: string
+      response: TemplateDetailsDto
+
+types:
+  TemplatesDto:
+    extends: commons.Resource
+    properties:
+      items:
+        docs: The event consumers.
+        type: optional<list<TemplateDto>>
+
+  TemplateDto:
+    extends: commons.Resource
+    properties:
+      name:
+        docs: The name of the template.
+        type: string
+      title:
+        docs: The title of the template.
+        type: string
+      description:
+        docs: The description of the template.
+        type: string
+      isStarter:
+        docs: True, if the template is a starter.
+        type: optional<boolean>
+
+  TemplateDetailsDto:
+    extends: commons.Resource
+    properties:
+      details:
+        docs: The details of the template.
+        type: string

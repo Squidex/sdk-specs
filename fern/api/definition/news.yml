@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/fern-api/fern/main/fern.schema.json
+
+service:
+  auth: false
+  base-path: /api/news/features
+  endpoints:
+    get:
+      path: ""
+      method: GET
+      display-name: Get features since version.
+      request:
+        name: GetFeaturesRequest
+        query-parameters:
+          version:
+            docs: The latest received version.
+            type: optional<integer>
+      response: FeaturesDto
+
+types:
+  FeaturesDto:
+    properties:
+      features:
+        docs: The latest features.
+        type: list<FeatureDto>
+      version:
+        docs: The recent version.
+        type: optional<integer>
+
+  FeatureDto:
+    properties:
+      name:
+        docs: The name of the feature.
+        type: string
+      text:
+        docs: The description text.
+        type: string

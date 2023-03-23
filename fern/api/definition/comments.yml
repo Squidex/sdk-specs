@@ -1,0 +1,86 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/fern-api/fern/main/fern.schema.json
+
+imports:
+  commons: commons.yml
+
+service:
+  auth: false
+  base-path: /api/apps/{app}
+  path-parameters:
+    app:
+      docs: The name of the app.
+      type: string
+  endpoints:
+    getWatchingUsers:
+      path: /watching/{resource}
+      method: GET
+      display-name: Get all watching users..
+      path-parameters:
+        resource:
+          docs: The path to the resource.
+          type: string
+      response: list<string>
+
+    getAll:
+      path: /comments/{commentsId}
+      method: GET
+      docs: When passing in a version you can retrieve all updates since then.
+      display-name: Get all comments.
+      path-parameters:
+        commentsId:
+          docs: The ID of the comments.
+          type: string
+      request:
+        name: GetAllCommentsRequest
+        query-parameters:
+          version:
+            docs: The current version.
+            type: optional<integer>
+      response: commons.CommentsDto
+
+    create:
+      path: /comments/{commentsId}
+      method: POST
+      display-name: Create a new comment.
+      path-parameters:
+        commentsId:
+          docs: The ID of the comments.
+          type: string
+      request:
+        body: UpsertCommentDto
+
+    update:
+      path: /comments/{commentsId}/{commentId}
+      method: PUT
+      display-name: Update a comment.
+      path-parameters:
+        commentsId:
+          docs: The ID of the comments.
+          type: string
+        commentId:
+          docs: The ID of the comment.
+          type: string
+      request:
+        body: UpsertCommentDto
+
+    delete:
+      path: /comments/{commentsId}/{commentId}
+      method: DELETE
+      display-name: Delete a comment.
+      path-parameters:
+        commentsId:
+          docs: The ID of the comments.
+          type: string
+        commentId:
+          docs: The ID of the comment.
+          type: string
+
+types:
+  UpsertCommentDto:
+    properties:
+      text:
+        docs: The comment text.
+        type: string
+      url:
+        docs: The url where the comment is created.
+        type: optional<string>

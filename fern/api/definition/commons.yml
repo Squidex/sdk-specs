@@ -1,0 +1,117 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/fern-api/fern/main/fern.schema.json
+
+types:
+  Resource:
+    properties:
+      _links:
+        docs: The links.
+        type: map<string, ResourceLink>
+
+  ResourceLink:
+    properties:
+      href:
+        docs: The link url.
+        type: string
+      method:
+        docs: The link method.
+        type: string
+      metadata:
+        docs: Additional data about the link.
+        type: optional<string>
+
+  UserDto:
+    extends: Resource
+    properties:
+      id:
+        docs: The ID of the user.
+        type: string
+      email:
+        docs: The email of the user. Unique value.
+        type: string
+      displayName:
+        docs: The display name (usually first name and last name) of the user.
+        type: string
+      isLocked:
+        docs: Determines if the user is locked.
+        type: boolean
+      permissions:
+        docs: Additional permissions for the user.
+        type: list<string>
+
+  ContributorsDto:
+    extends: Resource
+    properties:
+      items:
+        docs: The contributors.
+        type: list<ContributorDto>
+      maxContributors:
+        docs: The maximum number of allowed contributors.
+        type: optional<integer>
+      _meta: optional<ContributorsMetadata>
+
+  ContributorDto:
+    extends: Resource
+    properties:
+      contributorId:
+        docs: The ID of the user that contributes to the app.
+        type: string
+      contributorName:
+        docs: The display name.
+        type: string
+      contributorEmail:
+        docs: The email address.
+        type: string
+      role:
+        docs: The role of the contributor.
+        type: optional<string>
+
+  ContributorsMetadata:
+    properties:
+      isInvited:
+        docs: Indicates whether the user has been invited.
+        type: optional<string>
+
+  AssignContributorDto:
+    properties:
+      contributorId:
+        docs: The id or email of the user to add to the app.
+        type: string
+      role:
+        docs: The role of the contributor.
+        type: optional<string>
+      invite:
+        docs: Set to true to invite the user if he does not exist.
+        type: optional<boolean>
+
+  CommentsDto:
+    properties:
+      createdComments:
+        docs: The created comments including the updates.
+        type: optional<list<CommentDto>>
+      updatedComments:
+        docs: The updates comments since the last version.
+        type: optional<list<CommentDto>>
+      deletedComments:
+        docs: The deleted comments since the last version.
+        type: optional<list<string>>
+      version:
+        docs: The current version.
+        type: optional<integer>
+
+  CommentDto:
+    properties:
+      id:
+        docs: The ID of the comment.
+        type: optional<string>
+      time:
+        docs: The time when the comment was created or updated last.
+        type: string
+      user:
+        docs: The user who created or updated the comment.
+        type: string
+      text:
+        docs: The text of the comment.
+        type: string
+      url:
+        docs: The url where the comment is created.
+        type: optional<string>
