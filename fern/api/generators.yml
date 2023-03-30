@@ -9,6 +9,8 @@ groups:
           token: ${FERN_NPM_TOKEN}
         github:
           repository: fern-squidex/squidex-node
+        config:
+          namespaceExport: Squidex
 
       - name: fernapi/fern-java-sdk
         version: 0.0.134
