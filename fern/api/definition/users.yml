@@ -11,7 +11,7 @@ service:
       path: ""
       method: GET
       display-name: Get the user resources.
-      response: ResourcesDto
+      response: commons.Resource
 
     getAll:
       path: /users
@@ -46,11 +46,3 @@ service:
         id:
           docs: The ID of the user (GUID).
           type: string
-
-types:
-  ResourcesDto:
-    extends:
-      - commons.Resource
-      - AdditionalProperties
-
-  AdditionalProperties: map<string, unknown>
