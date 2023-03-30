@@ -11,7 +11,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
       response: PlansDto
 
     update:
@@ -21,7 +21,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
       request:
         body: ChangePlanDto
       response: PlanChangedDto

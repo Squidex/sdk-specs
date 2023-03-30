@@ -11,7 +11,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
       response: LogDownloadDto
 
     getUsageByDate:
@@ -21,7 +21,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
         fromDate:
           docs: The from date.
           type: string
@@ -53,7 +53,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
       response: CurrentStorageDto
 
     getCurrentTeamStorageSize:
@@ -73,7 +73,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
         fromDate:
           docs: The from date.
           type: string

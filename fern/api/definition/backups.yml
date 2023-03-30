@@ -14,7 +14,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
         id:
           docs: The ID of the backup.
           type: string
@@ -26,7 +26,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
         id:
           docs: The ID of the backup to delete.
           type: string
@@ -56,7 +56,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
       response: BackupJobsDto
 
     start:
@@ -66,7 +66,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
 
     getRestoreJob:
       path: /restore

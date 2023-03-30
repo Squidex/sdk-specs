@@ -14,7 +14,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app to get the asset scripts for.
-          type: string
+          variable: $app
       response: AssetScriptsDto
 
     updateAssetScripts:
@@ -24,7 +24,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app to update.
-          type: string
+          variable: $app
       request:
         body: UpdateAssetScriptsDto
       response: AssetScriptsDto
@@ -37,7 +37,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
       response: ClientsDto
 
     createClient:
@@ -51,7 +51,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
       request:
         body: CreateClientDto
 
@@ -63,7 +63,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
         id:
           docs: The ID of the client that must be updated.
           type: string
@@ -81,7 +81,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
         id:
           docs: The ID of the client that must be deleted.
           type: string
@@ -94,7 +94,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
       response: commons.ContributorsDto
 
     assignContributor:
@@ -104,7 +104,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
       request:
         body: commons.AssignContributorDto
 
@@ -115,7 +115,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
       response: commons.ContributorsDto
 
     deleteContributor:
@@ -125,7 +125,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
         id:
           docs: The ID of the contributor.
           type: string
@@ -138,7 +138,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
 
     uploadImage:
       path: /apps/{app}/image
@@ -147,7 +147,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app to update.
-          type: string
+          variable: $app
       response: AppDto
 
     deleteImage:
@@ -157,7 +157,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app to update.
-          type: string
+          variable: $app
       response: AppDto
 
     getLanguages:
@@ -167,7 +167,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
       response: AppLanguagesDto
 
     addLanguage:
@@ -177,7 +177,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
       request:
         body: AddLanguageDto
 
@@ -188,7 +188,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
         language:
           docs: The language to update.
           type: string
@@ -203,7 +203,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
         language:
           docs: The language to delete from the app.
           type: string
@@ -216,7 +216,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
       response: RolesDto
 
     createRole:
@@ -226,7 +226,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
       request:
         body: AddRoleDto
 
@@ -237,7 +237,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
       response: list<string>
 
     updateRole:
@@ -247,7 +247,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
         roleName:
           docs: The name of the role to be updated.
           type: string
@@ -262,7 +262,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
         roleName:
           docs: The name of the role.
           type: string
@@ -310,7 +310,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
       response: AppDto
 
     update:
@@ -320,7 +320,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app to update.
-          type: string
+          variable: $app
       request:
         body: UpdateAppDto
       response: AppDto
@@ -332,7 +332,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app to delete.
-          type: string
+          variable: $app
 
     transfer:
       path: /apps/{app}/team
@@ -341,7 +341,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app to update.
-          type: string
+          variable: $app
       request:
         body: TransferToTeamDto
       response: AppDto
@@ -353,7 +353,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app to get the settings for.
-          type: string
+          variable: $app
       response: AppSettingsDto
 
     updateSettings:
@@ -363,7 +363,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app to update.
-          type: string
+          variable: $app
       request:
         body: UpdateAppSettingsDto
       response: AppSettingsDto
@@ -375,7 +375,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
       response: WorkflowsDto
 
     createWorkflow:
@@ -385,7 +385,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
       request:
         body: AddWorkflowDto
       response: WorkflowsDto
@@ -397,7 +397,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
         id:
           docs: The ID of the workflow to update.
           type: string
@@ -412,7 +412,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
         id:
           docs: The ID of the workflow to update.
           type: string

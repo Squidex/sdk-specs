@@ -11,7 +11,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
       request:
         name: GetHistoricalEventsRequest
         query-parameters:

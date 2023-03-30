@@ -14,7 +14,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
         idOrSlug:
           docs: The id or slug of the asset.
           type: string
@@ -131,7 +131,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
       request:
         name: GetAssetFoldersRequest
         query-parameters:
@@ -150,7 +150,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
       request:
         body: CreateAssetFolderDto
 
@@ -161,7 +161,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
         id:
           docs: The ID of the asset folder.
           type: string
@@ -176,7 +176,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
         id:
           docs: The ID of the asset folder to delete.
           type: string
@@ -188,7 +188,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
         id:
           docs: The ID of the asset folder.
           type: string
@@ -204,7 +204,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
       response: map<string, integer>
 
     renameTag:
@@ -214,7 +214,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
         name:
           docs: The tag to return.
           type: string
@@ -230,7 +230,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
       request:
         name: GetAllAssetsRequest
         query-parameters:
@@ -267,7 +267,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
       request:
         name: UploadAssetsRequest
         query-parameters:
@@ -289,7 +289,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
       request:
         body: QueryDto
       response: AssetsDto
@@ -301,7 +301,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
         id:
           docs: The ID of the asset to retrieve.
           type: string
@@ -314,7 +314,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
         id:
           docs: The ID of the asset.
           type: string
@@ -332,7 +332,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
         id:
           docs: The optional custom asset id.
           type: string
@@ -354,7 +354,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
         id:
           docs: The ID of the asset to delete.
           type: string
@@ -375,7 +375,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
       request:
         body: BulkUpdateAssetsDto
       response: list<BulkResultDto>
@@ -388,7 +388,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
         id:
           docs: The ID of the asset.
           type: string
@@ -401,7 +401,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
         id:
           docs: The ID of the asset.
           type: string

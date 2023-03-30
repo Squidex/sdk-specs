@@ -24,7 +24,7 @@ service:
       path-parameters:
         app:
           docs: The name of the app.
-          type: string
+          variable: $app
 
 types:
   ExposedValues: map<string, string>
