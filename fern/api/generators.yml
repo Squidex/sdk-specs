@@ -2,14 +2,14 @@ groups:
   publish:
     generators:
       - name: fernapi/fern-typescript-sdk
-        version: 0.2.2
+        version: 0.5.6
         output:
           location: npm
           package-name: '@fern-api/squidex'
           token: ${FERN_NPM_TOKEN}
         github:
           repository: fern-squidex/squidex-node
-          
+
       - name: fernapi/fern-java-sdk
         version: 0.0.134
         output:
@@ -18,4 +18,4 @@ groups:
           username: ${FERN_MAVEN_USERNAME}
           password: ${FERN_MAVEN_TOKEN}
         github:
-          repository: fern-squidex/squidex-java 
+          repository: fern-squidex/squidex-java

@@ -1,0 +1,130 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/fern-api/fern/main/fern.schema.json
+
+imports:
+  commons: commons.yml
+
+service:
+  auth: false
+  base-path: /api/teams
+  endpoints:
+    getContributors:
+      path: /{team}/contributors
+      method: GET
+      display-name: Get team contributors.
+      path-parameters:
+        team:
+          docs: The ID of the team.
+          type: string
+      response: commons.ContributorsDto
+
+    assignContributor:
+      path: /{team}/contributors
+      method: POST
+      display-name: Assign contributor to team.
+      path-parameters:
+        team:
+          docs: The ID of the team.
+          type: string
+      request:
+        body: commons.AssignContributorDto
+
+    deleteSelf:
+      path: /{team}/contributors/me
+      method: DELETE
+      display-name: Remove yourself.
+      path-parameters:
+        team:
+          docs: The ID of the team.
+          type: string
+      response: commons.ContributorsDto
+
+    deleteContributor:
+      path: /{team}/contributors/{id}
+      method: DELETE
+      display-name: Remove contributor.
+      path-parameters:
+        team:
+          docs: The ID of the team.
+          type: string
+        id:
+          docs: The ID of the contributor.
+          type: string
+      response: commons.ContributorsDto
+
+    getAll:
+      path: ""
+      method: GET
+      docs: >-
+        You can only retrieve the list of teams when you are authenticated as a
+        user (OpenID implicit flow).
+        You will retrieve all teams, where you are assigned as a contributor.
+      display-name: Get your teams.
+      response: list<TeamDto>
+
+    create:
+      path: ""
+      method: POST
+      docs: >-
+        You can only create an team when you are authenticated as a user (OpenID
+        implicit flow).
+        You will be assigned as owner of the new team automatically.
+      display-name: Create a new team.
+      request:
+        body: CreateTeamDto
+
+    get:
+      path: /{team}
+      method: GET
+      display-name: Get an team by name.
+      path-parameters:
+        team:
+          docs: The name of the team.
+          type: string
+      response: TeamDto
+
+    update:
+      path: /{team}
+      method: PUT
+      display-name: Update the team.
+      path-parameters:
+        team:
+          docs: The name of the team to update.
+          type: string
+      request:
+        body: UpdateTeamDto
+      response: TeamDto
+
+types:
+  TeamDto:
+    extends: commons.Resource
+    properties:
+      id:
+        docs: The ID of the team.
+        type: optional<string>
+      name:
+        docs: The name of the team.
+        type: string
+      version:
+        docs: The version of the team.
+        type: optional<integer>
+      created:
+        docs: The timestamp when the team has been created.
+        type: optional<string>
+      lastModified:
+        docs: The timestamp when the team has been modified last.
+        type: optional<string>
+      roleName:
+        docs: The role name of the user.
+        type: optional<string>
+
+  CreateTeamDto:
+    properties:
+      name:
+        docs: The name of the team.
+        type: string
+
+  UpdateTeamDto:
+    properties:
+      name:
+        docs: The name of the team.
+        type: string

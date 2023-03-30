@@ -1,0 +1,48 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/fern-api/fern/main/fern.schema.json
+
+imports:
+  commons: commons.yml
+
+service:
+  auth: false
+  base-path: /api
+  endpoints:
+    getUserResources:
+      path: ""
+      method: GET
+      display-name: Get the user resources.
+      response: commons.Resource
+
+    getAll:
+      path: /users
+      method: GET
+      docs: >-
+        Search the user by query that contains the email address or the part of
+        the email address.
+      display-name: Get users by query.
+      request:
+        name: GetAllUsersRequest
+        query-parameters:
+          query:
+            docs: The query to search the user by email address. Case invariant.
+            type: optional<string>
+      response: list<commons.UserDto>
+
+    get:
+      path: /users/{id}
+      method: GET
+      display-name: Get user by id.
+      path-parameters:
+        id:
+          docs: The ID of the user (GUID).
+          type: string
+      response: commons.UserDto
+
+    getUserPicture:
+      path: /users/{id}/picture
+      method: GET
+      display-name: Get user picture by id.
+      path-parameters:
+        id:
+          docs: The ID of the user (GUID).
+          type: string

@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/fern-api/fern/main/fern.schema.json
+
+service:
+  auth: false
+  base-path: /api/languages
+  endpoints:
+    get:
+      path: ""
+      method: GET
+      docs: >-
+        Provide a list of supported language codes, following the ISO2Code
+        standard.
+      display-name: Get supported languages.
+      response: list<LanguageDto>
+
+types:
+  LanguageDto:
+    properties:
+      iso2Code:
+        docs: The iso code of the language.
+        type: string
+      englishName:
+        docs: The english name of the language.
+        type: string
+      nativeName:
+        docs: The native name of the language.
+        type: string

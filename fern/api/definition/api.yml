@@ -1,0 +1,6 @@
+name: api
+auth: bearer
+display-name: Squidex API
+default-environment: Production
+environments: 
+  Production: https://cloud.squidex.io

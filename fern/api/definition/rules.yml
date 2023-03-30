@@ -1,0 +1,474 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/fern-api/fern/main/fern.schema.json
+
+imports:
+  commons: commons.yml
+
+service:
+  auth: false
+  base-path: /api
+  endpoints:
+    getActions:
+      path: /rules/actions
+      method: GET
+      display-name: Get supported rule actions.
+      response: map<string, RuleElementDto>
+
+    getRules:
+      path: /apps/{app}/rules
+      method: GET
+      display-name: Get rules.
+      path-parameters:
+        app:
+          docs: The name of the app.
+          type: string
+      response: RulesDto
+
+    createRule:
+      path: /apps/{app}/rules
+      method: POST
+      display-name: Create a new rule.
+      path-parameters:
+        app:
+          docs: The name of the app.
+          type: string
+      request:
+        body: CreateRuleDto
+
+    cancelRun:
+      path: /apps/{app}/rules/run
+      method: DELETE
+      display-name: Cancel the current run.
+      path-parameters:
+        app:
+          docs: The name of the app.
+          type: string
+
+    updateRule:
+      path: /apps/{app}/rules/{id}
+      method: PUT
+      display-name: Update a rule.
+      path-parameters:
+        app:
+          docs: The name of the app.
+          type: string
+        id:
+          docs: The ID of the rule to update.
+          type: string
+      request:
+        body: UpdateRuleDto
+      response: RuleDto
+
+    deleteRule:
+      path: /apps/{app}/rules/{id}
+      method: DELETE
+      display-name: Delete a rule.
+      path-parameters:
+        app:
+          docs: The name of the app.
+          type: string
+        id:
+          docs: The ID of the rule to delete.
+          type: string
+
+    enableRule:
+      path: /apps/{app}/rules/{id}/enable
+      method: PUT
+      display-name: Enable a rule.
+      path-parameters:
+        app:
+          docs: The name of the app.
+          type: string
+        id:
+          docs: The ID of the rule to enable.
+          type: string
+      response: RuleDto
+
+    disableRule:
+      path: /apps/{app}/rules/{id}/disable
+      method: PUT
+      display-name: Disable a rule.
+      path-parameters:
+        app:
+          docs: The name of the app.
+          type: string
+        id:
+          docs: The ID of the rule to disable.
+          type: string
+      response: RuleDto
+
+    triggerRule:
+      path: /apps/{app}/rules/{id}/trigger
+      method: PUT
+      display-name: Trigger a rule.
+      path-parameters:
+        app:
+          docs: The name of the app.
+          type: string
+        id:
+          docs: The ID of the rule to disable.
+          type: string
+
+    runRule:
+      path: /apps/{app}/rules/{id}/run
+      method: PUT
+      display-name: Run a rule.
+      path-parameters:
+        app:
+          docs: The name of the app.
+          type: string
+        id:
+          docs: The ID of the rule to run.
+          type: string
+      request:
+        name: RunRuleRequest
+        query-parameters:
+          fromSnapshots:
+            docs: Runs the rule from snapeshots if possible.
+            type: optional<boolean>
+
+    cancelRuleEvents:
+      path: /apps/{app}/rules/{id}/events
+      method: DELETE
+      display-name: Cancels all rule events.
+      path-parameters:
+        app:
+          docs: The name of the app.
+          type: string
+        id:
+          docs: The ID of the rule to cancel.
+          type: string
+
+    createRuleSimulation:
+      path: /apps/{app}/rules/simulate
+      method: POST
+      display-name: Simulate a rule.
+      path-parameters:
+        app:
+          docs: The name of the app.
+          type: string
+      request:
+        body: CreateRuleDto
+      response: SimulatedRuleEventsDto
+
+    getRuleSimulation:
+      path: /apps/{app}/rules/{id}/simulate
+      method: GET
+      display-name: Simulate a rule.
+      path-parameters:
+        app:
+          docs: The name of the app.
+          type: string
+        id:
+          docs: The ID of the rule to simulate.
+          type: string
+      response: SimulatedRuleEventsDto
+
+    getRuleEvents:
+      path: /apps/{app}/rules/events
+      method: GET
+      display-name: Get rule events.
+      path-parameters:
+        app:
+          docs: The name of the app.
+          type: string
+      request:
+        name: GetRuleEventsRequest
+        query-parameters:
+          ruleId:
+            docs: The optional rule id to filter to events.
+            type: optional<string>
+          skip:
+            docs: The number of events to skip.
+            type: optional<integer>
+          take:
+            docs: The number of events to take.
+            type: optional<integer>
+      response: RuleEventsDto
+
+    cancelAllEvents:
+      path: /apps/{app}/rules/events
+      method: DELETE
+      display-name: Cancels all events.
+      path-parameters:
+        app:
+          docs: The name of the app.
+          type: string
+
+    retryEvent:
+      path: /apps/{app}/rules/events/{id}
+      method: PUT
+      display-name: Retry the event immediately.
+      path-parameters:
+        app:
+          docs: The name of the app.
+          type: string
+        id:
+          docs: The event to enqueue.
+          type: string
+
+    cancelEvent:
+      path: /apps/{app}/rules/events/{id}
+      method: DELETE
+      display-name: Cancels an event.
+      path-parameters:
+        app:
+          docs: The name of the app.
+          type: string
+        id:
+          docs: The event to enqueue.
+          type: string
+
+    getEvents:
+      path: /rules/eventtypes
+      method: GET
+      display-name: Provide a list of all event types that are used in rules.
+      response: list<string>
+
+    getEvent:
+      path: /rules/eventtypes/{type}
+      method: GET
+      display-name: Provide the json schema for the event with the specified name.
+      path-parameters:
+        type:
+          docs: The type name of the event.
+          type: string
+      response: unknown
+
+types:
+  RuleElementDto:
+    properties:
+      description:
+        docs: Describes the action or trigger type.
+        type: string
+      display:
+        docs: The label for the action or trigger type.
+        type: string
+      title:
+        docs: Optional title.
+        type: optional<string>
+      iconColor:
+        docs: The color for the icon.
+        type: optional<string>
+      iconImage:
+        docs: The image for the icon.
+        type: optional<string>
+      readMore:
+        docs: The optional link to the product that is integrated.
+        type: optional<string>
+      properties:
+        docs: The properties.
+        type: list<RuleElementPropertyDto>
+
+  RuleElementPropertyDto:
+    properties:
+      editor: RuleFieldEditor
+      name:
+        docs: The name of the editor.
+        type: string
+      display:
+        docs: The label to use.
+        type: string
+      options:
+        docs: The options, if the editor is a dropdown.
+        type: optional<list<string>>
+      description:
+        docs: The optional description.
+        type: optional<string>
+      isFormattable:
+        docs: Indicates if the property is formattable.
+        type: optional<boolean>
+      isRequired:
+        docs: Indicates if the property is required.
+        type: optional<boolean>
+
+  RuleFieldEditor:
+    docs: ""
+    enum:
+      - Checkbox
+      - Dropdown
+      - Email
+      - Javascript
+      - Number
+      - Password
+      - Text
+      - TextArea
+      - Url
+
+  RulesDto:
+    extends: commons.Resource
+    properties:
+      items:
+        docs: The rules.
+        type: list<RuleDto>
+      runningRuleId:
+        docs: The ID of the rule that is currently rerunning.
+        type: optional<string>
+
+  RuleDto:
+    extends: commons.Resource
+    properties:
+      id:
+        docs: The ID of the rule.
+        type: optional<string>
+      createdBy:
+        docs: The user that has created the rule.
+        type: string
+      lastModifiedBy:
+        docs: The user that has updated the rule.
+        type: string
+      created:
+        docs: The date and time when the rule has been created.
+        type: optional<string>
+      lastModified:
+        docs: The date and time when the rule has been modified last.
+        type: optional<string>
+      version:
+        docs: The version of the rule.
+        type: optional<integer>
+      isEnabled:
+        docs: Determines if the rule is enabled.
+        type: optional<boolean>
+      name:
+        docs: Optional rule name.
+        type: optional<string>
+      trigger: RuleTriggerDto
+      action: RuleActionDto
+      numSucceeded:
+        docs: The number of completed executions.
+        type: optional<integer>
+      numFailed:
+        docs: The number of failed executions.
+        type: optional<integer>
+      lastExecuted:
+        docs: The date and time when the rule was executed the last time.
+        type: optional<string>
+
+  RuleTriggerDto:
+    properties:
+      triggerType: string
+
+  RuleActionDto:
+    properties:
+      actionType: string
+
+  CreateRuleDto:
+    properties:
+      trigger: RuleTriggerDto
+      action: RuleActionDto
+
+  UpdateRuleDto:
+    properties:
+      name:
+        docs: Optional rule name.
+        type: optional<string>
+      trigger: optional<RuleTriggerDto>
+      action: optional<RuleActionDto>
+      isEnabled:
+        docs: Enable or disable the rule.
+        type: optional<boolean>
+
+  SimulatedRuleEventsDto:
+    extends: commons.Resource
+    properties:
+      items:
+        docs: The simulated rule events.
+        type: list<SimulatedRuleEventDto>
+      total:
+        docs: The total number of simulated rule events.
+        type: optional<integer>
+
+  SimulatedRuleEventDto:
+    properties:
+      eventId:
+        docs: The unique event id.
+        type: string
+      eventName:
+        docs: The name of the event.
+        type: string
+      event:
+        docs: The source event.
+        type: unknown
+      enrichedEvent:
+        docs: The enriched event.
+        type: optional<unknown>
+      actionName:
+        docs: The data for the action.
+        type: optional<string>
+      actionData:
+        docs: The name of the action.
+        type: optional<string>
+      error:
+        docs: The name of the event.
+        type: optional<string>
+      skipReasons:
+        docs: The reason why the event has been skipped.
+        type: list<SkipReason>
+
+  SkipReason:
+    docs: ""
+    enum:
+      - None
+      - ConditionDoesNotMatch
+      - ConditionPrecheckDoesNotMatch
+      - Disabled
+      - Failed
+      - FromRule
+      - NoAction
+      - NoTrigger
+      - TooOld
+      - WrongEvent
+      - WrongEventForTrigger
+
+  RuleEventsDto:
+    extends: commons.Resource
+    properties:
+      items:
+        docs: The rule events.
+        type: list<RuleEventDto>
+      total:
+        docs: The total number of rule events.
+        type: optional<integer>
+
+  RuleEventDto:
+    extends: commons.Resource
+    properties:
+      id:
+        docs: The ID of the event.
+        type: optional<string>
+      created:
+        docs: The time when the event has been created.
+        type: optional<string>
+      description:
+        docs: The description.
+        type: string
+      eventName:
+        docs: The name of the event.
+        type: string
+      lastDump:
+        docs: The last dump.
+        type: optional<string>
+      numCalls:
+        docs: The number of calls.
+        type: optional<integer>
+      nextAttempt:
+        docs: The next attempt.
+        type: optional<string>
+      result: optional<RuleResult>
+      jobResult: optional<RuleJobResult>
+
+  RuleResult:
+    docs: ""
+    enum:
+      - Pending
+      - Success
+      - Failed
+      - Timeout
+
+  RuleJobResult:
+    docs: ""
+    enum:
+      - Pending
+      - Success
+      - Retry
+      - Failed
+      - Cancelled

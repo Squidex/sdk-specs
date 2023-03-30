@@ -1,0 +1,172 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/fern-api/fern/main/fern.schema.json
+
+service:
+  auth: false
+  base-path: /api
+  endpoints:
+    getUsageLogFile:
+      path: /apps/{app}/usages/log
+      method: GET
+      display-name: Get api calls as log file.
+      path-parameters:
+        app:
+          docs: The name of the app.
+          type: string
+      response: LogDownloadDto
+
+    getUsageByDate:
+      path: /apps/{app}/usages/calls/{fromDate}/{toDate}
+      method: GET
+      display-name: Get api calls in date range.
+      path-parameters:
+        app:
+          docs: The name of the app.
+          type: string
+        fromDate:
+          docs: The from date.
+          type: string
+        toDate:
+          docs: The to date.
+          type: string
+      response: CallsUsageDtoDto
+
+    getTeamUsageByDate:
+      path: /teams/{team}/usages/calls/{fromDate}/{toDate}
+      method: GET
+      display-name: Get api calls in date range for team.
+      path-parameters:
+        team:
+          docs: The name of the team.
+          type: string
+        fromDate:
+          docs: The from date.
+          type: string
+        toDate:
+          docs: The to date.
+          type: string
+      response: CallsUsageDtoDto
+
+    getStorageSize:
+      path: /apps/{app}/usages/storage/today
+      method: GET
+      display-name: Get total asset size.
+      path-parameters:
+        app:
+          docs: The name of the app.
+          type: string
+      response: CurrentStorageDto
+
+    getCurrentTeamStorageSize:
+      path: /teams/{team}/usages/storage/today
+      method: GET
+      display-name: Get total asset size by team.
+      path-parameters:
+        team:
+          docs: The ID of the team.
+          type: string
+      response: CurrentStorageDto
+
+    getStorageSizeByDate:
+      path: /apps/{app}/usages/storage/{fromDate}/{toDate}
+      method: GET
+      display-name: Get asset usage by date.
+      path-parameters:
+        app:
+          docs: The name of the app.
+          type: string
+        fromDate:
+          docs: The from date.
+          type: string
+        toDate:
+          docs: The to date.
+          type: string
+      response: list<StorageUsagePerDateDto>
+
+    getTeamStorageSizeByDate:
+      path: /teams/{team}/usages/storage/{fromDate}/{toDate}
+      method: GET
+      display-name: Get asset usage by date for team.
+      path-parameters:
+        team:
+          docs: The ID of the team.
+          type: string
+        fromDate:
+          docs: The from date.
+          type: string
+        toDate:
+          docs: The to date.
+          type: string
+      response: list<StorageUsagePerDateDto>
+
+types:
+  LogDownloadDto:
+    properties:
+      downloadUrl:
+        docs: The url to download the log.
+        type: optional<string>
+
+  CallsUsageDtoDto:
+    properties:
+      totalCalls:
+        docs: The total number of API calls.
+        type: optional<integer>
+      totalBytes:
+        docs: The total number of bytes transferred.
+        type: optional<integer>
+      monthCalls:
+        docs: The total number of API calls this month.
+        type: optional<integer>
+      monthBytes:
+        docs: The total number of bytes transferred this month.
+        type: optional<integer>
+      blockingApiCalls:
+        docs: The amount of calls that will block the app.
+        type: optional<integer>
+      allowedBytes:
+        docs: The included API traffic.
+        type: optional<integer>
+      allowedCalls:
+        docs: The included API calls.
+        type: optional<integer>
+      averageElapsedMs:
+        docs: The average duration in milliseconds.
+        type: optional<double>
+      details:
+        docs: The statistics by date and group.
+        type: list<CallsUsagePerDateDto>
+
+  CallsUsagePerDateDto:
+    properties:
+      date:
+        type: date
+        docs: The date when the usage was tracked.
+      totalCalls:
+        type: integer
+        docs: The total number of API calls.
+      totalBytes:
+        type: integer
+        docs: The total number of bytes transferred.
+      averageElapsedMs:
+        type: double
+        docs: The average duration in milliseconds.
+
+  CurrentStorageDto:
+    properties:
+      size:
+        docs: The size in bytes.
+        type: optional<integer>
+      maxAllowed:
+        docs: The maximum allowed asset size.
+        type: optional<integer>
+
+  StorageUsagePerDateDto:
+    properties:
+      date:
+        docs: The date when the usage was tracked.
+        type: optional<string>
+      totalCount:
+        docs: The number of assets.
+        type: optional<integer>
+      totalSize:
+        docs: The size in bytes.
+        type: optional<integer>
