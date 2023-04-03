@@ -689,8 +689,6 @@ types:
       - Today
 
   GeolocationFieldPropertiesDto:
-    extends:
-      - FieldPropertiesDto
     properties:
       editor: optional<GeolocationFieldEditor>
 
