@@ -10,7 +10,7 @@ service:
   path-parameters:
     app:
       docs: The name of the app.
-      type: string
+      variable: $app
   endpoints:
     addField:
       path: /{schema}/fields
