@@ -344,12 +344,406 @@ types:
         type: optional<string>
 
   RuleTriggerDto:
+    discriminant: triggerType
+    union:
+      AssetChanged: AssetChangedRuleTriggerDto
+      Comment: CommentRuleTriggerDto
+      ContentChanged: ContentChangedRuleTriggerDto
+      Manual: ManualRuleTriggerDto
+      SchemaChanged: SchemaChangedRuleTriggerDto
+      Usage: UsageRuleTriggerDto
+  
+  AssetChangedRuleTriggerDto:
     properties:
-      triggerType: string
+      condition:
+        docs: Javascript condition when to trigger.
+        type: optional<string>
+
+  CommentRuleTriggerDto:
+    properties:
+      condition:
+        docs: Javascript condition when to trigger.
+        type: optional<string>
+
+  ContentChangedRuleTriggerDto:
+    properties:
+      schemas:
+        docs: The schema settings.
+        type: optional<list<ContentChangedRuleTriggerSchemaDto>>
+      handleAll:
+        docs: >-
+          Determines whether the trigger should handle all content changes
+          events.
+        type: optional<boolean>
+
+  ContentChangedRuleTriggerSchemaDto:
+    properties:
+      schemaId:
+        docs: The ID of the schema.
+        type: optional<string>
+      condition:
+        docs: Javascript condition when to trigger.
+        type: optional<string>
+
+  ManualRuleTriggerDto:
+    properties: {}
+
+  SchemaChangedRuleTriggerDto:
+    properties:
+      condition:
+        docs: Javascript condition when to trigger.
+        type: optional<string>
+
+  UsageRuleTriggerDto:
+    properties:
+      limit:
+        docs: The number of monthly api calls.
+        type: optional<integer>
+      numDays:
+        docs: The number of days to check or null for the current month.
+        type: optional<integer>
 
   RuleActionDto:
+    discriminant: actionType
+    union: 
+      Algolia: AlgoliaRuleActionDto
+      AzureQueue: AzureQueueRuleActionDto
+      Comment: CommentRuleActionDto
+      CreateContent: CreateContentRuleActionDto
+      Discourse: DiscourseRuleActionDto
+      ElasticSearch: ElasticSearchRuleActionDto
+      Email: EmailRuleActionDto
+      Fastly: FastlyRuleActionDto
+      Medium: MediumRuleActionDto
+      Notification: NotificationRuleActionDto
+      OpenSearch: OpenSearchRuleActionDto
+      Prerender: PrerenderRuleActionDto
+      Script: ScriptRuleActionDto
+      SignalR: SignalRRuleActionDto
+      Slack: SlackRuleActionDto
+      SquidexEmail: SquidexEmailRuleActionDto
+      Tweet: TweetRuleActionDto
+      Typesense: TypesenseRuleActionDto
+      Webhook: WebhookRuleActionDto
+  
+  AlgoliaRuleActionDto:
     properties:
-      actionType: string
+      appId:
+        docs: The application ID.
+        type: string
+      apiKey:
+        docs: The API key to grant access to Squidex.
+        type: string
+      indexName:
+        docs: The name of the index.
+        type: string
+      document:
+        docs: The optional custom document.
+        type: optional<string>
+      delete:
+        docs: The condition when to delete the entry.
+        type: optional<string>
+
+  AzureQueueRuleActionDto:
+    properties:
+      connectionString:
+        docs: The connection string to the storage account.
+        type: string
+      queue:
+        docs: The name of the queue.
+        type: string
+      payload:
+        docs: Leave it empty to use the full event as body.
+        type: optional<string>
+
+  CommentRuleActionDto:
+    properties:
+      text:
+        docs: The comment text.
+        type: string
+      client:
+        docs: An optional client name.
+        type: optional<string>
+
+  CreateContentRuleActionDto:
+    properties:
+      data:
+        docs: The content data.
+        type: string
+      schema:
+        docs: The name of the schema.
+        type: string
+      client:
+        docs: An optional client name.
+        type: optional<string>
+      publish:
+        docs: Publish the content.
+        type: optional<boolean>
+
+  DiscourseRuleActionDto:
+    properties:
+      url:
+        docs: The url to the discourse server.
+        type: string
+      apiKey:
+        docs: The api key to authenticate to your discourse server.
+        type: string
+      apiUsername:
+        docs: The api username to authenticate to your discourse server.
+        type: string
+      text:
+        docs: The text as markdown.
+        type: string
+      title:
+        docs: The optional title when creating new topics.
+        type: optional<string>
+      topic:
+        docs: The optional topic id.
+        type: optional<integer>
+      category:
+        docs: The optional category id.
+        type: optional<integer>
+
+  ElasticSearchRuleActionDto:
+    properties:
+      host:
+        docs: The url to the instance or cluster.
+        type: string
+      indexName:
+        docs: The name of the index.
+        type: string
+      username:
+        docs: The optional username.
+        type: optional<string>
+      password:
+        docs: The optional password.
+        type: optional<string>
+      document:
+        docs: The optional custom document.
+        type: optional<string>
+      delete:
+        docs: The condition when to delete the document.
+        type: optional<string>
+
+  EmailRuleActionDto:
+    properties:
+      serverHost:
+        docs: The IP address or host to the SMTP server.
+        type: string
+      serverPort:
+        docs: The port to the SMTP server.
+        type: integer
+      serverUsername:
+        docs: The username for the SMTP server.
+        type: string
+      serverPassword:
+        docs: The password for the SMTP server.
+        type: string
+      messageFrom:
+        docs: The email sending address.
+        type: string
+      messageTo:
+        docs: The email message will be sent to.
+        type: string
+      messageSubject:
+        docs: The subject line for this email message.
+        type: string
+      messageBody:
+        docs: The message body.
+        type: string
+
+  FastlyRuleActionDto:
+    properties:
+      apiKey:
+        docs: The API key to grant access to Squidex.
+        type: string
+      serviceId:
+        docs: The ID of the fastly service.
+        type: string
+
+  MediumRuleActionDto:
+    properties:
+      accessToken:
+        docs: The self issued access token.
+        type: string
+      title:
+        docs: The title, used for the url.
+        type: string
+      content:
+        docs: The content, either html or markdown.
+        type: string
+      canonicalUrl:
+        docs: >-
+          The original home of this content, if it was originally published
+          elsewhere.
+        type: optional<string>
+      tags:
+        docs: The optional comma separated list of tags.
+        type: optional<string>
+      publicationId:
+        docs: Optional publication id.
+        type: optional<string>
+      isHtml:
+        docs: Indicates whether the content is markdown or html.
+        type: optional<boolean>
+
+  NotificationRuleActionDto:
+    properties:
+      user:
+        docs: The user id or email.
+        type: string
+      text:
+        docs: The text to send.
+        type: string
+      url:
+        docs: The optional url to attach to the notification.
+        type: optional<string>
+      client:
+        docs: An optional client name.
+        type: optional<string>
+
+  OpenSearchRuleActionDto:
+    properties:
+      host:
+        docs: The url to the instance or cluster.
+        type: string
+      indexName:
+        docs: The name of the index.
+        type: string
+      username:
+        docs: The optional username.
+        type: optional<string>
+      password:
+        docs: The optional password.
+        type: optional<string>
+      document:
+        docs: The optional custom document.
+        type: optional<string>
+      delete:
+        docs: The condition when to delete the document.
+        type: optional<string>
+
+  PrerenderRuleActionDto:
+    properties:
+      token:
+        docs: The prerender token from your account.
+        type: string
+      url:
+        docs: The url to recache.
+        type: string
+
+  ScriptRuleActionDto:
+    properties:
+      script:
+        docs: The script to render.
+        type: string
+
+  SignalRRuleActionDto:
+    properties:
+      connectionString:
+        docs: The connection string to the Azure SignalR.
+        type: string
+      hubName:
+        docs: The name of the hub.
+        type: string
+      action: ActionTypeEnum
+      methodName:
+        docs: Set the Name of the hub method received by the customer.
+        type: optional<string>
+      target:
+        docs: >-
+          Define target users or groups by id or name. One item per line. Not
+          needed for Broadcast action.
+        type: optional<string>
+      payload:
+        docs: Leave it empty to use the full event as body.
+        type: optional<string>
+
+  ActionTypeEnum:
+    docs: ""
+    enum:
+      - Broadcast
+      - User
+      - Group
+
+  SlackRuleActionDto:
+    properties:
+      webhookUrl:
+        docs: The slack webhook url.
+        type: string
+      text:
+        docs: The text that is sent as message to slack.
+        type: string
+
+  SquidexEmailRuleActionDto:
+    properties:
+      messageTo:
+        docs: The email message will be sent to.
+        type: string
+      messageSubject:
+        docs: The subject line for this email message.
+        type: string
+      messageBody:
+        docs: The message body.
+        type: string
+
+  TweetRuleActionDto:
+    properties:
+      accessToken:
+        docs: " The generated access token."
+        type: string
+      accessSecret:
+        docs: " The generated access secret."
+        type: string
+      text:
+        docs: The text that is sent as tweet to twitter.
+        type: string
+
+  TypesenseRuleActionDto:
+    properties:
+      host:
+        docs: The url to the instance or cluster.
+        type: string
+      indexName:
+        docs: The name of the index.
+        type: string
+      apiKey:
+        docs: The api key.
+        type: string
+      document:
+        docs: The optional custom document.
+        type: optional<string>
+      delete:
+        docs: The condition when to delete the document.
+        type: optional<string>
+
+  WebhookRuleActionDto:
+    properties:
+      url:
+        docs: The url to the webhook.
+        type: string
+      method: WebhookMethod
+      payload:
+        docs: Leave it empty to use the full event as body.
+        type: optional<string>
+      payloadType:
+        docs: The mime type of the payload.
+        type: optional<string>
+      headers:
+        docs: The message headers in the format '[Key]=[Value]', one entry per line.
+        type: optional<string>
+      sharedSecret:
+        docs: The shared secret that is used to calculate the payload signature.
+        type: optional<string>
+
+  WebhookMethod:
+    docs: ""
+    enum:
+      - POST
+      - PUT
+      - GET
+      - DELETE
+      - PATCH
 
   CreateRuleDto:
     properties:

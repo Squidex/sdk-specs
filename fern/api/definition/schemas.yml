@@ -2,6 +2,7 @@
 
 imports:
   commons: commons.yml
+  assets: assets.yml
 
 service:
   auth: false
@@ -496,7 +497,8 @@ types:
         type: list<FieldDto>
 
   FieldPropertiesDto:
-    properties:
+    discriminant: fieldType
+    base-properties:
       label:
         docs: Optional label for the editor.
         type: optional<string>
@@ -521,7 +523,372 @@ types:
       tags:
         docs: Tags for automation processes.
         type: optional<list<string>>
-      fieldType: string
+    union: 
+      Array: ArrayFieldPropertiesDto
+      Assets: AssetsFieldPropertiesDto
+      Boolean: BooleanFieldPropertiesDto
+      Component: ComponentFieldPropertiesDto
+      Components: ComponentsFieldPropertiesDto
+      DateTime: DateTimeFieldPropertiesDto
+      Geolocation: GeolocationFieldPropertiesDto
+      Json: JsonFieldPropertiesDto
+      Number: NumberFieldPropertiesDto
+      References: ReferencesFieldPropertiesDto
+      String: StringFieldPropertiesDto
+      Tags: TagsFieldPropertiesDto
+      UI: UIFieldPropertiesDto
+  
+  ArrayFieldPropertiesDto:
+    properties:
+      minItems:
+        docs: The minimum allowed items for the field value.
+        type: optional<integer>
+      maxItems:
+        docs: The maximum allowed items for the field value.
+        type: optional<integer>
+      uniqueFields:
+        docs: The fields that must be unique.
+        type: optional<list<string>>
+
+  AssetsFieldPropertiesDto:
+    properties:
+      previewMode: optional<AssetPreviewMode>
+      defaultValues: optional<LocalizedValueOfReadonlyListOfString>
+      defaultValue:
+        docs: The default value as a list of asset ids.
+        type: optional<list<string>>
+      folderId:
+        docs: The initial id to the folder.
+        type: optional<string>
+      minItems:
+        docs: The minimum allowed items for the field value.
+        type: optional<integer>
+      maxItems:
+        docs: The maximum allowed items for the field value.
+        type: optional<integer>
+      minSize:
+        docs: The minimum file size in bytes.
+        type: optional<integer>
+      maxSize:
+        docs: The maximum file size in bytes.
+        type: optional<integer>
+      minWidth:
+        docs: The minimum image width in pixels.
+        type: optional<integer>
+      maxWidth:
+        docs: The maximum image width in pixels.
+        type: optional<integer>
+      minHeight:
+        docs: The minimum image height in pixels.
+        type: optional<integer>
+      maxHeight:
+        docs: The maximum image height in pixels.
+        type: optional<integer>
+      aspectWidth:
+        docs: The image aspect width in pixels.
+        type: optional<integer>
+      aspectHeight:
+        docs: The image aspect height in pixels.
+        type: optional<integer>
+      expectedType: optional<assets.AssetType>
+      resolveFirst:
+        docs: True to resolve first asset in the content list.
+        type: optional<boolean>
+      mustBeImage:
+        docs: True to resolve first image in the content list.
+        type: optional<boolean>
+      resolveImage:
+        docs: True to resolve first image in the content list.
+        type: optional<boolean>
+      allowedExtensions:
+        docs: The allowed file extensions.
+        type: optional<list<string>>
+      allowDuplicates:
+        docs: True, if duplicate values are allowed.
+        type: optional<boolean>
+
+  AssetPreviewMode:
+    docs: ""
+    enum:
+      - ImageAndFileName
+      - Image
+      - FileName
+
+  LocalizedValueOfReadonlyListOfString: map<string, list<string>>
+
+  BooleanFieldPropertiesDto:
+    properties:
+      defaultValues: optional<LocalizedValueOfNullableBoolean>
+      defaultValue:
+        docs: The default value for the field value.
+        type: optional<boolean>
+      inlineEditable:
+        docs: Indicates that the inline editor is enabled for this field.
+        type: optional<boolean>
+      editor: optional<BooleanFieldEditor>
+
+  LocalizedValueOfNullableBoolean: map<string, boolean>
+
+  BooleanFieldEditor:
+    docs: ""
+    enum:
+      - Checkbox
+      - Toggle
+
+  ComponentFieldPropertiesDto:
+    properties:
+      schemaIds:
+        docs: The ID of the embedded schemas.
+        type: optional<list<string>>
+
+  ComponentsFieldPropertiesDto:
+    properties:
+      minItems:
+        docs: The minimum allowed items for the field value.
+        type: optional<integer>
+      maxItems:
+        docs: The maximum allowed items for the field value.
+        type: optional<integer>
+      schemaIds:
+        docs: The ID of the embedded schemas.
+        type: optional<list<string>>
+      uniqueFields:
+        docs: The fields that must be unique.
+        type: optional<list<string>>
+
+  DateTimeFieldPropertiesDto:
+    properties:
+      defaultValues: optional<LocalizedValueOfNullableInstant>
+      defaultValue:
+        docs: The default value for the field value.
+        type: optional<string>
+      maxValue:
+        docs: The maximum allowed value for the field value.
+        type: optional<string>
+      minValue:
+        docs: The minimum allowed value for the field value.
+        type: optional<string>
+      format:
+        docs: The format pattern when displayed in the UI.
+        type: optional<string>
+      editor: optional<DateTimeFieldEditor>
+      calculatedDefaultValue: optional<DateTimeCalculatedDefaultValue>
+
+  LocalizedValueOfNullableInstant: map<string, string>
+
+  DateTimeFieldEditor:
+    docs: ""
+    enum:
+      - Date
+      - DateTime
+
+  DateTimeCalculatedDefaultValue:
+    docs: ""
+    enum:
+      - Now
+      - Today
+
+  GeolocationFieldPropertiesDto:
+    extends:
+      - FieldPropertiesDto
+    properties:
+      editor: optional<GeolocationFieldEditor>
+
+  GeolocationFieldEditor:
+    docs: ""
+    enum:
+      - Map
+
+  JsonFieldPropertiesDto:
+    properties:
+      graphQLSchema:
+        docs: The GraphQL schema.
+        type: optional<string>
+
+  NumberFieldPropertiesDto:
+    properties:
+      defaultValues: optional<LocalizedValueOfNullableDouble>
+      defaultValue:
+        docs: The default value for the field value.
+        type: optional<double>
+      maxValue:
+        docs: The maximum allowed value for the field value.
+        type: optional<double>
+      minValue:
+        docs: The minimum allowed value for the field value.
+        type: optional<double>
+      allowedValues:
+        docs: The allowed values for the field value.
+        type: optional<list<double>>
+      isUnique:
+        docs: >-
+          Indicates if the field value must be unique. Ignored for nested fields
+          and localized fields.
+        type: optional<boolean>
+      inlineEditable:
+        docs: Indicates that the inline editor is enabled for this field.
+        type: optional<boolean>
+      editor: optional<NumberFieldEditor>
+
+  LocalizedValueOfNullableDouble: map<string, double>
+
+  NumberFieldEditor:
+    docs: ""
+    enum:
+      - Input
+      - Radio
+      - Dropdown
+      - Stars
+
+  ReferencesFieldPropertiesDto:
+    properties:
+      defaultValues: optional<LocalizedValueOfReadonlyListOfString>
+      defaultValue:
+        docs: The default value as a list of content ids.
+        type: optional<list<string>>
+      minItems:
+        docs: The minimum allowed items for the field value.
+        type: optional<integer>
+      maxItems:
+        docs: The maximum allowed items for the field value.
+        type: optional<integer>
+      allowDuplicates:
+        docs: True, if duplicate values are allowed.
+        type: optional<boolean>
+      resolveReference:
+        docs: True to resolve references in the content list.
+        type: optional<boolean>
+      mustBePublished:
+        docs: True when all references must be published.
+        type: optional<boolean>
+      editor: optional<ReferencesFieldEditor>
+      schemaIds:
+        docs: The ID of the referenced schemas.
+        type: optional<list<string>>
+
+  ReferencesFieldEditor:
+    docs: ""
+    enum:
+      - List
+      - Dropdown
+      - Tags
+      - Checkboxes
+      - Input
+
+  StringFieldPropertiesDto:
+    properties:
+      defaultValues: optional<LocalizedValueOfString>
+      defaultValue:
+        docs: The default value for the field value.
+        type: optional<string>
+      pattern:
+        docs: The pattern to enforce a specific format for the field value.
+        type: optional<string>
+      patternMessage:
+        docs: The validation message for the pattern.
+        type: optional<string>
+      folderId:
+        docs: The initial id to the folder when the control supports file uploads.
+        type: optional<string>
+      minLength:
+        docs: The minimum allowed length for the field value.
+        type: optional<integer>
+      maxLength:
+        docs: The maximum allowed length for the field value.
+        type: optional<integer>
+      minCharacters:
+        docs: The minimum allowed of normal characters for the field value.
+        type: optional<integer>
+      maxCharacters:
+        docs: The maximum allowed of normal characters for the field value.
+        type: optional<integer>
+      minWords:
+        docs: The minimum allowed number of words for the field value.
+        type: optional<integer>
+      maxWords:
+        docs: The maximum allowed number of words for the field value.
+        type: optional<integer>
+      allowedValues:
+        docs: The allowed values for the field value.
+        type: optional<list<string>>
+      schemaIds:
+        docs: The allowed schema ids that can be embedded.
+        type: optional<list<string>>
+      isUnique:
+        docs: >-
+          Indicates if the field value must be unique. Ignored for nested fields
+          and localized fields.
+        type: optional<boolean>
+      isEmbeddable:
+        docs: Indicates that other content items or references are embedded.
+        type: optional<boolean>
+      inlineEditable:
+        docs: Indicates that the inline editor is enabled for this field.
+        type: optional<boolean>
+      createEnum:
+        docs: Indicates whether GraphQL Enum should be created.
+        type: optional<boolean>
+      contentType: optional<StringContentType>
+      editor: optional<StringFieldEditor>
+
+  LocalizedValueOfString: map<string, string>
+
+  StringContentType:
+    docs: ""
+    enum:
+      - Unspecified
+      - Html
+      - Markdown
+
+  StringFieldEditor:
+    docs: ""
+    enum:
+      - Input
+      - Color
+      - Markdown
+      - Dropdown
+      - Html
+      - Radio
+      - RichText
+      - Slug
+      - StockPhoto
+      - TextArea
+
+  TagsFieldPropertiesDto:
+    properties:
+      defaultValues: optional<LocalizedValueOfReadonlyListOfString>
+      defaultValue:
+        docs: The default value.
+        type: optional<list<string>>
+      minItems:
+        docs: The minimum allowed items for the field value.
+        type: optional<integer>
+      maxItems:
+        docs: The maximum allowed items for the field value.
+        type: optional<integer>
+      allowedValues:
+        docs: The allowed values for the field value.
+        type: optional<list<string>>
+      createEnum:
+        docs: Indicates whether GraphQL Enum should be created.
+        type: optional<boolean>
+      editor: optional<TagsFieldEditor>
+
+  TagsFieldEditor:
+    docs: ""
+    enum:
+      - Tags
+      - Checkboxes
+      - Dropdown
+
+  UIFieldPropertiesDto:
+    properties:
+      editor: optional<UIFieldEditor>
+
+  UIFieldEditor:
+    docs: ""
+    enum:
+      - Separator
 
   SchemaType:
     docs: ""
