@@ -3,16 +3,16 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Squidex API",
-    "version": "7.0.0.0",
+    "version": "1.0.0.0",
     "x-logo": {
-      "url": "https://cloud.squidex.io/images/logo-white.png",
+      "url": "https://localhost:5001/images/logo-white.png",
       "backgroundStyle": "",
       "backgroundColor": "#3f83df"
     }
   },
   "servers": [
     {
-      "url": "https://cloud.squidex.io"
+      "url": "https://localhost:5001"
     }
   ],
   "paths": {
@@ -1401,7 +1401,7 @@
             "description": "The from date.",
             "schema": {
               "type": "string",
-              "format": "date-time"
+              "format": "date"
             },
             "x-position": 2
           },
@@ -1412,7 +1412,7 @@
             "description": "The to date.",
             "schema": {
               "type": "string",
-              "format": "date-time"
+              "format": "date"
             },
             "x-position": 3
           }
@@ -1430,16 +1430,6 @@
           },
           "404": {
             "description": "App not found."
-          },
-          "400": {
-            "description": "Range between from date and to date is not valid or has more than 100 days.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDto"
-                }
-              }
-            }
           },
           "500": {
             "description": "Operation failed.",
@@ -1486,7 +1476,7 @@
             "description": "The from date.",
             "schema": {
               "type": "string",
-              "format": "date-time"
+              "format": "date"
             },
             "x-position": 2
           },
@@ -1497,7 +1487,7 @@
             "description": "The to date.",
             "schema": {
               "type": "string",
-              "format": "date-time"
+              "format": "date"
             },
             "x-position": 3
           }
@@ -1509,16 +1499,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CallsUsageDtoDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Range between from date and to date is not valid or has more than 100 days.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDto"
                 }
               }
             }
@@ -1677,7 +1657,7 @@
             "description": "The from date.",
             "schema": {
               "type": "string",
-              "format": "date-time"
+              "format": "date"
             },
             "x-position": 2
           },
@@ -1688,7 +1668,7 @@
             "description": "The to date.",
             "schema": {
               "type": "string",
-              "format": "date-time"
+              "format": "date"
             },
             "x-position": 3
           }
@@ -1703,16 +1683,6 @@
                   "items": {
                     "$ref": "#/components/schemas/StorageUsagePerDateDto"
                   }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Range between from date and to date is not valid or has more than 100 days.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDto"
                 }
               }
             }
@@ -1765,7 +1735,7 @@
             "description": "The from date.",
             "schema": {
               "type": "string",
-              "format": "date-time"
+              "format": "date"
             },
             "x-position": 2
           },
@@ -1776,7 +1746,7 @@
             "description": "The to date.",
             "schema": {
               "type": "string",
-              "format": "date-time"
+              "format": "date"
             },
             "x-position": 3
           }
@@ -1791,16 +1761,6 @@
                   "items": {
                     "$ref": "#/components/schemas/StorageUsagePerDateDto"
                   }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Range between from date and to date is not valid or has more than 100 days.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDto"
                 }
               }
             }
@@ -6658,6 +6618,1628 @@
         ]
       }
     },
+    "/api/content/{app}/{schema}": {
+      "get": {
+        "tags": [
+          "Contents"
+        ],
+        "summary": "Queries contents.",
+        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
+        "operationId": "Contents_GetContents",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "schema",
+            "in": "path",
+            "required": true,
+            "description": "The name of the schema.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "The optional ids of the content to fetch.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 3
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "description": "The optional json query.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 4
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Contents returned.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentsDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Schema or app not found."
+          },
+          "500": {
+            "description": "Operation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "squidex-oauth-auth": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Contents"
+        ],
+        "summary": "Create a content item.",
+        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
+        "operationId": "Contents_PostContent",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "schema",
+            "in": "path",
+            "required": true,
+            "description": "The name of the schema.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "Status",
+            "in": "query",
+            "description": "The initial status.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 4
+          },
+          {
+            "name": "Id",
+            "in": "query",
+            "description": "The optional custom content id.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 5
+          },
+          {
+            "name": "Publish",
+            "in": "query",
+            "description": "True to automatically publish the content.",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 6
+          }
+        ],
+        "requestBody": {
+          "x-name": "Data",
+          "description": "The full data for the content item.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContentData"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 3
+        },
+        "responses": {
+          "201": {
+            "description": "Content created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentsDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Content request not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Content, schema or app not found."
+          },
+          "500": {
+            "description": "Operation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "squidex-oauth-auth": [
+              "squidex.apps.{app}.contents.{schema}.create"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/content/{app}/{schema}/query": {
+      "post": {
+        "tags": [
+          "Contents"
+        ],
+        "summary": "Queries contents.",
+        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
+        "operationId": "Contents_GetContentsPost",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "schema",
+            "in": "path",
+            "required": true,
+            "description": "The name of the schema.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          }
+        ],
+        "requestBody": {
+          "x-name": "query",
+          "description": "The required query object.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryDto"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 3
+        },
+        "responses": {
+          "200": {
+            "description": "Contents returned.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentsDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Schema or app not found."
+          },
+          "400": {
+            "description": "Validation error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Operation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "squidex-oauth-auth": []
+          }
+        ]
+      }
+    },
+    "/api/content/{app}/{schema}/{id}": {
+      "get": {
+        "tags": [
+          "Contents"
+        ],
+        "summary": "Get a content item.",
+        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
+        "operationId": "Contents_GetContent",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "schema",
+            "in": "path",
+            "required": true,
+            "description": "The name of the schema.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the content to fetch.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 3
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "description": "The optional version.",
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "default": -2
+            },
+            "x-position": 4
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Content returned.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Content, schema or app not found."
+          },
+          "500": {
+            "description": "Operation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "squidex-oauth-auth": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Contents"
+        ],
+        "summary": "Upsert a content item.",
+        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
+        "operationId": "Contents_PostUpsertContent",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "schema",
+            "in": "path",
+            "required": true,
+            "description": "The name of the schema.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the content item to update.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 3
+          },
+          {
+            "name": "Status",
+            "in": "query",
+            "description": "The initial status.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 5
+          },
+          {
+            "name": "Patch",
+            "in": "query",
+            "description": "Makes the update as patch.",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 6
+          },
+          {
+            "name": "Publish",
+            "in": "query",
+            "description": "True to automatically publish the content.",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 7
+          }
+        ],
+        "requestBody": {
+          "x-name": "Data",
+          "description": "The full data for the content item.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContentData"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 4
+        },
+        "responses": {
+          "200": {
+            "description": "Content created or updated.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentsDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Content request not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Content references, schema or app not found."
+          },
+          "500": {
+            "description": "Operation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "squidex-oauth-auth": [
+              "squidex.apps.{app}.contents.{schema}.upsert"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Contents"
+        ],
+        "summary": "Update a content item.",
+        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
+        "operationId": "Contents_PutContent",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "schema",
+            "in": "path",
+            "required": true,
+            "description": "The name of the schema.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the content item to update.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 3
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "description": "The full data for the content item.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContentData"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 4
+        },
+        "responses": {
+          "200": {
+            "description": "Content updated.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentsDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Content request not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Content references, schema or app not found."
+          },
+          "500": {
+            "description": "Operation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "squidex-oauth-auth": [
+              "squidex.apps.{app}.contents.{schema}.update.own"
+            ]
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "Contents"
+        ],
+        "summary": "Patchs a content item.",
+        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
+        "operationId": "Contents_PatchContent",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "schema",
+            "in": "path",
+            "required": true,
+            "description": "The name of the schema.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the content item to patch.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 3
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "description": "The patch for the content item.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContentData"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 4
+        },
+        "responses": {
+          "200": {
+            "description": "Content patched.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentsDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Content request not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Content, schema or app not found."
+          },
+          "500": {
+            "description": "Operation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "squidex-oauth-auth": [
+              "squidex.apps.{app}.contents.{schema}.update.own"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Contents"
+        ],
+        "summary": "Delete a content item.",
+        "description": "You can create an generated documentation for your app at /api/content/{appName}/docs.",
+        "operationId": "Contents_DeleteContent",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "schema",
+            "in": "path",
+            "required": true,
+            "description": "The name of the schema.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the content item to delete.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 3
+          },
+          {
+            "name": "CheckReferrers",
+            "in": "query",
+            "description": "True to check referrers of this content.",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 4
+          },
+          {
+            "name": "Permanent",
+            "in": "query",
+            "description": "True to delete the content permanently.",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 5
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Content deleted."
+          },
+          "400": {
+            "description": "Content cannot be deleted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Content, schema or app not found."
+          },
+          "500": {
+            "description": "Operation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "squidex-oauth-auth": [
+              "squidex.apps.{app}.contents.{schema}.delete.own"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/content/{app}/{schema}/{id}/validity": {
+      "get": {
+        "tags": [
+          "Contents"
+        ],
+        "summary": "Get a content item validity.",
+        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
+        "operationId": "Contents_GetContentValidity",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "schema",
+            "in": "path",
+            "required": true,
+            "description": "The name of the schema.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the content to fetch.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 3
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Content is valid."
+          },
+          "400": {
+            "description": "Content not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Content, schema or app not found."
+          },
+          "500": {
+            "description": "Operation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "squidex-oauth-auth": []
+          }
+        ]
+      }
+    },
+    "/api/content/{app}/{schema}/{id}/references": {
+      "get": {
+        "tags": [
+          "Contents"
+        ],
+        "summary": "Get all references of a content.",
+        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
+        "operationId": "Contents_GetReferences",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "schema",
+            "in": "path",
+            "required": true,
+            "description": "The name of the schema.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the content to fetch.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 3
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "description": "The optional json query.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 4
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Contents returned.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentsDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Content, schema or app not found."
+          },
+          "500": {
+            "description": "Operation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "squidex-oauth-auth": []
+          }
+        ]
+      }
+    },
+    "/api/content/{app}/{schema}/{id}/referencing": {
+      "get": {
+        "tags": [
+          "Contents"
+        ],
+        "summary": "Get a referencing contents of a content item.",
+        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
+        "operationId": "Contents_GetReferencing",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "schema",
+            "in": "path",
+            "required": true,
+            "description": "The name of the schema.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the content to fetch.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 3
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "description": "The optional json query.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 4
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Content returned.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentsDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Content, schema or app not found."
+          },
+          "500": {
+            "description": "Operation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "squidex-oauth-auth": []
+          }
+        ]
+      }
+    },
+    "/api/content/{app}/{schema}/{id}/{version}": {
+      "get": {
+        "tags": [
+          "Contents"
+        ],
+        "summary": "Get a content by version.",
+        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
+        "operationId": "Contents_GetContentVersion",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "schema",
+            "in": "path",
+            "required": true,
+            "description": "The name of the schema.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the content to fetch.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 3
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "description": "The version fo the content to fetch.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 4
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Content version returned.",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Content, schema or app not found."
+          },
+          "500": {
+            "description": "Operation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true,
+        "security": [
+          {
+            "squidex-oauth-auth": [
+              "squidex.apps.{app}.contents.{schema}.read.own"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/content/{app}/{schema}/import": {
+      "post": {
+        "tags": [
+          "Contents"
+        ],
+        "summary": "Import content items.",
+        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
+        "operationId": "Contents_PostContents",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "schema",
+            "in": "path",
+            "required": true,
+            "description": "The name of the schema.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "description": "The import request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ImportContentsDto"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 3
+        },
+        "responses": {
+          "200": {
+            "description": "Contents created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BulkResultDto"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Content request not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Content references, schema or app not found."
+          },
+          "500": {
+            "description": "Operation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true,
+        "security": [
+          {
+            "squidex-oauth-auth": [
+              "squidex.apps.{app}.contents.{schema}.create"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/content/{app}/{schema}/bulk": {
+      "post": {
+        "tags": [
+          "Contents"
+        ],
+        "summary": "Bulk update content items.",
+        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
+        "operationId": "Contents_BulkUpdateContents",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "schema",
+            "in": "path",
+            "required": true,
+            "description": "The name of the schema.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "description": "The bulk update request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BulkUpdateContentsDto"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 3
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BulkResultDto"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Contents request not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Contents references, schema or app not found."
+          },
+          "500": {
+            "description": "Operation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "squidex-oauth-auth": [
+              "squidex.apps.{app}.contents.{schema}.read.own"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/content/{app}/{schema}/{id}/status": {
+      "put": {
+        "tags": [
+          "Contents"
+        ],
+        "summary": "Change status of a content item.",
+        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
+        "operationId": "Contents_PutContentStatus",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "schema",
+            "in": "path",
+            "required": true,
+            "description": "The name of the schema.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the content item to change.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 3
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "description": "The status request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangeStatusDto"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 4
+        },
+        "responses": {
+          "200": {
+            "description": "Content status changed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentsDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Content request not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Content, schema or app not found."
+          },
+          "500": {
+            "description": "Operation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "squidex-oauth-auth": [
+              "squidex.apps.{app}.contents.{schema}.changestatus.own"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Contents"
+        ],
+        "summary": "Cancel status change of a content item.",
+        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
+        "operationId": "Contents_DeleteContentStatus",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "schema",
+            "in": "path",
+            "required": true,
+            "description": "The name of the schema.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the content item to cancel.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 3
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Content status change cancelled.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentsDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Content request not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Content, schema or app not found."
+          },
+          "500": {
+            "description": "Operation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "squidex-oauth-auth": [
+              "squidex.apps.{app}.contents.{schema}.changestatus.own"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/content/{app}/{schema}/{id}/draft": {
+      "post": {
+        "tags": [
+          "Contents"
+        ],
+        "summary": "Create a new draft version.",
+        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
+        "operationId": "Contents_CreateDraft",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "schema",
+            "in": "path",
+            "required": true,
+            "description": "The name of the schema.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the content item to create the draft for.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 3
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Content draft created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentsDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Content, schema or app not found."
+          },
+          "400": {
+            "description": "Validation error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Operation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "squidex-oauth-auth": [
+              "squidex.apps.{app}.contents.{schema}.version.create.own"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Contents"
+        ],
+        "summary": "Delete the draft version.",
+        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
+        "operationId": "Contents_DeleteVersion",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "schema",
+            "in": "path",
+            "required": true,
+            "description": "The name of the schema.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the content item to delete the draft from.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 3
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Content draft deleted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentsDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Content, schema or app not found."
+          },
+          "400": {
+            "description": "Validation error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Operation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "squidex-oauth-auth": [
+              "squidex.apps.{app}.contents.{schema}.version.delete.own"
+            ]
+          }
+        ]
+      }
+    },
     "/api/apps/{app}/watching/{resource}": {
       "get": {
         "tags": [
@@ -7985,7 +9567,8 @@
             "in": "query",
             "description": "The optional parent folder id.",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             },
             "x-position": 2
           },
@@ -11723,7 +13306,8 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "message"
+          "message",
+          "statusCode"
         ],
         "properties": {
           "message": {
@@ -11782,6 +13366,10 @@
       "UISettingsDto": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "canCreateApps",
+          "canCreateTeams"
+        ],
         "properties": {
           "canCreateApps": {
             "type": "boolean",
@@ -11796,6 +13384,9 @@
       "UpdateSettingDto": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "value"
+        ],
         "properties": {
           "value": {
             "description": "The value for the setting."
@@ -11811,6 +13402,7 @@
             "type": "object",
             "additionalProperties": false,
             "required": [
+              "total",
               "items",
               "statuses"
             ],
@@ -11847,9 +13439,17 @@
             "type": "object",
             "additionalProperties": false,
             "required": [
+              "id",
               "createdBy",
               "lastModifiedBy",
-              "data"
+              "data",
+              "created",
+              "lastModified",
+              "status",
+              "statusColor",
+              "schemaId",
+              "isDeleted",
+              "version"
             ],
             "properties": {
               "id": {
@@ -11858,13 +13458,11 @@
               },
               "createdBy": {
                 "type": "string",
-                "description": "The user that has created the content item.",
-                "minLength": 1
+                "description": "The user that has created the content item."
               },
               "lastModifiedBy": {
                 "type": "string",
-                "description": "The user that has updated the content item.",
-                "minLength": 1
+                "description": "The user that has updated the content item."
               },
               "data": {
                 "description": "The data of the content item."
@@ -11962,6 +13560,10 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
+          "id",
+          "status",
+          "dueTime",
+          "color",
           "scheduledBy"
         ],
         "properties": {
@@ -11984,8 +13586,7 @@
           },
           "scheduledBy": {
             "type": "string",
-            "description": "The user who schedule the content.",
-            "minLength": 1
+            "description": "The user who schedule the content."
           }
         }
       },
@@ -12000,7 +13601,11 @@
             "required": [
               "name",
               "partitioning",
-              "properties"
+              "properties",
+              "fieldId",
+              "isHidden",
+              "isLocked",
+              "isDisabled"
             ],
             "properties": {
               "fieldId": {
@@ -12070,7 +13675,10 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
-          "fieldType"
+          "fieldType",
+          "isRequired",
+          "isRequiredOnPublish",
+          "isHalfWidth"
         ],
         "properties": {
           "label": {
@@ -12165,6 +13773,13 @@
           {
             "type": "object",
             "additionalProperties": false,
+            "required": [
+              "previewMode",
+              "resolveFirst",
+              "mustBeImage",
+              "resolveImage",
+              "allowDuplicates"
+            ],
             "properties": {
               "previewMode": {
                 "description": "The preview mode for the asset.",
@@ -12332,6 +13947,10 @@
           {
             "type": "object",
             "additionalProperties": false,
+            "required": [
+              "inlineEditable",
+              "editor"
+            ],
             "properties": {
               "defaultValues": {
                 "description": "The language specific default value for the field value.",
@@ -12444,6 +14063,9 @@
           {
             "type": "object",
             "additionalProperties": false,
+            "required": [
+              "editor"
+            ],
             "properties": {
               "defaultValues": {
                 "description": "The language specific default value for the field value.",
@@ -12526,6 +14148,9 @@
           {
             "type": "object",
             "additionalProperties": false,
+            "required": [
+              "editor"
+            ],
             "properties": {
               "editor": {
                 "description": "The editor that is used to manage this field.",
@@ -12571,6 +14196,11 @@
           {
             "type": "object",
             "additionalProperties": false,
+            "required": [
+              "isUnique",
+              "inlineEditable",
+              "editor"
+            ],
             "properties": {
               "defaultValues": {
                 "description": "The language specific default value for the field value.",
@@ -12652,6 +14282,12 @@
           {
             "type": "object",
             "additionalProperties": false,
+            "required": [
+              "allowDuplicates",
+              "resolveReference",
+              "mustBePublished",
+              "editor"
+            ],
             "properties": {
               "defaultValues": {
                 "description": "The language specific default value as a list of content ids.",
@@ -12732,6 +14368,14 @@
           {
             "type": "object",
             "additionalProperties": false,
+            "required": [
+              "isUnique",
+              "isEmbeddable",
+              "inlineEditable",
+              "createEnum",
+              "contentType",
+              "editor"
+            ],
             "properties": {
               "defaultValues": {
                 "description": "The language specific default value for the field value.",
@@ -12894,6 +14538,10 @@
           {
             "type": "object",
             "additionalProperties": false,
+            "required": [
+              "createEnum",
+              "editor"
+            ],
             "properties": {
               "defaultValues": {
                 "description": "The language specific default value for the field value.",
@@ -12962,6 +14610,9 @@
           {
             "type": "object",
             "additionalProperties": false,
+            "required": [
+              "editor"
+            ],
             "properties": {
               "editor": {
                 "description": "The editor that is used to manage this field.",
@@ -12991,7 +14642,11 @@
             "additionalProperties": false,
             "required": [
               "name",
-              "properties"
+              "properties",
+              "fieldId",
+              "isHidden",
+              "isLocked",
+              "isDisabled"
             ],
             "properties": {
               "fieldId": {
@@ -13077,27 +14732,47 @@
         "properties": {
           "status": {
             "type": "string",
-            "description": "The name of the status.",
-            "minLength": 1
+            "description": "The name of the status."
           },
           "color": {
             "type": "string",
-            "description": "The color of the status.",
-            "minLength": 1
+            "description": "The color of the status."
           }
         }
       },
-      "QueryDto": {
+      "AllContentsByPostDto": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
           "ids": {
             "type": "array",
-            "description": "The optional list of ids to query.",
+            "description": "The list of ids to query.",
             "nullable": true,
             "items": {
               "type": "string"
             }
+          },
+          "scheduledFrom": {
+            "type": "string",
+            "description": "The start of the schedule.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "scheduledTo": {
+            "type": "string",
+            "description": "The end of the schedule.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "referencing": {
+            "type": "string",
+            "description": "The ID of the referencing content item.",
+            "nullable": true
+          },
+          "references": {
+            "type": "string",
+            "description": "The ID of the reference content item.",
+            "nullable": true
           },
           "oData": {
             "type": "string",
@@ -13107,17 +14782,15 @@
           "q": {
             "description": "The optional json query.",
             "nullable": true
-          },
-          "parentId": {
-            "type": "string",
-            "description": "The parent id (for assets).",
-            "nullable": true
           }
         }
       },
       "BulkResultDto": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "jobIndex"
+        ],
         "properties": {
           "error": {
             "description": "The error when the bulk job failed.",
@@ -13140,36 +14813,6 @@
             "deprecated": true,
             "x-deprecatedMessage": "Use 'id' field now.",
             "nullable": true
-          }
-        }
-      },
-      "ImportContentsDto": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "datas"
-        ],
-        "properties": {
-          "datas": {
-            "type": "array",
-            "description": "The data to import.",
-            "items": {
-              "$ref": "#/components/schemas/ContentData"
-            }
-          },
-          "publish": {
-            "type": "boolean",
-            "description": "True to automatically publish the content.",
-            "deprecated": true,
-            "x-deprecatedMessage": "Use bulk endpoint now."
-          },
-          "doNotScript": {
-            "type": "boolean",
-            "description": "True to turn off scripting for faster inserts. Default: true."
-          },
-          "optimizeValidation": {
-            "type": "boolean",
-            "description": "True to turn off costly validation: Unique checks, asset checks and reference checks. Default: true."
           }
         }
       },
@@ -13277,6 +14920,12 @@
       "QueryJsonDto": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "skip",
+          "take",
+          "random",
+          "top"
+        ],
         "properties": {
           "filter": {
             "nullable": true
@@ -13313,6 +14962,10 @@
       "SortNode": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "path",
+          "order"
+        ],
         "properties": {
           "path": {
             "$ref": "#/components/schemas/PropertyPath"
@@ -13362,144 +15015,6 @@
           "Validate"
         ]
       },
-      "ChangeStatusDto": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "status"
-        ],
-        "properties": {
-          "status": {
-            "type": "string",
-            "description": "The new status.",
-            "minLength": 1
-          },
-          "dueTime": {
-            "type": "string",
-            "description": "The due time.",
-            "format": "date-time",
-            "nullable": true
-          },
-          "checkReferrers": {
-            "type": "boolean",
-            "description": "True to check referrers of this content."
-          }
-        }
-      },
-      "AllContentsByPostDto": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "ids": {
-            "type": "array",
-            "description": "The list of ids to query.",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "scheduledFrom": {
-            "type": "string",
-            "description": "The start of the schedule.",
-            "format": "date-time",
-            "nullable": true
-          },
-          "scheduledTo": {
-            "type": "string",
-            "description": "The end of the schedule.",
-            "format": "date-time",
-            "nullable": true
-          },
-          "referencing": {
-            "type": "string",
-            "description": "The ID of the referencing content item.",
-            "nullable": true
-          },
-          "references": {
-            "type": "string",
-            "description": "The ID of the reference content item.",
-            "nullable": true
-          },
-          "oData": {
-            "type": "string",
-            "description": "The optional odata query.",
-            "nullable": true
-          },
-          "q": {
-            "description": "The optional json query.",
-            "nullable": true
-          }
-        }
-      },
-      "MarkerRequestDto": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "issue": {
-            "$ref": "#/components/schemas/MarkerIssueDto"
-          },
-          "website": {
-            "$ref": "#/components/schemas/MarkerWebsiteDto"
-          },
-          "context": {
-            "$ref": "#/components/schemas/MarkerContextDto"
-          }
-        }
-      },
-      "MarkerIssueDto": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "title": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          },
-          "screenshotUrl": {
-            "type": "string"
-          },
-          "console": {
-            "$ref": "#/components/schemas/MarkerConsoleDto"
-          }
-        }
-      },
-      "MarkerConsoleDto": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "summary": {
-            "type": "string"
-          },
-          "url": {
-            "type": "string"
-          }
-        }
-      },
-      "MarkerWebsiteDto": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "url": {
-            "type": "string"
-          },
-          "pageTitle": {
-            "type": "string"
-          }
-        }
-      },
-      "MarkerContextDto": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "contextString": {
-            "type": "string"
-          }
-        }
-      },
       "UsersDto": {
         "allOf": [
           {
@@ -13509,6 +15024,7 @@
             "type": "object",
             "additionalProperties": false,
             "required": [
+              "total",
               "items"
             ],
             "properties": {
@@ -13546,18 +15062,15 @@
             "properties": {
               "id": {
                 "type": "string",
-                "description": "The ID of the user.",
-                "minLength": 1
+                "description": "The ID of the user."
               },
               "email": {
                 "type": "string",
-                "description": "The email of the user. Unique value.",
-                "minLength": 1
+                "description": "The email of the user. Unique value."
               },
               "displayName": {
                 "type": "string",
-                "description": "The display name (usually first name and last name) of the user.",
-                "minLength": 1
+                "description": "The display name (usually first name and last name) of the user."
               },
               "isLocked": {
                 "type": "boolean",
@@ -13655,6 +15168,9 @@
       "TranslationDto": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "result"
+        ],
         "properties": {
           "result": {
             "description": "The result of the translation.",
@@ -13719,6 +15235,9 @@
           {
             "type": "object",
             "additionalProperties": false,
+            "required": [
+              "items"
+            ],
             "properties": {
               "items": {
                 "type": "array",
@@ -13742,23 +15261,21 @@
             "required": [
               "name",
               "title",
-              "description"
+              "description",
+              "isStarter"
             ],
             "properties": {
               "name": {
                 "type": "string",
-                "description": "The name of the template.",
-                "minLength": 1
+                "description": "The name of the template."
               },
               "title": {
                 "type": "string",
-                "description": "The title of the template.",
-                "minLength": 1
+                "description": "The title of the template."
               },
               "description": {
                 "type": "string",
-                "description": "The description of the template.",
-                "minLength": 1
+                "description": "The description of the template."
               },
               "isStarter": {
                 "type": "boolean",
@@ -13782,8 +15299,7 @@
             "properties": {
               "details": {
                 "type": "string",
-                "description": "The details of the template.",
-                "minLength": 1
+                "description": "The details of the template."
               }
             }
           }
@@ -13798,7 +15314,8 @@
             "type": "object",
             "additionalProperties": false,
             "required": [
-              "items"
+              "items",
+              "maxContributors"
             ],
             "properties": {
               "items": {
@@ -13838,18 +15355,15 @@
             "properties": {
               "contributorId": {
                 "type": "string",
-                "description": "The ID of the user that contributes to the app.",
-                "minLength": 1
+                "description": "The ID of the user that contributes to the app."
               },
               "contributorName": {
                 "type": "string",
-                "description": "The display name.",
-                "minLength": 1
+                "description": "The display name."
               },
               "contributorEmail": {
                 "type": "string",
-                "description": "The email address.",
-                "minLength": 1
+                "description": "The email address."
               },
               "role": {
                 "type": "string",
@@ -13863,6 +15377,9 @@
       "ContributorsMetadata": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "isInvited"
+        ],
         "properties": {
           "isInvited": {
             "type": "string",
@@ -13902,7 +15419,11 @@
             "type": "object",
             "additionalProperties": false,
             "required": [
-              "name"
+              "id",
+              "name",
+              "version",
+              "created",
+              "lastModified"
             ],
             "properties": {
               "id": {
@@ -13911,8 +15432,7 @@
               },
               "name": {
                 "type": "string",
-                "description": "The name of the team.",
-                "minLength": 1
+                "description": "The name of the team."
               },
               "version": {
                 "type": "integer",
@@ -13981,6 +15501,14 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
+          "totalCalls",
+          "totalBytes",
+          "monthCalls",
+          "monthBytes",
+          "blockingApiCalls",
+          "allowedBytes",
+          "allowedCalls",
+          "averageElapsedMs",
           "details"
         ],
         "properties": {
@@ -14039,6 +15567,12 @@
       "CallsUsagePerDateDto": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "date",
+          "totalCalls",
+          "totalBytes",
+          "averageElapsedMs"
+        ],
         "properties": {
           "date": {
             "type": "string",
@@ -14065,6 +15599,10 @@
       "CurrentStorageDto": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "size",
+          "maxAllowed"
+        ],
         "properties": {
           "size": {
             "type": "integer",
@@ -14081,6 +15619,11 @@
       "StorageUsagePerDateDto": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "date",
+          "totalCount",
+          "totalSize"
+        ],
         "properties": {
           "date": {
             "type": "string",
@@ -14114,8 +15657,7 @@
             "properties": {
               "name": {
                 "type": "string",
-                "description": "The name of the search result.",
-                "minLength": 1
+                "description": "The name of the search result."
               },
               "type": {
                 "description": "The type of the search result.",
@@ -14167,7 +15709,15 @@
               "previewUrls",
               "fieldsInLists",
               "fieldsInReferences",
-              "fields"
+              "fields",
+              "id",
+              "type",
+              "isSingleton",
+              "isPublished",
+              "created",
+              "lastModified",
+              "version",
+              "fieldRules"
             ],
             "properties": {
               "id": {
@@ -14288,6 +15838,9 @@
       "SchemaPropertiesDto": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "validateOnPublish"
+        ],
         "properties": {
           "label": {
             "type": "string",
@@ -14491,6 +16044,9 @@
           {
             "type": "object",
             "additionalProperties": false,
+            "required": [
+              "items"
+            ],
             "properties": {
               "items": {
                 "type": "array",
@@ -14512,7 +16068,9 @@
             "type": "object",
             "additionalProperties": false,
             "required": [
-              "name"
+              "name",
+              "type",
+              "isSingleton"
             ],
             "properties": {
               "name": {
@@ -14539,6 +16097,9 @@
         "type": "object",
         "x-abstract": true,
         "additionalProperties": false,
+        "required": [
+          "isPublished"
+        ],
         "properties": {
           "properties": {
             "description": "The optional properties.",
@@ -14606,7 +16167,10 @@
         "additionalProperties": false,
         "required": [
           "name",
-          "properties"
+          "properties",
+          "isHidden",
+          "isLocked",
+          "isDisabled"
         ],
         "properties": {
           "name": {
@@ -14651,7 +16215,10 @@
         "additionalProperties": false,
         "required": [
           "name",
-          "properties"
+          "properties",
+          "isHidden",
+          "isLocked",
+          "isDisabled"
         ],
         "properties": {
           "name": {
@@ -14681,6 +16248,9 @@
       "UpdateSchemaDto": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "validateOnPublish"
+        ],
         "properties": {
           "label": {
             "type": "string",
@@ -14733,6 +16303,10 @@
           {
             "type": "object",
             "additionalProperties": false,
+            "required": [
+              "noFieldDeletion",
+              "noFieldRecreation"
+            ],
             "properties": {
               "noFieldDeletion": {
                 "type": "boolean",
@@ -14788,13 +16362,11 @@
         "properties": {
           "description": {
             "type": "string",
-            "description": "Describes the action or trigger type.",
-            "minLength": 1
+            "description": "Describes the action or trigger type."
           },
           "display": {
             "type": "string",
-            "description": "The label for the action or trigger type.",
-            "minLength": 1
+            "description": "The label for the action or trigger type."
           },
           "title": {
             "type": "string",
@@ -14831,7 +16403,9 @@
         "required": [
           "editor",
           "name",
-          "display"
+          "display",
+          "isFormattable",
+          "isRequired"
         ],
         "properties": {
           "editor": {
@@ -14840,13 +16414,11 @@
           },
           "name": {
             "type": "string",
-            "description": "The name of the editor.",
-            "minLength": 1
+            "description": "The name of the editor."
           },
           "display": {
             "type": "string",
-            "description": "The label to use.",
-            "minLength": 1
+            "description": "The label to use."
           },
           "options": {
             "type": "array",
@@ -14934,10 +16506,17 @@
             "type": "object",
             "additionalProperties": false,
             "required": [
+              "id",
               "createdBy",
               "lastModifiedBy",
+              "created",
+              "lastModified",
+              "version",
+              "isEnabled",
               "trigger",
-              "action"
+              "action",
+              "numSucceeded",
+              "numFailed"
             ],
             "properties": {
               "id": {
@@ -14946,13 +16525,11 @@
               },
               "createdBy": {
                 "type": "string",
-                "description": "The user that has created the rule.",
-                "minLength": 1
+                "description": "The user that has created the rule."
               },
               "lastModifiedBy": {
                 "type": "string",
-                "description": "The user that has updated the rule.",
-                "minLength": 1
+                "description": "The user that has updated the rule."
               },
               "created": {
                 "type": "string",
@@ -14989,17 +16566,19 @@
               "numSucceeded": {
                 "type": "integer",
                 "description": "The number of completed executions.",
-                "format": "int32"
+                "format": "int64"
               },
               "numFailed": {
                 "type": "integer",
                 "description": "The number of failed executions.",
-                "format": "int32"
+                "format": "int64"
               },
               "lastExecuted": {
                 "type": "string",
                 "description": "The date and time when the rule was executed the last time.",
                 "format": "date-time",
+                "deprecated": true,
+                "x-deprecatedMessage": "Removed when migrated to new rule statistics.",
                 "nullable": true
               }
             }
@@ -15074,13 +16653,24 @@
           {
             "type": "object",
             "additionalProperties": false,
+            "required": [
+              "handleAll"
+            ],
             "properties": {
               "schemas": {
                 "type": "array",
                 "description": "The schema settings.",
                 "nullable": true,
                 "items": {
-                  "$ref": "#/components/schemas/ContentChangedRuleTriggerSchemaDto"
+                  "$ref": "#/components/schemas/SchemaCondition"
+                }
+              },
+              "referencedSchemas": {
+                "type": "array",
+                "description": "The schema references.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/SchemaCondition"
                 }
               },
               "handleAll": {
@@ -15091,17 +16681,18 @@
           }
         ]
       },
-      "ContentChangedRuleTriggerSchemaDto": {
+      "SchemaCondition": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "schemaId"
+        ],
         "properties": {
           "schemaId": {
-            "type": "string",
-            "description": "The ID of the schema."
+            "type": "string"
           },
           "condition": {
             "type": "string",
-            "description": "Javascript condition when to trigger.",
             "nullable": true
           }
         }
@@ -15143,6 +16734,9 @@
           {
             "type": "object",
             "additionalProperties": false,
+            "required": [
+              "limit"
+            ],
             "properties": {
               "limit": {
                 "type": "integer",
@@ -15181,7 +16775,6 @@
             "Script": "#/components/schemas/ScriptRuleActionDto",
             "SignalR": "#/components/schemas/SignalRRuleActionDto",
             "Slack": "#/components/schemas/SlackRuleActionDto",
-            "SquidexEmail": "#/components/schemas/SquidexEmailRuleActionDto",
             "Tweet": "#/components/schemas/TweetRuleActionDto",
             "Typesense": "#/components/schemas/TypesenseRuleActionDto",
             "Webhook": "#/components/schemas/WebhookRuleActionDto"
@@ -15209,7 +16802,9 @@
             "required": [
               "appId",
               "apiKey",
-              "indexName"
+              "indexName",
+              "document",
+              "delete"
             ],
             "properties": {
               "appId": {
@@ -15254,7 +16849,8 @@
             "additionalProperties": false,
             "required": [
               "connectionString",
-              "queue"
+              "queue",
+              "payload"
             ],
             "properties": {
               "connectionString": {
@@ -15287,7 +16883,8 @@
             "type": "object",
             "additionalProperties": false,
             "required": [
-              "text"
+              "text",
+              "client"
             ],
             "properties": {
               "text": {
@@ -15315,7 +16912,9 @@
             "additionalProperties": false,
             "required": [
               "data",
-              "schema"
+              "schema",
+              "client",
+              "publish"
             ],
             "properties": {
               "data": {
@@ -15356,7 +16955,8 @@
               "url",
               "apiKey",
               "apiUsername",
-              "text"
+              "text",
+              "title"
             ],
             "properties": {
               "url": {
@@ -15417,7 +17017,11 @@
             "additionalProperties": false,
             "required": [
               "host",
-              "indexName"
+              "indexName",
+              "username",
+              "password",
+              "document",
+              "delete"
             ],
             "properties": {
               "host": {
@@ -15568,7 +17172,11 @@
             "required": [
               "accessToken",
               "title",
-              "content"
+              "content",
+              "canonicalUrl",
+              "tags",
+              "publicationId",
+              "isHtml"
             ],
             "properties": {
               "accessToken": {
@@ -15623,7 +17231,9 @@
             "additionalProperties": false,
             "required": [
               "user",
-              "text"
+              "text",
+              "url",
+              "client"
             ],
             "properties": {
               "user": {
@@ -15662,7 +17272,11 @@
             "additionalProperties": false,
             "required": [
               "host",
-              "indexName"
+              "indexName",
+              "username",
+              "password",
+              "document",
+              "delete"
             ],
             "properties": {
               "host": {
@@ -15764,7 +17378,10 @@
             "required": [
               "connectionString",
               "hubName",
-              "action"
+              "action",
+              "methodName",
+              "target",
+              "payload"
             ],
             "properties": {
               "connectionString": {
@@ -15847,42 +17464,6 @@
           }
         ]
       },
-      "SquidexEmailRuleActionDto": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/RuleActionDto"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "required": [
-              "messageTo",
-              "messageSubject",
-              "messageBody"
-            ],
-            "properties": {
-              "messageTo": {
-                "title": "To Address",
-                "type": "string",
-                "description": "The email message will be sent to.",
-                "minLength": 1
-              },
-              "messageSubject": {
-                "title": "Subject",
-                "type": "string",
-                "description": "The subject line for this email message.",
-                "minLength": 1
-              },
-              "messageBody": {
-                "title": "Body",
-                "type": "string",
-                "description": "The message body.",
-                "minLength": 1
-              }
-            }
-          }
-        ]
-      },
       "TweetRuleActionDto": {
         "allOf": [
           {
@@ -15930,7 +17511,9 @@
             "required": [
               "host",
               "indexName",
-              "apiKey"
+              "apiKey",
+              "document",
+              "delete"
             ],
             "properties": {
               "host": {
@@ -15976,7 +17559,11 @@
             "additionalProperties": false,
             "required": [
               "url",
-              "method"
+              "method",
+              "payload",
+              "payloadType",
+              "headers",
+              "sharedSecret"
             ],
             "properties": {
               "url": {
@@ -16086,20 +17673,21 @@
             "type": "object",
             "additionalProperties": false,
             "required": [
+              "total",
               "items"
             ],
             "properties": {
+              "total": {
+                "type": "integer",
+                "description": "The total number of simulated rule events.",
+                "format": "int64"
+              },
               "items": {
                 "type": "array",
                 "description": "The simulated rule events.",
                 "items": {
                   "$ref": "#/components/schemas/SimulatedRuleEventDto"
                 }
-              },
-              "total": {
-                "type": "integer",
-                "description": "The total number of simulated rule events.",
-                "format": "int64"
               }
             }
           }
@@ -16110,6 +17698,7 @@
         "additionalProperties": false,
         "required": [
           "eventId",
+          "uniqueId",
           "eventName",
           "event",
           "skipReasons"
@@ -16119,6 +17708,11 @@
             "type": "string",
             "description": "The unique event id.",
             "format": "guid",
+            "minLength": 1
+          },
+          "uniqueId": {
+            "type": "string",
+            "description": "The the unique id of the simulated event.",
             "minLength": 1
           },
           "eventName": {
@@ -16197,20 +17791,21 @@
             "type": "object",
             "additionalProperties": false,
             "required": [
+              "total",
               "items"
             ],
             "properties": {
+              "total": {
+                "type": "integer",
+                "description": "The total number of rule events.",
+                "format": "int64"
+              },
               "items": {
                 "type": "array",
                 "description": "The rule events.",
                 "items": {
                   "$ref": "#/components/schemas/RuleEventDto"
                 }
-              },
-              "total": {
-                "type": "integer",
-                "description": "The total number of rule events.",
-                "format": "int64"
               }
             }
           }
@@ -16225,8 +17820,13 @@
             "type": "object",
             "additionalProperties": false,
             "required": [
+              "id",
+              "created",
               "description",
-              "eventName"
+              "eventName",
+              "numCalls",
+              "result",
+              "jobResult"
             ],
             "properties": {
               "id": {
@@ -16240,13 +17840,11 @@
               },
               "description": {
                 "type": "string",
-                "description": "The description.",
-                "minLength": 1
+                "description": "The description."
               },
               "eventName": {
                 "type": "string",
-                "description": "The name of the event.",
-                "minLength": 1
+                "description": "The name of the event."
               },
               "lastDump": {
                 "type": "string",
@@ -16314,7 +17912,8 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "plans"
+          "plans",
+          "locked"
         ],
         "properties": {
           "plans": {
@@ -16357,23 +17956,24 @@
         "required": [
           "id",
           "name",
-          "costs"
+          "costs",
+          "maxApiBytes",
+          "maxApiCalls",
+          "maxAssetSize",
+          "maxContributors"
         ],
         "properties": {
           "id": {
             "type": "string",
-            "description": "The ID of the plan.",
-            "minLength": 1
+            "description": "The ID of the plan."
           },
           "name": {
             "type": "string",
-            "description": "The name of the plan.",
-            "minLength": 1
+            "description": "The name of the plan."
           },
           "costs": {
             "type": "string",
-            "description": "The monthly costs of the plan.",
-            "minLength": 1
+            "description": "The monthly costs of the plan."
           },
           "confirmText": {
             "type": "string",
@@ -16420,6 +18020,11 @@
       "ReferralInfo": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "code",
+          "earned",
+          "condition"
+        ],
         "properties": {
           "code": {
             "type": "string"
@@ -16483,7 +18088,8 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "features"
+          "features",
+          "version"
         ],
         "properties": {
           "features": {
@@ -16510,13 +18116,11 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "The name of the feature.",
-            "minLength": 1
+            "description": "The name of the feature."
           },
           "text": {
             "type": "string",
-            "description": "The description text.",
-            "minLength": 1
+            "description": "The description text."
           }
         }
       },
@@ -16531,18 +18135,15 @@
         "properties": {
           "iso2Code": {
             "type": "string",
-            "description": "The iso code of the language.",
-            "minLength": 1
+            "description": "The iso code of the language."
           },
           "englishName": {
             "type": "string",
-            "description": "The english name of the language.",
-            "minLength": 1
+            "description": "The english name of the language."
           },
           "nativeName": {
             "type": "string",
-            "description": "The native name of the language.",
-            "minLength": 1
+            "description": "The native name of the language."
           }
         }
       },
@@ -16552,23 +18153,23 @@
         "required": [
           "message",
           "eventType",
-          "actor"
+          "actor",
+          "eventId",
+          "created",
+          "version"
         ],
         "properties": {
           "message": {
             "type": "string",
-            "description": "The message for the event.",
-            "minLength": 1
+            "description": "The message for the event."
           },
           "eventType": {
             "type": "string",
-            "description": "The type of the original event.",
-            "minLength": 1
+            "description": "The type of the original event."
           },
           "actor": {
             "type": "string",
-            "description": "The user who called the action.",
-            "minLength": 1
+            "description": "The user who called the action."
           },
           "eventId": {
             "type": "string",
@@ -16594,6 +18195,9 @@
           {
             "type": "object",
             "additionalProperties": false,
+            "required": [
+              "items"
+            ],
             "properties": {
               "items": {
                 "type": "array",
@@ -16615,7 +18219,10 @@
             "type": "object",
             "additionalProperties": false,
             "required": [
-              "name"
+              "name",
+              "isStopped",
+              "isResetting",
+              "count"
             ],
             "properties": {
               "isStopped": {
@@ -16650,9 +18257,94 @@
           }
         ]
       },
+      "QueryDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "ids": {
+            "type": "array",
+            "description": "The optional list of ids to query.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "oData": {
+            "type": "string",
+            "description": "The optional odata query.",
+            "nullable": true
+          },
+          "q": {
+            "description": "The optional json query.",
+            "nullable": true
+          },
+          "parentId": {
+            "type": "string",
+            "description": "The parent id (for assets).",
+            "nullable": true
+          }
+        }
+      },
+      "ImportContentsDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "datas"
+        ],
+        "properties": {
+          "datas": {
+            "type": "array",
+            "description": "The data to import.",
+            "items": {
+              "$ref": "#/components/schemas/ContentData"
+            }
+          },
+          "publish": {
+            "type": "boolean",
+            "description": "True to automatically publish the content.",
+            "deprecated": true,
+            "x-deprecatedMessage": "Use bulk endpoint now."
+          },
+          "doNotScript": {
+            "type": "boolean",
+            "description": "True to turn off scripting for faster inserts. Default: true."
+          },
+          "optimizeValidation": {
+            "type": "boolean",
+            "description": "True to turn off costly validation: Unique checks, asset checks and reference checks. Default: true."
+          }
+        }
+      },
+      "ChangeStatusDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "status"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The new status.",
+            "minLength": 1
+          },
+          "dueTime": {
+            "type": "string",
+            "description": "The due time.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "checkReferrers": {
+            "type": "boolean",
+            "description": "True to check referrers of this content."
+          }
+        }
+      },
       "CommentsDto": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "version"
+        ],
         "properties": {
           "createdComments": {
             "type": "array",
@@ -16689,6 +18381,7 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
+          "id",
           "time",
           "user",
           "text"
@@ -16701,18 +18394,15 @@
           "time": {
             "type": "string",
             "description": "The time when the comment was created or updated last.",
-            "format": "date-time",
-            "minLength": 1
+            "format": "date-time"
           },
           "user": {
             "type": "string",
-            "description": "The user who created or updated the comment.",
-            "minLength": 1
+            "description": "The user who created or updated the comment."
           },
           "text": {
             "type": "string",
-            "description": "The text of the comment.",
-            "minLength": 1
+            "description": "The text of the comment."
           },
           "url": {
             "type": "string",
@@ -16773,6 +18463,13 @@
           {
             "type": "object",
             "additionalProperties": false,
+            "required": [
+              "id",
+              "started",
+              "handledEvents",
+              "handledAssets",
+              "status"
+            ],
             "properties": {
               "id": {
                 "type": "string",
@@ -16828,14 +18525,15 @@
         "additionalProperties": false,
         "required": [
           "url",
-          "log"
+          "log",
+          "started",
+          "status"
         ],
         "properties": {
           "url": {
             "type": "string",
             "description": "The uri to load from.",
-            "format": "uri",
-            "minLength": 1
+            "format": "uri"
           },
           "log": {
             "type": "array",
@@ -16937,6 +18635,7 @@
             "type": "object",
             "additionalProperties": false,
             "required": [
+              "total",
               "items",
               "path"
             ],
@@ -16973,7 +18672,10 @@
             "type": "object",
             "additionalProperties": false,
             "required": [
-              "folderName"
+              "id",
+              "parentId",
+              "folderName",
+              "version"
             ],
             "properties": {
               "id": {
@@ -16986,8 +18688,7 @@
               },
               "folderName": {
                 "type": "string",
-                "description": "The folder name.",
-                "minLength": 1
+                "description": "The folder name."
               },
               "version": {
                 "type": "integer",
@@ -17077,6 +18778,7 @@
             "type": "object",
             "additionalProperties": false,
             "required": [
+              "total",
               "items"
             ],
             "properties": {
@@ -17105,15 +18807,24 @@
             "type": "object",
             "additionalProperties": false,
             "required": [
+              "id",
+              "parentId",
               "fileName",
+              "isProtected",
               "slug",
               "mimeType",
               "fileType",
               "metadataText",
               "metadata",
-              "tags",
+              "fileSize",
+              "fileVersion",
+              "type",
               "createdBy",
-              "lastModifiedBy"
+              "lastModifiedBy",
+              "created",
+              "lastModified",
+              "version",
+              "isImage"
             ],
             "properties": {
               "id": {
@@ -17126,8 +18837,7 @@
               },
               "fileName": {
                 "type": "string",
-                "description": "The file name.",
-                "minLength": 1
+                "description": "The file name."
               },
               "fileHash": {
                 "type": "string",
@@ -17140,23 +18850,19 @@
               },
               "slug": {
                 "type": "string",
-                "description": "The slug.",
-                "minLength": 1
+                "description": "The slug."
               },
               "mimeType": {
                 "type": "string",
-                "description": "The mime type.",
-                "minLength": 1
+                "description": "The mime type."
               },
               "fileType": {
                 "type": "string",
-                "description": "The file type.",
-                "minLength": 1
+                "description": "The file type."
               },
               "metadataText": {
                 "type": "string",
-                "description": "The formatted text representation of the metadata.",
-                "minLength": 1
+                "description": "The formatted text representation of the metadata."
               },
               "editToken": {
                 "type": "string",
@@ -17173,6 +18879,7 @@
               "tags": {
                 "type": "array",
                 "description": "The asset tags.",
+                "nullable": true,
                 "items": {
                   "type": "string"
                 }
@@ -17193,13 +18900,11 @@
               },
               "createdBy": {
                 "type": "string",
-                "description": "The user that has created the schema.",
-                "minLength": 1
+                "description": "The user that has created the schema."
               },
               "lastModifiedBy": {
                 "type": "string",
-                "description": "The user that has updated the asset.",
-                "minLength": 1
+                "description": "The user that has updated the asset."
               },
               "created": {
                 "type": "string",
@@ -17250,6 +18955,9 @@
       "AssetMeta": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "isDuplicate"
+        ],
         "properties": {
           "isDuplicate": {
             "type": "string",
@@ -17260,13 +18968,11 @@
       "BulkUpdateAssetsDto": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "jobs"
-        ],
         "properties": {
           "jobs": {
             "type": "array",
             "description": "The contents to update or insert.",
+            "nullable": true,
             "items": {
               "$ref": "#/components/schemas/BulkUpdateAssetsJobDto"
             }
@@ -17412,6 +19118,9 @@
           {
             "type": "object",
             "additionalProperties": false,
+            "required": [
+              "version"
+            ],
             "properties": {
               "query": {
                 "type": "string",
@@ -17532,23 +19241,23 @@
             "required": [
               "id",
               "secret",
-              "name"
+              "name",
+              "apiCallsLimit",
+              "apiTrafficLimit",
+              "allowAnonymous"
             ],
             "properties": {
               "id": {
                 "type": "string",
-                "description": "The client id.",
-                "minLength": 1
+                "description": "The client id."
               },
               "secret": {
                 "type": "string",
-                "description": "The client secret.",
-                "minLength": 1
+                "description": "The client secret."
               },
               "name": {
                 "type": "string",
-                "description": "The client name.",
-                "minLength": 1
+                "description": "The client name."
               },
               "role": {
                 "type": "string",
@@ -17657,18 +19366,18 @@
             "required": [
               "iso2Code",
               "englishName",
-              "fallback"
+              "fallback",
+              "isMaster",
+              "isOptional"
             ],
             "properties": {
               "iso2Code": {
                 "type": "string",
-                "description": "The iso code of the language.",
-                "minLength": 1
+                "description": "The iso code of the language."
               },
               "englishName": {
                 "type": "string",
-                "description": "The english name of the language.",
-                "minLength": 1
+                "description": "The english name of the language."
               },
               "fallback": {
                 "type": "array",
@@ -17759,14 +19468,16 @@
             "additionalProperties": false,
             "required": [
               "name",
+              "numClients",
+              "numContributors",
+              "isDefaultRole",
               "permissions",
               "properties"
             ],
             "properties": {
               "name": {
                 "type": "string",
-                "description": "The role name.",
-                "minLength": 1
+                "description": "The role name."
               },
               "numClients": {
                 "type": "integer",
@@ -17846,7 +19557,14 @@
             "type": "object",
             "additionalProperties": false,
             "required": [
+              "id",
               "name",
+              "version",
+              "created",
+              "lastModified",
+              "permissions",
+              "canAccessApi",
+              "canAccessContent",
               "roleProperties"
             ],
             "properties": {
@@ -17857,7 +19575,6 @@
               "name": {
                 "type": "string",
                 "description": "The name of the app.",
-                "minLength": 1,
                 "pattern": "^[a-z0-9]+(\\-[a-z0-9]+)*$"
               },
               "label": {
@@ -17980,7 +19697,10 @@
             "additionalProperties": false,
             "required": [
               "patterns",
-              "editors"
+              "editors",
+              "hideScheduler",
+              "hideDateTimeModeButton",
+              "version"
             ],
             "properties": {
               "patterns": {
@@ -18024,13 +19744,11 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "The name of the suggestion.",
-            "minLength": 1
+            "description": "The name of the suggestion."
           },
           "regex": {
             "type": "string",
-            "description": "The regex pattern.",
-            "minLength": 1
+            "description": "The regex pattern."
           },
           "message": {
             "type": "string",
@@ -18049,13 +19767,11 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "The name of the editor.",
-            "minLength": 1
+            "description": "The name of the editor."
           },
           "url": {
             "type": "string",
-            "description": "The url to the editor.",
-            "minLength": 1
+            "description": "The url to the editor."
           }
         }
       },
@@ -18130,9 +19846,6 @@
           {
             "type": "object",
             "additionalProperties": false,
-            "required": [
-              "steps"
-            ],
             "properties": {
               "id": {
                 "type": "string",
@@ -18169,9 +19882,6 @@
       "WorkflowStepDto": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "transitions"
-        ],
         "properties": {
           "transitions": {
             "type": "object",
@@ -18280,8 +19990,8 @@
     "securitySchemes": {
       "squidex-oauth-auth": {
         "type": "openIdConnect",
-        "description": "Squidex uses OpenId Connect (OIDC) with the Client Credentials Flow (defined in OAuth 2.0 RFC 6749, section 4.4).\n\nThe OpenId Connect Client Credentials flow can be used for machine to machine authentication. In this grant a specific user is not authorized but rather the credentials are verified and a generic `access_token` is returned.\n\nThe `access_token` is a signed JSON Web Token (JWT) which contains expiry information. \n\nTo retrieve an access token you must pass the Client ID and Client Secret to the token endpoint to authenticate yourself and get a token:\n\n    $ curl\n        -X POST 'https://cloud.squidex.io/identity-server/connect/token' \n        -H 'Content-Type: application/x-www-form-urlencoded' \n        -d 'grant_type=client_credentials&\n            client_id=[CLIENT_ID]&\n            client_secret=[CLIENT_SECRET]&\n\t\t\tscope=squidex-api'\n\nPass this token to all consecutiv requests to the API via the `Authorization` header:\n\n     Authorization: Bearer <token>",
-        "openIdConnectUrl": "https://cloud.squidex.io/identity-server/.well-known/openid-configuration"
+        "description": "Squidex uses OpenId Connect (OIDC) with the Client Credentials Flow (defined in OAuth 2.0 RFC 6749, section 4.4).\r\n\r\nThe OpenId Connect Client Credentials flow can be used for machine to machine authentication. In this grant a specific user is not authorized but rather the credentials are verified and a generic `access_token` is returned.\r\n\r\nThe `access_token` is a signed JSON Web Token (JWT) which contains expiry information. \r\n\r\nTo retrieve an access token you must pass the Client ID and Client Secret to the token endpoint to authenticate yourself and get a token:\r\n\r\n    $ curl\r\n        -X POST 'https://localhost:5001/identity-server/connect/token' \r\n        -H 'Content-Type: application/x-www-form-urlencoded' \r\n        -d 'grant_type=client_credentials&\r\n            client_id=[CLIENT_ID]&\r\n            client_secret=[CLIENT_SECRET]&\r\n\t\t\tscope=squidex-api'\r\n\r\nPass this token to all consecutiv requests to the API via the `Authorization` header:\r\n\r\n     Authorization: Bearer <token>",
+        "openIdConnectUrl": "https://localhost:5001/identity-server/.well-known/openid-configuration"
       }
     }
   },
