@@ -5,10 +5,10 @@ groups:
         version: 0.5.6
         output:
           location: npm
-          package-name: '@fern-api/squidex'
+          package-name: '@squidex/squidex'
           token: ${FERN_NPM_TOKEN}
         github:
-          repository: fern-squidex/squidex-node
+          repository: squidex/sdk-node
         config:
           namespaceExport: Squidex
 
@@ -16,8 +16,8 @@ groups:
         version: 0.0.134
         output:
           location: maven
-          coordinate: io.github.fern-api:squidex
+          coordinate: io.github.squidex:squidex
           username: ${FERN_MAVEN_USERNAME}
           password: ${FERN_MAVEN_TOKEN}
         github:
-          repository: fern-squidex/squidex-java
+          repository: squidex/sdk-java
