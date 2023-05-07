@@ -85,7 +85,9 @@
               "squidex.admin.users.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "userManagement",
+        "x-fern-sdk-method-name": "getUsers"
       },
       "post": {
         "tags": [
@@ -144,7 +146,9 @@
               "squidex.admin.users.create"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "userManagement",
+        "x-fern-sdk-method-name": "postUser"
       }
     },
     "/api/user-management/{id}": {
@@ -197,7 +201,9 @@
               "squidex.admin.users.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "userManagement",
+        "x-fern-sdk-method-name": "getUser"
       },
       "put": {
         "tags": [
@@ -271,7 +277,9 @@
               "squidex.admin.users.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "userManagement",
+        "x-fern-sdk-method-name": "putUser"
       },
       "delete": {
         "tags": [
@@ -335,7 +343,9 @@
               "squidex.admin.users.unlock"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "userManagement",
+        "x-fern-sdk-method-name": "deleteUser"
       }
     },
     "/api/user-management/{id}/lock": {
@@ -408,7 +418,9 @@
               "squidex.admin.users.lock"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "userManagement",
+        "x-fern-sdk-method-name": "lockUser"
       }
     },
     "/api/user-management/{id}/unlock": {
@@ -481,7 +493,9 @@
               "squidex.admin.users.unlock"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "userManagement",
+        "x-fern-sdk-method-name": "unlockUser"
       }
     },
     "/api": {
@@ -517,7 +531,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "users",
+        "x-fern-sdk-method-name": "getUserResources"
       }
     },
     "/api/users": {
@@ -568,7 +584,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "users",
+        "x-fern-sdk-method-name": "getUsers"
       }
     },
     "/api/users/{id}": {
@@ -619,7 +637,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "users",
+        "x-fern-sdk-method-name": "getUser"
       }
     },
     "/api/users/{id}/picture": {
@@ -666,7 +686,9 @@
               }
             }
           }
-        }
+        },
+        "x-fern-sdk-group-name": "users",
+        "x-fern-sdk-method-name": "getUserPicture"
       }
     },
     "/api/apps/{app}/translations": {
@@ -676,18 +698,6 @@
         ],
         "summary": "Translate a text.",
         "operationId": "Translations_PostTranslation",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "requestBody": {
           "x-name": "request",
           "description": "The translation request.",
@@ -739,7 +749,9 @@
               "squidex.apps.{app}.translate"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "translations",
+        "x-fern-sdk-method-name": "postTranslation"
       }
     },
     "/api/templates": {
@@ -775,7 +787,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "templates",
+        "x-fern-sdk-method-name": "getTemplates"
       }
     },
     "/api/templates/{name}": {
@@ -826,7 +840,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "templates",
+        "x-fern-sdk-method-name": "getTemplate"
       }
     },
     "/api/teams/{team}/contributors": {
@@ -879,7 +895,9 @@
               "squidex.teams.{team}.contributors.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "teams",
+        "x-fern-sdk-method-name": "getContributors"
       },
       "post": {
         "tags": [
@@ -953,7 +971,9 @@
               "squidex.teams.{team}.contributors.assign"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "teams",
+        "x-fern-sdk-method-name": "postContributor"
       }
     },
     "/api/teams/{team}/contributors/me": {
@@ -1014,7 +1034,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "teams",
+        "x-fern-sdk-method-name": "deleteMyself"
       }
     },
     "/api/teams/{team}/contributors/{id}": {
@@ -1087,7 +1109,9 @@
               "squidex.teams.{team}.contributors.revoke"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "teams",
+        "x-fern-sdk-method-name": "deleteContributor"
       }
     },
     "/api/teams": {
@@ -1127,7 +1151,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "teams",
+        "x-fern-sdk-method-name": "getTeams"
       },
       "post": {
         "tags": [
@@ -1195,7 +1221,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "teams",
+        "x-fern-sdk-method-name": "postTeam"
       }
     },
     "/api/teams/{team}": {
@@ -1246,7 +1274,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "teams",
+        "x-fern-sdk-method-name": "getTeam"
       },
       "put": {
         "tags": [
@@ -1320,7 +1350,9 @@
               "squidex.teams.{team}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "teams",
+        "x-fern-sdk-method-name": "putTeam"
       }
     },
     "/api/apps/{app}/usages/log": {
@@ -1330,18 +1362,6 @@
         ],
         "summary": "Get api calls as log file.",
         "operationId": "Usages_GetLog",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "responses": {
           "200": {
             "description": "Usage tracking results returned.",
@@ -1373,7 +1393,9 @@
               "squidex.apps.{app}.usage"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "statistics",
+        "x-fern-sdk-method-name": "getLog"
       }
     },
     "/api/apps/{app}/usages/calls/{fromDate}/{toDate}": {
@@ -1384,16 +1406,6 @@
         "summary": "Get api calls in date range.",
         "operationId": "Usages_GetUsages",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "fromDate",
             "in": "path",
@@ -1448,7 +1460,9 @@
               "squidex.apps.{app}.usage"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "statistics",
+        "x-fern-sdk-method-name": "getUsages"
       }
     },
     "/api/teams/{team}/usages/calls/{fromDate}/{toDate}": {
@@ -1523,7 +1537,9 @@
               "squidex.teams.{team}.usage"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "statistics",
+        "x-fern-sdk-method-name": "getUsagesForTeam"
       }
     },
     "/api/apps/{app}/usages/storage/today": {
@@ -1533,18 +1549,6 @@
         ],
         "summary": "Get total asset size.",
         "operationId": "Usages_GetCurrentStorageSize",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "responses": {
           "200": {
             "description": "Storage usage returned.",
@@ -1576,7 +1580,9 @@
               "squidex.apps.{app}.usage"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "statistics",
+        "x-fern-sdk-method-name": "getCurrentStorageSize"
       }
     },
     "/api/teams/{team}/usages/storage/today": {
@@ -1629,7 +1635,9 @@
               "squidex.teams.{team}.usage"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "statistics",
+        "x-fern-sdk-method-name": "getTeamCurrentStorageSizeForTeam"
       }
     },
     "/api/apps/{app}/usages/storage/{fromDate}/{toDate}": {
@@ -1640,16 +1648,6 @@
         "summary": "Get asset usage by date.",
         "operationId": "Usages_GetStorageSizes",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "fromDate",
             "in": "path",
@@ -1707,7 +1705,9 @@
               "squidex.apps.{app}.usage"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "statistics",
+        "x-fern-sdk-method-name": "getStorageSizes"
       }
     },
     "/api/teams/{team}/usages/storage/{fromDate}/{toDate}": {
@@ -1785,7 +1785,9 @@
               "squidex.teams.{team}.usage"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "statistics",
+        "x-fern-sdk-method-name": "getStorageSizesForTeam"
       }
     },
     "/api/apps/{app}/search": {
@@ -1796,16 +1798,6 @@
         "summary": "Get search results.",
         "operationId": "Search_GetSearchResults",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "query",
             "in": "query",
@@ -1851,7 +1843,9 @@
               "squidex.apps.{app}.search"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "search",
+        "x-fern-sdk-method-name": "getSearchResults"
       }
     },
     "/api/apps/{app}/schemas/{schema}/fields": {
@@ -1862,16 +1856,6 @@
         "summary": "Add a schema field.",
         "operationId": "SchemaFields_PostField",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "schema",
             "in": "path",
@@ -1947,7 +1931,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "postField"
       }
     },
     "/api/apps/{app}/schemas/{schema}/fields/{parentId}/nested": {
@@ -1958,16 +1944,6 @@
         "summary": "Add a nested field.",
         "operationId": "SchemaFields_PostNestedField",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "schema",
             "in": "path",
@@ -2054,7 +2030,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "postNestedField"
       }
     },
     "/api/apps/{app}/schemas/{schema}/fields/ui": {
@@ -2065,16 +2043,6 @@
         "summary": "Configure UI fields.",
         "operationId": "SchemaFields_PutSchemaUIFields",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "schema",
             "in": "path",
@@ -2140,7 +2108,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "putSchemaUIFields"
       }
     },
     "/api/apps/{app}/schemas/{schema}/fields/ordering": {
@@ -2151,16 +2121,6 @@
         "summary": "Reorder all fields.",
         "operationId": "SchemaFields_PutSchemaFieldOrdering",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "schema",
             "in": "path",
@@ -2226,7 +2186,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "putSchemaFieldOrdering"
       }
     },
     "/api/apps/{app}/schemas/{schema}/fields/{parentId}/nested/ordering": {
@@ -2237,16 +2199,6 @@
         "summary": "Reorder all nested fields.",
         "operationId": "SchemaFields_PutNestedFieldOrdering",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "schema",
             "in": "path",
@@ -2323,7 +2275,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "putNestedFieldOrdering"
       }
     },
     "/api/apps/{app}/schemas/{schema}/fields/{id}": {
@@ -2334,16 +2288,6 @@
         "summary": "Update a schema field.",
         "operationId": "SchemaFields_PutField",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "schema",
             "in": "path",
@@ -2420,7 +2364,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "putField"
       },
       "delete": {
         "tags": [
@@ -2429,16 +2375,6 @@
         "summary": "Delete a schema field.",
         "operationId": "SchemaFields_DeleteField",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "schema",
             "in": "path",
@@ -2502,7 +2438,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "deleteField"
       }
     },
     "/api/apps/{app}/schemas/{schema}/fields/{parentId}/nested/{id}": {
@@ -2513,16 +2451,6 @@
         "summary": "Update a nested field.",
         "operationId": "SchemaFields_PutNestedField",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "schema",
             "in": "path",
@@ -2610,7 +2538,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "putNestedField"
       },
       "delete": {
         "tags": [
@@ -2619,16 +2549,6 @@
         "summary": "Delete a nested field.",
         "operationId": "SchemaFields_DeleteNestedField",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "schema",
             "in": "path",
@@ -2703,7 +2623,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "deleteNestedField"
       }
     },
     "/api/apps/{app}/schemas/{schema}/fields/{id}/lock": {
@@ -2716,16 +2638,6 @@
         "operationId": "SchemaFields_LockField",
         "parameters": [
           {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
-          {
             "name": "schema",
             "in": "path",
             "required": true,
@@ -2788,7 +2700,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "lockField"
       }
     },
     "/api/apps/{app}/schemas/{schema}/fields/{parentId}/nested/{id}/lock": {
@@ -2801,16 +2715,6 @@
         "operationId": "SchemaFields_LockNestedField",
         "parameters": [
           {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
-          {
             "name": "schema",
             "in": "path",
             "required": true,
@@ -2884,7 +2788,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "lockNestedField"
       }
     },
     "/api/apps/{app}/schemas/{schema}/fields/{id}/hide": {
@@ -2896,16 +2802,6 @@
         "description": "A hidden field is not part of the API response, but can still be edited in the portal.",
         "operationId": "SchemaFields_HideField",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "schema",
             "in": "path",
@@ -2969,7 +2865,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "hideField"
       }
     },
     "/api/apps/{app}/schemas/{schema}/fields/{parentId}/nested/{id}/hide": {
@@ -2981,16 +2879,6 @@
         "description": "A hidden field is not part of the API response, but can still be edited in the portal.",
         "operationId": "SchemaFields_HideNestedField",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "schema",
             "in": "path",
@@ -3065,7 +2953,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "hideNestedField"
       }
     },
     "/api/apps/{app}/schemas/{schema}/fields/{id}/show": {
@@ -3078,16 +2968,6 @@
         "operationId": "SchemaFields_ShowField",
         "parameters": [
           {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
-          {
             "name": "schema",
             "in": "path",
             "required": true,
@@ -3150,7 +3030,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "showField"
       }
     },
     "/api/apps/{app}/schemas/{schema}/fields/{parentId}/nested/{id}/show": {
@@ -3163,16 +3045,6 @@
         "operationId": "SchemaFields_ShowNestedField",
         "parameters": [
           {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
-          {
             "name": "schema",
             "in": "path",
             "required": true,
@@ -3246,7 +3118,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "showNestedField"
       }
     },
     "/api/apps/{app}/schemas/{schema}/fields/{id}/enable": {
@@ -3259,16 +3133,6 @@
         "operationId": "SchemaFields_EnableField",
         "parameters": [
           {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
-          {
             "name": "schema",
             "in": "path",
             "required": true,
@@ -3331,7 +3195,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "enableField"
       }
     },
     "/api/apps/{app}/schemas/{schema}/fields/{parentId}/nested/{id}/enable": {
@@ -3344,16 +3210,6 @@
         "operationId": "SchemaFields_EnableNestedField",
         "parameters": [
           {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
-          {
             "name": "schema",
             "in": "path",
             "required": true,
@@ -3427,7 +3283,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "enableNestedField"
       }
     },
     "/api/apps/{app}/schemas/{schema}/fields/{id}/disable": {
@@ -3439,16 +3297,6 @@
         "description": "A disabled field cannot not be edited in the squidex portal anymore, but will be part of the API response.",
         "operationId": "SchemaFields_DisableField",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "schema",
             "in": "path",
@@ -3512,7 +3360,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "disableField"
       }
     },
     "/api/apps/{app}/schemas/{schema}/fields/{parentId}/nested/{id}/disable": {
@@ -3524,16 +3374,6 @@
         "description": "A disabled field cannot not be edited in the squidex portal anymore, but will be part of the API response.",
         "operationId": "SchemaFields_DisableNestedField",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "schema",
             "in": "path",
@@ -3608,7 +3448,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "disableNestedField"
       }
     },
     "/api/apps/{app}/schemas": {
@@ -3618,18 +3460,6 @@
         ],
         "summary": "Get schemas.",
         "operationId": "Schemas_GetSchemas",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "responses": {
           "200": {
             "description": "Schemas returned.",
@@ -3661,7 +3491,9 @@
               "squidex.apps.{app}.schemas.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "getSchemas"
       },
       "post": {
         "tags": [
@@ -3669,18 +3501,6 @@
         ],
         "summary": "Create a new schema.",
         "operationId": "Schemas_PostSchema",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "requestBody": {
           "x-name": "request",
           "description": "The schema object that needs to be added to the app.",
@@ -3742,7 +3562,9 @@
               "squidex.apps.{app}.schemas.create"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "postSchema"
       }
     },
     "/api/apps/{app}/schemas/{schema}": {
@@ -3753,16 +3575,6 @@
         "summary": "Get a schema by name.",
         "operationId": "Schemas_GetSchema",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "schema",
             "in": "path",
@@ -3805,7 +3617,9 @@
               "squidex.apps.{app}.schemas.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "getSchema"
       },
       "put": {
         "tags": [
@@ -3814,16 +3628,6 @@
         "summary": "Update a schema.",
         "operationId": "Schemas_PutSchema",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "schema",
             "in": "path",
@@ -3889,7 +3693,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "putSchema"
       },
       "delete": {
         "tags": [
@@ -3898,16 +3704,6 @@
         "summary": "Delete a schema.",
         "operationId": "Schemas_DeleteSchema",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "schema",
             "in": "path",
@@ -3953,7 +3749,9 @@
               "squidex.apps.{app}.schemas.{schema}.delete"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "deleteSchema"
       }
     },
     "/api/apps/{app}/schemas/{schema}/sync": {
@@ -3964,16 +3762,6 @@
         "summary": "Synchronize a schema.",
         "operationId": "Schemas_PutSchemaSync",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "schema",
             "in": "path",
@@ -4039,7 +3827,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "putSchemaSync"
       }
     },
     "/api/apps/{app}/schemas/{schema}/category": {
@@ -4050,16 +3840,6 @@
         "summary": "Update a schema category.",
         "operationId": "Schemas_PutCategory",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "schema",
             "in": "path",
@@ -4125,7 +3905,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "putCategory"
       }
     },
     "/api/apps/{app}/schemas/{schema}/preview-urls": {
@@ -4136,16 +3918,6 @@
         "summary": "Update the preview urls.",
         "operationId": "Schemas_PutPreviewUrls",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "schema",
             "in": "path",
@@ -4211,7 +3983,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "putPreviewUrls"
       }
     },
     "/api/apps/{app}/schemas/{schema}/scripts": {
@@ -4222,16 +3996,6 @@
         "summary": "Update the scripts.",
         "operationId": "Schemas_PutScripts",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "schema",
             "in": "path",
@@ -4297,7 +4061,9 @@
               "squidex.apps.{app}.schemas.{schema}.scripts"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "putScripts"
       }
     },
     "/api/apps/{app}/schemas/{schema}/rules": {
@@ -4308,16 +4074,6 @@
         "summary": "Update the rules.",
         "operationId": "Schemas_PutRules",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "schema",
             "in": "path",
@@ -4383,7 +4139,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "putRules"
       }
     },
     "/api/apps/{app}/schemas/{schema}/publish": {
@@ -4394,16 +4152,6 @@
         "summary": "Publish a schema.",
         "operationId": "Schemas_PublishSchema",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "schema",
             "in": "path",
@@ -4456,7 +4204,9 @@
               "squidex.apps.{app}.schemas.{schema}.publish"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "publishSchema"
       }
     },
     "/api/apps/{app}/schemas/{schema}/unpublish": {
@@ -4467,16 +4217,6 @@
         "summary": "Unpublish a schema.",
         "operationId": "Schemas_UnpublishSchema",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "schema",
             "in": "path",
@@ -4529,7 +4269,9 @@
               "squidex.apps.{app}.schemas.{schema}.publish"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "unpublishSchema"
       }
     },
     "/api/rules/actions": {
@@ -4568,7 +4310,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "getActions"
       }
     },
     "/api/apps/{app}/rules": {
@@ -4578,18 +4322,6 @@
         ],
         "summary": "Get rules.",
         "operationId": "Rules_GetRules",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "responses": {
           "200": {
             "description": "Rules returned.",
@@ -4621,7 +4353,9 @@
               "squidex.apps.{app}.rules.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "getRules"
       },
       "post": {
         "tags": [
@@ -4629,18 +4363,6 @@
         ],
         "summary": "Create a new rule.",
         "operationId": "Rules_PostRule",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "requestBody": {
           "x-name": "request",
           "description": "The rule object that needs to be added to the app.",
@@ -4695,7 +4417,9 @@
               "squidex.apps.{app}.rules.create"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "postRule"
       }
     },
     "/api/apps/{app}/rules/run": {
@@ -4705,18 +4429,6 @@
         ],
         "summary": "Cancel the current run.",
         "operationId": "Rules_DeleteRuleRun",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "responses": {
           "204": {
             "description": "Rule run cancelled."
@@ -4748,7 +4460,9 @@
               "squidex.apps.{app}.rules.events.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "deleteRuleRun"
       }
     },
     "/api/apps/{app}/rules/{id}": {
@@ -4759,16 +4473,6 @@
         "summary": "Update a rule.",
         "operationId": "Rules_PutRule",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "id",
             "in": "path",
@@ -4834,7 +4538,9 @@
               "squidex.apps.{app}.rules.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "putRule"
       },
       "delete": {
         "tags": [
@@ -4843,16 +4549,6 @@
         "summary": "Delete a rule.",
         "operationId": "Rules_DeleteRule",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "id",
             "in": "path",
@@ -4898,7 +4594,9 @@
               "squidex.apps.{app}.rules.delete"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "deleteRule"
       }
     },
     "/api/apps/{app}/rules/{id}/enable": {
@@ -4909,16 +4607,6 @@
         "summary": "Enable a rule.",
         "operationId": "Rules_EnableRule",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "id",
             "in": "path",
@@ -4971,7 +4659,9 @@
               "squidex.apps.{app}.rules.disable"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "enableRule"
       }
     },
     "/api/apps/{app}/rules/{id}/disable": {
@@ -4982,16 +4672,6 @@
         "summary": "Disable a rule.",
         "operationId": "Rules_DisableRule",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "id",
             "in": "path",
@@ -5044,7 +4724,9 @@
               "squidex.apps.{app}.rules.disable"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "disableRule"
       }
     },
     "/api/apps/{app}/rules/{id}/trigger": {
@@ -5055,16 +4737,6 @@
         "summary": "Trigger a rule.",
         "operationId": "Rules_TriggerRule",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "id",
             "in": "path",
@@ -5110,7 +4782,9 @@
               "squidex.apps.{app}.rules.events.run"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "triggerRule"
       }
     },
     "/api/apps/{app}/rules/{id}/run": {
@@ -5121,16 +4795,6 @@
         "summary": "Run a rule.",
         "operationId": "Rules_PutRuleRun",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "id",
             "in": "path",
@@ -5183,7 +4847,9 @@
               "squidex.apps.{app}.rules.events.run"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "putRuleRun"
       }
     },
     "/api/apps/{app}/rules/{id}/events": {
@@ -5194,16 +4860,6 @@
         "summary": "Cancels all rule events.",
         "operationId": "Rules_DeleteRuleEvents",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "id",
             "in": "path",
@@ -5246,7 +4902,9 @@
               "squidex.apps.{app}.rules.events.delete"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "deleteRuleEvents"
       }
     },
     "/api/apps/{app}/rules/simulate": {
@@ -5256,18 +4914,6 @@
         ],
         "summary": "Simulate a rule.",
         "operationId": "Rules_SimulatePOST",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "requestBody": {
           "x-name": "request",
           "description": "The rule to simulate.",
@@ -5322,7 +4968,9 @@
               "squidex.apps.{app}.rules.events.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "simulatePOST"
       }
     },
     "/api/apps/{app}/rules/{id}/simulate": {
@@ -5333,16 +4981,6 @@
         "summary": "Simulate a rule.",
         "operationId": "Rules_SimulateGET",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "id",
             "in": "path",
@@ -5385,7 +5023,9 @@
               "squidex.apps.{app}.rules.events.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "simulateGET"
       }
     },
     "/api/apps/{app}/rules/events": {
@@ -5396,16 +5036,6 @@
         "summary": "Get rule events.",
         "operationId": "Rules_GetEvents",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "ruleId",
             "in": "query",
@@ -5470,7 +5100,9 @@
               "squidex.apps.{app}.rules.events.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "getEvents"
       },
       "delete": {
         "tags": [
@@ -5478,18 +5110,6 @@
         ],
         "summary": "Cancels all events.",
         "operationId": "Rules_DeleteEvents",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "responses": {
           "204": {
             "description": "Events cancelled."
@@ -5521,7 +5141,9 @@
               "squidex.apps.{app}.rules.events.delete"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "deleteEvents"
       }
     },
     "/api/apps/{app}/rules/events/{id}": {
@@ -5532,16 +5154,6 @@
         "summary": "Retry the event immediately.",
         "operationId": "Rules_PutEvent",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "id",
             "in": "path",
@@ -5587,7 +5199,9 @@
               "squidex.apps.{app}.rules.events.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "putEvent"
       },
       "delete": {
         "tags": [
@@ -5596,16 +5210,6 @@
         "summary": "Cancels an event.",
         "operationId": "Rules_DeleteEvent",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "id",
             "in": "path",
@@ -5651,7 +5255,9 @@
               "squidex.apps.{app}.rules.events.delete"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "deleteEvent"
       }
     },
     "/api/rules/eventtypes": {
@@ -5685,7 +5291,9 @@
               }
             }
           }
-        }
+        },
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "getEventTypes"
       }
     },
     "/api/rules/eventtypes/{type}": {
@@ -5729,7 +5337,9 @@
               }
             }
           }
-        }
+        },
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "getEventSchema"
       }
     },
     "/api/apps/{app}/plans": {
@@ -5739,18 +5349,6 @@
         ],
         "summary": "Get app plan information.",
         "operationId": "AppPlans_GetPlans",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "responses": {
           "200": {
             "description": "App plan information returned.",
@@ -5782,7 +5380,9 @@
               "squidex.apps.{app}.plans.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "plans",
+        "x-fern-sdk-method-name": "getPlans"
       }
     },
     "/api/apps/{app}/plan": {
@@ -5792,18 +5392,6 @@
         ],
         "summary": "Change the app plan.",
         "operationId": "AppPlans_PutPlan",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "requestBody": {
           "x-name": "request",
           "description": "Plan object that needs to be changed.",
@@ -5858,7 +5446,9 @@
               "squidex.apps.{app}.plans.change"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "plans",
+        "x-fern-sdk-method-name": "putPlan"
       }
     },
     "/api/teams/{team}/plans": {
@@ -5911,7 +5501,9 @@
               "squidex.teams.{team}.plans.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "plans",
+        "x-fern-sdk-method-name": "getTeamPlans"
       }
     },
     "/api/teams/{team}/plan": {
@@ -5987,7 +5579,9 @@
               "squidex.teams.{team}.plans.change"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "plans",
+        "x-fern-sdk-method-name": "putTeamPlan"
       }
     },
     "/api/info": {
@@ -6018,7 +5612,9 @@
               }
             }
           }
-        }
+        },
+        "x-fern-sdk-group-name": "ping",
+        "x-fern-sdk-method-name": "getInfo"
       }
     },
     "/api/ping": {
@@ -6043,7 +5639,9 @@
               }
             }
           }
-        }
+        },
+        "x-fern-sdk-group-name": "ping",
+        "x-fern-sdk-method-name": "getPing"
       }
     },
     "/api/ping/{app}": {
@@ -6054,18 +5652,6 @@
         "summary": "Get ping status.",
         "description": "Can be used to test, if the Squidex API is alive and responding.",
         "operationId": "Ping_GetAppPing",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "responses": {
           "204": {
             "description": "Service ping successful."
@@ -6087,7 +5673,9 @@
               "squidex.apps.{app}.ping"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "ping",
+        "x-fern-sdk-method-name": "getAppPing"
       }
     },
     "/api/news/features": {
@@ -6136,7 +5724,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "news",
+        "x-fern-sdk-method-name": "getNews"
       }
     },
     "/api/languages": {
@@ -6176,7 +5766,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "languages",
+        "x-fern-sdk-method-name": "getLanguages"
       }
     },
     "/api/apps/{app}/history": {
@@ -6187,16 +5779,6 @@
         "summary": "Get historical events.",
         "operationId": "History_GetAppHistory",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "channel",
             "in": "query",
@@ -6241,7 +5823,9 @@
               "squidex.apps.{app}.history"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "history",
+        "x-fern-sdk-method-name": "getAppHistory"
       }
     },
     "/api/teams/{team}/history": {
@@ -6306,7 +5890,9 @@
               "squidex.teams.{team}.history"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "history",
+        "x-fern-sdk-method-name": "getTeamHistory"
       }
     },
     "/api/event-consumers": {
@@ -6344,7 +5930,9 @@
               "squidex.admin.events.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "eventConsumers",
+        "x-fern-sdk-method-name": "getEventConsumers"
       }
     },
     "/api/event-consumers/{consumerName}/start": {
@@ -6407,7 +5995,9 @@
               "squidex.admin.events.manage"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "eventConsumers",
+        "x-fern-sdk-method-name": "startEventConsumer"
       }
     },
     "/api/event-consumers/{consumerName}/stop": {
@@ -6470,7 +6060,9 @@
               "squidex.admin.events.manage"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "eventConsumers",
+        "x-fern-sdk-method-name": "stopEventConsumer"
       }
     },
     "/api/event-consumers/{consumerName}/reset": {
@@ -6533,7 +6125,9 @@
               "squidex.admin.events.manage"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "eventConsumers",
+        "x-fern-sdk-method-name": "resetEventConsumer"
       }
     },
     "/api/diagnostics/dump": {
@@ -6574,7 +6168,9 @@
               "squidex.admin.*"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "diagnostics",
+        "x-fern-sdk-method-name": "getDump"
       }
     },
     "/api/diagnostics/gcdump": {
@@ -6615,1629 +6211,9 @@
               "squidex.admin.*"
             ]
           }
-        ]
-      }
-    },
-    "/api/content/{app}/{schema}": {
-      "get": {
-        "tags": [
-          "Contents"
         ],
-        "summary": "Queries contents.",
-        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
-        "operationId": "Contents_GetContents",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
-          {
-            "name": "schema",
-            "in": "path",
-            "required": true,
-            "description": "The name of the schema.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 2
-          },
-          {
-            "name": "ids",
-            "in": "query",
-            "description": "The optional ids of the content to fetch.",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 3
-          },
-          {
-            "name": "q",
-            "in": "query",
-            "description": "The optional json query.",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 4
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Contents returned.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ContentsDto"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Schema or app not found."
-          },
-          "500": {
-            "description": "Operation failed.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDto"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "squidex-oauth-auth": []
-          }
-        ]
-      },
-      "post": {
-        "tags": [
-          "Contents"
-        ],
-        "summary": "Create a content item.",
-        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
-        "operationId": "Contents_PostContent",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
-          {
-            "name": "schema",
-            "in": "path",
-            "required": true,
-            "description": "The name of the schema.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 2
-          },
-          {
-            "name": "Status",
-            "in": "query",
-            "description": "The initial status.",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 4
-          },
-          {
-            "name": "Id",
-            "in": "query",
-            "description": "The optional custom content id.",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 5
-          },
-          {
-            "name": "Publish",
-            "in": "query",
-            "description": "True to automatically publish the content.",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 6
-          }
-        ],
-        "requestBody": {
-          "x-name": "Data",
-          "description": "The full data for the content item.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ContentData"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 3
-        },
-        "responses": {
-          "201": {
-            "description": "Content created.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ContentsDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Content request not valid.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDto"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Content, schema or app not found."
-          },
-          "500": {
-            "description": "Operation failed.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDto"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "squidex-oauth-auth": [
-              "squidex.apps.{app}.contents.{schema}.create"
-            ]
-          }
-        ]
-      }
-    },
-    "/api/content/{app}/{schema}/query": {
-      "post": {
-        "tags": [
-          "Contents"
-        ],
-        "summary": "Queries contents.",
-        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
-        "operationId": "Contents_GetContentsPost",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
-          {
-            "name": "schema",
-            "in": "path",
-            "required": true,
-            "description": "The name of the schema.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 2
-          }
-        ],
-        "requestBody": {
-          "x-name": "query",
-          "description": "The required query object.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/QueryDto"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 3
-        },
-        "responses": {
-          "200": {
-            "description": "Contents returned.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ContentsDto"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Schema or app not found."
-          },
-          "400": {
-            "description": "Validation error.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDto"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Operation failed.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDto"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "squidex-oauth-auth": []
-          }
-        ]
-      }
-    },
-    "/api/content/{app}/{schema}/{id}": {
-      "get": {
-        "tags": [
-          "Contents"
-        ],
-        "summary": "Get a content item.",
-        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
-        "operationId": "Contents_GetContent",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
-          {
-            "name": "schema",
-            "in": "path",
-            "required": true,
-            "description": "The name of the schema.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 2
-          },
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "description": "The ID of the content to fetch.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 3
-          },
-          {
-            "name": "version",
-            "in": "query",
-            "description": "The optional version.",
-            "schema": {
-              "type": "integer",
-              "format": "int64",
-              "default": -2
-            },
-            "x-position": 4
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Content returned.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ContentDto"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Content, schema or app not found."
-          },
-          "500": {
-            "description": "Operation failed.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDto"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "squidex-oauth-auth": []
-          }
-        ]
-      },
-      "post": {
-        "tags": [
-          "Contents"
-        ],
-        "summary": "Upsert a content item.",
-        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
-        "operationId": "Contents_PostUpsertContent",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
-          {
-            "name": "schema",
-            "in": "path",
-            "required": true,
-            "description": "The name of the schema.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 2
-          },
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "description": "The ID of the content item to update.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 3
-          },
-          {
-            "name": "Status",
-            "in": "query",
-            "description": "The initial status.",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 5
-          },
-          {
-            "name": "Patch",
-            "in": "query",
-            "description": "Makes the update as patch.",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 6
-          },
-          {
-            "name": "Publish",
-            "in": "query",
-            "description": "True to automatically publish the content.",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 7
-          }
-        ],
-        "requestBody": {
-          "x-name": "Data",
-          "description": "The full data for the content item.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ContentData"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 4
-        },
-        "responses": {
-          "200": {
-            "description": "Content created or updated.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ContentsDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Content request not valid.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDto"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Content references, schema or app not found."
-          },
-          "500": {
-            "description": "Operation failed.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDto"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "squidex-oauth-auth": [
-              "squidex.apps.{app}.contents.{schema}.upsert"
-            ]
-          }
-        ]
-      },
-      "put": {
-        "tags": [
-          "Contents"
-        ],
-        "summary": "Update a content item.",
-        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
-        "operationId": "Contents_PutContent",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
-          {
-            "name": "schema",
-            "in": "path",
-            "required": true,
-            "description": "The name of the schema.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 2
-          },
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "description": "The ID of the content item to update.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 3
-          }
-        ],
-        "requestBody": {
-          "x-name": "request",
-          "description": "The full data for the content item.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ContentData"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 4
-        },
-        "responses": {
-          "200": {
-            "description": "Content updated.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ContentsDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Content request not valid.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDto"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Content references, schema or app not found."
-          },
-          "500": {
-            "description": "Operation failed.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDto"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "squidex-oauth-auth": [
-              "squidex.apps.{app}.contents.{schema}.update.own"
-            ]
-          }
-        ]
-      },
-      "patch": {
-        "tags": [
-          "Contents"
-        ],
-        "summary": "Patchs a content item.",
-        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
-        "operationId": "Contents_PatchContent",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
-          {
-            "name": "schema",
-            "in": "path",
-            "required": true,
-            "description": "The name of the schema.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 2
-          },
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "description": "The ID of the content item to patch.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 3
-          }
-        ],
-        "requestBody": {
-          "x-name": "request",
-          "description": "The patch for the content item.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ContentData"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 4
-        },
-        "responses": {
-          "200": {
-            "description": "Content patched.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ContentsDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Content request not valid.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDto"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Content, schema or app not found."
-          },
-          "500": {
-            "description": "Operation failed.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDto"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "squidex-oauth-auth": [
-              "squidex.apps.{app}.contents.{schema}.update.own"
-            ]
-          }
-        ]
-      },
-      "delete": {
-        "tags": [
-          "Contents"
-        ],
-        "summary": "Delete a content item.",
-        "description": "You can create an generated documentation for your app at /api/content/{appName}/docs.",
-        "operationId": "Contents_DeleteContent",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
-          {
-            "name": "schema",
-            "in": "path",
-            "required": true,
-            "description": "The name of the schema.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 2
-          },
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "description": "The ID of the content item to delete.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 3
-          },
-          {
-            "name": "CheckReferrers",
-            "in": "query",
-            "description": "True to check referrers of this content.",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 4
-          },
-          {
-            "name": "Permanent",
-            "in": "query",
-            "description": "True to delete the content permanently.",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 5
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Content deleted."
-          },
-          "400": {
-            "description": "Content cannot be deleted.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDto"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Content, schema or app not found."
-          },
-          "500": {
-            "description": "Operation failed.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDto"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "squidex-oauth-auth": [
-              "squidex.apps.{app}.contents.{schema}.delete.own"
-            ]
-          }
-        ]
-      }
-    },
-    "/api/content/{app}/{schema}/{id}/validity": {
-      "get": {
-        "tags": [
-          "Contents"
-        ],
-        "summary": "Get a content item validity.",
-        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
-        "operationId": "Contents_GetContentValidity",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
-          {
-            "name": "schema",
-            "in": "path",
-            "required": true,
-            "description": "The name of the schema.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 2
-          },
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "description": "The ID of the content to fetch.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 3
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Content is valid."
-          },
-          "400": {
-            "description": "Content not valid.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDto"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Content, schema or app not found."
-          },
-          "500": {
-            "description": "Operation failed.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDto"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "squidex-oauth-auth": []
-          }
-        ]
-      }
-    },
-    "/api/content/{app}/{schema}/{id}/references": {
-      "get": {
-        "tags": [
-          "Contents"
-        ],
-        "summary": "Get all references of a content.",
-        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
-        "operationId": "Contents_GetReferences",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
-          {
-            "name": "schema",
-            "in": "path",
-            "required": true,
-            "description": "The name of the schema.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 2
-          },
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "description": "The ID of the content to fetch.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 3
-          },
-          {
-            "name": "q",
-            "in": "query",
-            "description": "The optional json query.",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 4
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Contents returned.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ContentsDto"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Content, schema or app not found."
-          },
-          "500": {
-            "description": "Operation failed.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDto"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "squidex-oauth-auth": []
-          }
-        ]
-      }
-    },
-    "/api/content/{app}/{schema}/{id}/referencing": {
-      "get": {
-        "tags": [
-          "Contents"
-        ],
-        "summary": "Get a referencing contents of a content item.",
-        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
-        "operationId": "Contents_GetReferencing",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
-          {
-            "name": "schema",
-            "in": "path",
-            "required": true,
-            "description": "The name of the schema.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 2
-          },
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "description": "The ID of the content to fetch.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 3
-          },
-          {
-            "name": "q",
-            "in": "query",
-            "description": "The optional json query.",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 4
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Content returned.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ContentsDto"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Content, schema or app not found."
-          },
-          "500": {
-            "description": "Operation failed.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDto"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "squidex-oauth-auth": []
-          }
-        ]
-      }
-    },
-    "/api/content/{app}/{schema}/{id}/{version}": {
-      "get": {
-        "tags": [
-          "Contents"
-        ],
-        "summary": "Get a content by version.",
-        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
-        "operationId": "Contents_GetContentVersion",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
-          {
-            "name": "schema",
-            "in": "path",
-            "required": true,
-            "description": "The name of the schema.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 2
-          },
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "description": "The ID of the content to fetch.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 3
-          },
-          {
-            "name": "version",
-            "in": "path",
-            "required": true,
-            "description": "The version fo the content to fetch.",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "x-position": 4
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Content version returned.",
-            "content": {
-              "application/octet-stream": {
-                "schema": {
-                  "type": "string",
-                  "format": "binary"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Content, schema or app not found."
-          },
-          "500": {
-            "description": "Operation failed.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDto"
-                }
-              }
-            }
-          }
-        },
-        "deprecated": true,
-        "security": [
-          {
-            "squidex-oauth-auth": [
-              "squidex.apps.{app}.contents.{schema}.read.own"
-            ]
-          }
-        ]
-      }
-    },
-    "/api/content/{app}/{schema}/import": {
-      "post": {
-        "tags": [
-          "Contents"
-        ],
-        "summary": "Import content items.",
-        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
-        "operationId": "Contents_PostContents",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
-          {
-            "name": "schema",
-            "in": "path",
-            "required": true,
-            "description": "The name of the schema.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 2
-          }
-        ],
-        "requestBody": {
-          "x-name": "request",
-          "description": "The import request.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ImportContentsDto"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 3
-        },
-        "responses": {
-          "200": {
-            "description": "Contents created.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/BulkResultDto"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Content request not valid.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDto"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Content references, schema or app not found."
-          },
-          "500": {
-            "description": "Operation failed.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDto"
-                }
-              }
-            }
-          }
-        },
-        "deprecated": true,
-        "security": [
-          {
-            "squidex-oauth-auth": [
-              "squidex.apps.{app}.contents.{schema}.create"
-            ]
-          }
-        ]
-      }
-    },
-    "/api/content/{app}/{schema}/bulk": {
-      "post": {
-        "tags": [
-          "Contents"
-        ],
-        "summary": "Bulk update content items.",
-        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
-        "operationId": "Contents_BulkUpdateContents",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
-          {
-            "name": "schema",
-            "in": "path",
-            "required": true,
-            "description": "The name of the schema.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 2
-          }
-        ],
-        "requestBody": {
-          "x-name": "request",
-          "description": "The bulk update request.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/BulkUpdateContentsDto"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 3
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/BulkResultDto"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Contents request not valid.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDto"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Contents references, schema or app not found."
-          },
-          "500": {
-            "description": "Operation failed.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDto"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "squidex-oauth-auth": [
-              "squidex.apps.{app}.contents.{schema}.read.own"
-            ]
-          }
-        ]
-      }
-    },
-    "/api/content/{app}/{schema}/{id}/status": {
-      "put": {
-        "tags": [
-          "Contents"
-        ],
-        "summary": "Change status of a content item.",
-        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
-        "operationId": "Contents_PutContentStatus",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
-          {
-            "name": "schema",
-            "in": "path",
-            "required": true,
-            "description": "The name of the schema.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 2
-          },
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "description": "The ID of the content item to change.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 3
-          }
-        ],
-        "requestBody": {
-          "x-name": "request",
-          "description": "The status request.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ChangeStatusDto"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 4
-        },
-        "responses": {
-          "200": {
-            "description": "Content status changed.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ContentsDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Content request not valid.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDto"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Content, schema or app not found."
-          },
-          "500": {
-            "description": "Operation failed.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDto"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "squidex-oauth-auth": [
-              "squidex.apps.{app}.contents.{schema}.changestatus.own"
-            ]
-          }
-        ]
-      },
-      "delete": {
-        "tags": [
-          "Contents"
-        ],
-        "summary": "Cancel status change of a content item.",
-        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
-        "operationId": "Contents_DeleteContentStatus",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
-          {
-            "name": "schema",
-            "in": "path",
-            "required": true,
-            "description": "The name of the schema.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 2
-          },
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "description": "The ID of the content item to cancel.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 3
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Content status change cancelled.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ContentsDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Content request not valid.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDto"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Content, schema or app not found."
-          },
-          "500": {
-            "description": "Operation failed.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDto"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "squidex-oauth-auth": [
-              "squidex.apps.{app}.contents.{schema}.changestatus.own"
-            ]
-          }
-        ]
-      }
-    },
-    "/api/content/{app}/{schema}/{id}/draft": {
-      "post": {
-        "tags": [
-          "Contents"
-        ],
-        "summary": "Create a new draft version.",
-        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
-        "operationId": "Contents_CreateDraft",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
-          {
-            "name": "schema",
-            "in": "path",
-            "required": true,
-            "description": "The name of the schema.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 2
-          },
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "description": "The ID of the content item to create the draft for.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 3
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Content draft created.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ContentsDto"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Content, schema or app not found."
-          },
-          "400": {
-            "description": "Validation error.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDto"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Operation failed.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDto"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "squidex-oauth-auth": [
-              "squidex.apps.{app}.contents.{schema}.version.create.own"
-            ]
-          }
-        ]
-      },
-      "delete": {
-        "tags": [
-          "Contents"
-        ],
-        "summary": "Delete the draft version.",
-        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
-        "operationId": "Contents_DeleteVersion",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
-          {
-            "name": "schema",
-            "in": "path",
-            "required": true,
-            "description": "The name of the schema.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 2
-          },
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "description": "The ID of the content item to delete the draft from.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 3
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Content draft deleted.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ContentsDto"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Content, schema or app not found."
-          },
-          "400": {
-            "description": "Validation error.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDto"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Operation failed.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDto"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "squidex-oauth-auth": [
-              "squidex.apps.{app}.contents.{schema}.version.delete.own"
-            ]
-          }
-        ]
+        "x-fern-sdk-group-name": "diagnostics",
+        "x-fern-sdk-method-name": "getGCDump"
       }
     },
     "/api/apps/{app}/watching/{resource}": {
@@ -8248,16 +6224,6 @@
         "summary": "Get all watching users..",
         "operationId": "Comments_GetWatchingUsers",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "resource",
             "in": "path",
@@ -8302,7 +6268,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "comments",
+        "x-fern-sdk-method-name": "getWatchingUsers"
       }
     },
     "/api/apps/{app}/comments/{commentsId}": {
@@ -8314,16 +6282,6 @@
         "description": "When passing in a version you can retrieve all updates since then.",
         "operationId": "Comments_GetComments",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "commentsId",
             "in": "path",
@@ -8377,7 +6335,9 @@
               "squidex.apps.{app}.comments.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "comments",
+        "x-fern-sdk-method-name": "getComments"
       },
       "post": {
         "tags": [
@@ -8386,16 +6346,6 @@
         "summary": "Create a new comment.",
         "operationId": "Comments_PostComment",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "commentsId",
             "in": "path",
@@ -8461,7 +6411,9 @@
               "squidex.apps.{app}.comments.create"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "comments",
+        "x-fern-sdk-method-name": "postComment"
       }
     },
     "/api/apps/{app}/comments/{commentsId}/{commentId}": {
@@ -8472,16 +6424,6 @@
         "summary": "Update a comment.",
         "operationId": "Comments_PutComment",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "commentsId",
             "in": "path",
@@ -8550,7 +6492,9 @@
               "squidex.apps.{app}.comments.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "comments",
+        "x-fern-sdk-method-name": "putComment"
       },
       "delete": {
         "tags": [
@@ -8559,16 +6503,6 @@
         "summary": "Delete a comment.",
         "operationId": "Comments_DeleteComment",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "commentsId",
             "in": "path",
@@ -8624,7 +6558,9 @@
               "squidex.apps.{app}.comments.delete"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "comments",
+        "x-fern-sdk-method-name": "deleteComment"
       }
     },
     "/api/users/{userId}/notifications": {
@@ -8684,7 +6620,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "notifications",
+        "x-fern-sdk-method-name": "getNotifications"
       }
     },
     "/api/users/{userId}/notifications/{commentId}": {
@@ -8748,7 +6686,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "notifications",
+        "x-fern-sdk-method-name": "deleteComment"
       }
     },
     "/api/apps/{app}/backups/{id}": {
@@ -8759,16 +6699,6 @@
         "summary": "Get the backup content.",
         "operationId": "BackupContent_GetBackupContent",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "id",
             "in": "path",
@@ -8805,7 +6735,9 @@
               }
             }
           }
-        }
+        },
+        "x-fern-sdk-group-name": "backups",
+        "x-fern-sdk-method-name": "getBackupContent"
       },
       "delete": {
         "tags": [
@@ -8814,16 +6746,6 @@
         "summary": "Delete a backup.",
         "operationId": "Backups_DeleteBackup",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "id",
             "in": "path",
@@ -8869,7 +6791,9 @@
               "squidex.apps.{app}.backups.delete"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "backups",
+        "x-fern-sdk-method-name": "deleteBackup"
       }
     },
     "/api/apps/backups/{id}": {
@@ -8935,7 +6859,9 @@
               }
             }
           }
-        }
+        },
+        "x-fern-sdk-group-name": "backups",
+        "x-fern-sdk-method-name": "getBackupContentV2"
       }
     },
     "/api/apps/{app}/backups": {
@@ -8945,18 +6871,6 @@
         ],
         "summary": "Get all backup jobs.",
         "operationId": "Backups_GetBackups",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "responses": {
           "200": {
             "description": "Backups returned.",
@@ -8988,7 +6902,9 @@
               "squidex.apps.{app}.backups.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "backups",
+        "x-fern-sdk-method-name": "getBackups"
       },
       "post": {
         "tags": [
@@ -8996,18 +6912,6 @@
         ],
         "summary": "Start a new backup.",
         "operationId": "Backups_PostBackup",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "responses": {
           "204": {
             "description": "Backup started."
@@ -9042,7 +6946,9 @@
               "squidex.apps.{app}.backups.create"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "backups",
+        "x-fern-sdk-method-name": "postBackup"
       }
     },
     "/api/apps/restore": {
@@ -9080,7 +6986,9 @@
               "squidex.admin.restore"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "backups",
+        "x-fern-sdk-method-name": "getRestoreJob"
       },
       "post": {
         "tags": [
@@ -9132,7 +7040,9 @@
               "squidex.admin.restore"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "backups",
+        "x-fern-sdk-method-name": "postRestoreJob"
       }
     },
     "/api/assets/{app}/{idOrSlug}/{more}": {
@@ -9143,16 +7053,6 @@
         "summary": "Get the asset content.",
         "operationId": "AssetContent_GetAssetContentBySlug",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "idOrSlug",
             "in": "path",
@@ -9346,7 +7246,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "getAssetContentBySlug"
       }
     },
     "/api/assets/{id}": {
@@ -9540,7 +7442,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "getAssetContent"
       }
     },
     "/api/apps/{app}/assets/folders": {
@@ -9552,16 +7456,6 @@
         "description": "Get all asset folders for the app.",
         "operationId": "AssetFolders_GetAssetFolders",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "parentId",
             "in": "query",
@@ -9614,7 +7508,9 @@
               "squidex.apps.{app}.assets.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "getAssetFolders"
       },
       "post": {
         "tags": [
@@ -9622,18 +7518,6 @@
         ],
         "summary": "Create an asset folder.",
         "operationId": "AssetFolders_PostAssetFolder",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "requestBody": {
           "x-name": "request",
           "description": "The asset folder object that needs to be added to the App.",
@@ -9688,7 +7572,9 @@
               "squidex.apps.{app}.assets.folders.create"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "postAssetFolder"
       }
     },
     "/api/apps/{app}/assets/folders/{id}": {
@@ -9699,16 +7585,6 @@
         "summary": "Update an asset folder.",
         "operationId": "AssetFolders_PutAssetFolder",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "id",
             "in": "path",
@@ -9774,7 +7650,9 @@
               "squidex.apps.{app}.assets.folders.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "putAssetFolder"
       },
       "delete": {
         "tags": [
@@ -9783,16 +7661,6 @@
         "summary": "Delete an asset folder.",
         "operationId": "AssetFolders_DeleteAssetFolder",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "id",
             "in": "path",
@@ -9838,7 +7706,9 @@
               "squidex.apps.{app}.assets.folders.delete"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "deleteAssetFolder"
       }
     },
     "/api/apps/{app}/assets/folders/{id}/parent": {
@@ -9849,16 +7719,6 @@
         "summary": "Move an asset folder.",
         "operationId": "AssetFolders_PutAssetFolderParent",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "id",
             "in": "path",
@@ -9924,7 +7784,9 @@
               "squidex.apps.{app}.assets.folders.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "putAssetFolderParent"
       }
     },
     "/api/apps/{app}/assets/tags": {
@@ -9935,18 +7797,6 @@
         "summary": "Get assets tags.",
         "description": "Get all tags for assets.",
         "operationId": "Assets_GetTags",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "responses": {
           "200": {
             "description": "Assets tags returned.",
@@ -9982,7 +7832,9 @@
               "squidex.apps.{app}.assets.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "getTags"
       }
     },
     "/api/apps/{app}/assets/tags/{name}": {
@@ -9993,16 +7845,6 @@
         "summary": "Rename an asset tag.",
         "operationId": "Assets_PutTag",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "name",
             "in": "path",
@@ -10072,7 +7914,9 @@
               "squidex.apps.{app}.assets.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "putTag"
       }
     },
     "/api/apps/{app}/assets": {
@@ -10084,16 +7928,6 @@
         "description": "Get all assets for the app.",
         "operationId": "Assets_GetAssets",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "parentId",
             "in": "query",
@@ -10188,7 +8022,9 @@
               "squidex.apps.{app}.assets.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "getAssets"
       },
       "post": {
         "tags": [
@@ -10198,16 +8034,6 @@
         "description": "You can only upload one file at a time. The mime type of the file is not calculated by Squidex and is required correctly.",
         "operationId": "Assets_PostAsset",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "ParentId",
             "in": "query",
@@ -10303,7 +8129,9 @@
               "squidex.apps.{app}.assets.create"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "postAsset"
       }
     },
     "/api/apps/{app}/assets/query": {
@@ -10314,18 +8142,6 @@
         "summary": "Get assets.",
         "description": "Get all assets for the app.",
         "operationId": "Assets_GetAssetsPost",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "requestBody": {
           "x-name": "query",
           "description": "The required query object.",
@@ -10380,7 +8196,9 @@
               "squidex.apps.{app}.assets.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "getAssetsPost"
       }
     },
     "/api/apps/{app}/assets/{id}": {
@@ -10391,16 +8209,6 @@
         "summary": "Get an asset by id.",
         "operationId": "Assets_GetAsset",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "id",
             "in": "path",
@@ -10443,7 +8251,9 @@
               "squidex.apps.{app}.assets.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "getAsset"
       },
       "post": {
         "tags": [
@@ -10453,16 +8263,6 @@
         "description": "You can only upload one file at a time. The mime type of the file is not calculated by Squidex and is required correctly.",
         "operationId": "Assets_PostUpsertAsset",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "id",
             "in": "path",
@@ -10558,7 +8358,9 @@
               "squidex.apps.{app}.assets.create"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "postUpsertAsset"
       },
       "put": {
         "tags": [
@@ -10567,16 +8369,6 @@
         "summary": "Update an asset.",
         "operationId": "Assets_PutAsset",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "id",
             "in": "path",
@@ -10642,7 +8434,9 @@
               "squidex.apps.{app}.assets.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "putAsset"
       },
       "delete": {
         "tags": [
@@ -10651,16 +8445,6 @@
         "summary": "Delete an asset.",
         "operationId": "Assets_DeleteAsset",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "id",
             "in": "path",
@@ -10724,7 +8508,9 @@
               "squidex.apps.{app}.assets.delete"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "deleteAsset"
       }
     },
     "/api/apps/{app}/assets/bulk": {
@@ -10734,18 +8520,6 @@
         ],
         "summary": "Bulk update assets.",
         "operationId": "Assets_BulkUpdateAssets",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "requestBody": {
           "x-name": "request",
           "description": "The bulk update request.",
@@ -10803,7 +8577,9 @@
               "squidex.apps.{app}.assets.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "bulkUpdateAssets"
       }
     },
     "/api/apps/{app}/assets/{id}/content": {
@@ -10815,16 +8591,6 @@
         "description": "Use multipart request to upload an asset.",
         "operationId": "Assets_PutAssetContent",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "id",
             "in": "path",
@@ -10902,7 +8668,9 @@
               "squidex.apps.{app}.assets.upload"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "putAssetContent"
       }
     },
     "/api/apps/{app}/assets/{id}/parent": {
@@ -10913,16 +8681,6 @@
         "summary": "Moves the asset.",
         "operationId": "Assets_PutAssetParent",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "id",
             "in": "path",
@@ -10988,7 +8746,9 @@
               "squidex.apps.{app}.assets.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "putAssetParent"
       }
     },
     "/api/apps/{app}/assets/scripts": {
@@ -10998,18 +8758,6 @@
         ],
         "summary": "Get the app asset scripts.",
         "operationId": "AppAssets_GetAssetScripts",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app to get the asset scripts for.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "responses": {
           "200": {
             "description": "Asset scripts returned.",
@@ -11041,7 +8789,9 @@
               "squidex.apps.{app}.asset-scripts.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "getAssetScripts"
       },
       "put": {
         "tags": [
@@ -11049,18 +8799,6 @@
         ],
         "summary": "Update the app asset scripts.",
         "operationId": "AppAssets_PutAssetScripts",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app to update.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "requestBody": {
           "x-name": "request",
           "description": "The values to update.",
@@ -11115,7 +8853,9 @@
               "squidex.apps.{app}.asset-scripts.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "putAssetScripts"
       }
     },
     "/api/apps/{app}/clients": {
@@ -11126,18 +8866,6 @@
         "summary": "Get app clients.",
         "description": "Gets all configured clients for the app with the specified name.",
         "operationId": "AppClients_GetClients",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "responses": {
           "200": {
             "description": "Clients returned.",
@@ -11169,7 +8897,9 @@
               "squidex.apps.{app}.clients.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "getClients"
       },
       "post": {
         "tags": [
@@ -11178,18 +8908,6 @@
         "summary": "Create a new app client.",
         "description": "Create a new client for the app with the specified name.\nThe client secret is auto generated on the server and returned. The client does not expire, the access token is valid for 30 days.",
         "operationId": "AppClients_PostClient",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "requestBody": {
           "x-name": "request",
           "description": "Client object that needs to be added to the app.",
@@ -11244,7 +8962,9 @@
               "squidex.apps.{app}.clients.create"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "postClient"
       }
     },
     "/api/apps/{app}/clients/{id}": {
@@ -11256,16 +8976,6 @@
         "description": "Only the display name can be changed, create a new client if necessary.",
         "operationId": "AppClients_PutClient",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "id",
             "in": "path",
@@ -11331,7 +9041,9 @@
               "squidex.apps.{app}.clients.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "putClient"
       },
       "delete": {
         "tags": [
@@ -11341,16 +9053,6 @@
         "description": "The application that uses this client credentials cannot access the API after it has been revoked.",
         "operationId": "AppClients_DeleteClient",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "id",
             "in": "path",
@@ -11403,7 +9105,9 @@
               "squidex.apps.{app}.clients.delete"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "deleteClient"
       }
     },
     "/api/apps/{app}/contributors": {
@@ -11413,18 +9117,6 @@
         ],
         "summary": "Get app contributors.",
         "operationId": "AppContributors_GetContributors",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "responses": {
           "200": {
             "description": "Contributors returned.",
@@ -11456,7 +9148,9 @@
               "squidex.apps.{app}.contributors.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "getContributors"
       },
       "post": {
         "tags": [
@@ -11464,18 +9158,6 @@
         ],
         "summary": "Assign contributor to app.",
         "operationId": "AppContributors_PostContributor",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "requestBody": {
           "x-name": "request",
           "description": "Contributor object that needs to be added to the app.",
@@ -11530,7 +9212,9 @@
               "squidex.apps.{app}.contributors.assign"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "postContributor"
       }
     },
     "/api/apps/{app}/contributors/me": {
@@ -11540,18 +9224,6 @@
         ],
         "summary": "Remove yourself.",
         "operationId": "AppContributors_DeleteMyself",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "responses": {
           "200": {
             "description": "Contributor removed.",
@@ -11591,7 +9263,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "deleteMyself"
       }
     },
     "/api/apps/{app}/contributors/{id}": {
@@ -11602,16 +9276,6 @@
         "summary": "Remove contributor.",
         "operationId": "AppContributors_DeleteContributor",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "id",
             "in": "path",
@@ -11664,7 +9328,9 @@
               "squidex.apps.{app}.contributors.revoke"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "deleteContributor"
       }
     },
     "/api/apps/{app}/image": {
@@ -11674,18 +9340,6 @@
         ],
         "summary": "Get the app image.",
         "operationId": "AppImage_GetImage",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "responses": {
           "200": {
             "description": "App image found and content or (resized) image returned.",
@@ -11711,7 +9365,9 @@
               }
             }
           }
-        }
+        },
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "getImage"
       },
       "post": {
         "tags": [
@@ -11719,18 +9375,6 @@
         ],
         "summary": "Upload the app image.",
         "operationId": "Apps_UploadImage",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app to update.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "requestBody": {
           "content": {
             "multipart/form-data": {
@@ -11787,7 +9431,9 @@
               "squidex.apps.{app}.image"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "uploadImage"
       },
       "delete": {
         "tags": [
@@ -11795,18 +9441,6 @@
         ],
         "summary": "Remove the app image.",
         "operationId": "Apps_DeleteImage",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app to update.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "responses": {
           "200": {
             "description": "App image removed.",
@@ -11848,7 +9482,9 @@
               "squidex.apps.{app}.image"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "deleteImage"
       }
     },
     "/api/apps/{app}/languages": {
@@ -11858,18 +9494,6 @@
         ],
         "summary": "Get app languages.",
         "operationId": "AppLanguages_GetLanguages",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "responses": {
           "200": {
             "description": "Languages returned.",
@@ -11901,7 +9525,9 @@
               "squidex.apps.{app}.languages.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "getLanguages"
       },
       "post": {
         "tags": [
@@ -11909,18 +9535,6 @@
         ],
         "summary": "Attaches an app language.",
         "operationId": "AppLanguages_PostLanguage",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "requestBody": {
           "x-name": "request",
           "description": "The language to add to the app.",
@@ -11975,7 +9589,9 @@
               "squidex.apps.{app}.languages.create"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "postLanguage"
       }
     },
     "/api/apps/{app}/languages/{language}": {
@@ -11986,16 +9602,6 @@
         "summary": "Updates an app language.",
         "operationId": "AppLanguages_PutLanguage",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "language",
             "in": "path",
@@ -12061,7 +9667,9 @@
               "squidex.apps.{app}.languages.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "putLanguage"
       },
       "delete": {
         "tags": [
@@ -12070,16 +9678,6 @@
         "summary": "Deletes an app language.",
         "operationId": "AppLanguages_DeleteLanguage",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "language",
             "in": "path",
@@ -12132,7 +9730,9 @@
               "squidex.apps.{app}.languages.delete"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "deleteLanguage"
       }
     },
     "/api/apps/{app}/roles": {
@@ -12142,18 +9742,6 @@
         ],
         "summary": "Get app roles.",
         "operationId": "AppRoles_GetRoles",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "responses": {
           "200": {
             "description": "Roles returned.",
@@ -12185,7 +9773,9 @@
               "squidex.apps.{app}.roles.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "getRoles"
       },
       "post": {
         "tags": [
@@ -12193,18 +9783,6 @@
         ],
         "summary": "Add role to app.",
         "operationId": "AppRoles_PostRole",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "requestBody": {
           "x-name": "request",
           "description": "Role object that needs to be added to the app.",
@@ -12259,7 +9837,9 @@
               "squidex.apps.{app}.roles.create"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "postRole"
       }
     },
     "/api/apps/{app}/roles/permissions": {
@@ -12269,18 +9849,6 @@
         ],
         "summary": "Get app permissions.",
         "operationId": "AppRoles_GetPermissions",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "responses": {
           "200": {
             "description": "App permissions returned.",
@@ -12315,7 +9883,9 @@
               "squidex.apps.{app}.roles.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "getPermissions"
       }
     },
     "/api/apps/{app}/roles/{roleName}": {
@@ -12326,16 +9896,6 @@
         "summary": "Update an app role.",
         "operationId": "AppRoles_PutRole",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "roleName",
             "in": "path",
@@ -12401,7 +9961,9 @@
               "squidex.apps.{app}.roles.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "putRole"
       },
       "delete": {
         "tags": [
@@ -12410,16 +9972,6 @@
         "summary": "Remove role from app.",
         "operationId": "AppRoles_DeleteRole",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "roleName",
             "in": "path",
@@ -12472,7 +10024,9 @@
               "squidex.apps.{app}.roles.delete"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "deleteRole"
       }
     },
     "/api/apps": {
@@ -12512,7 +10066,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "getApps"
       },
       "post": {
         "tags": [
@@ -12580,7 +10136,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "postApp"
       }
     },
     "/api/teams/{team}/apps": {
@@ -12632,7 +10190,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "getTeamApps"
       }
     },
     "/api/apps/{app}": {
@@ -12642,18 +10202,6 @@
         ],
         "summary": "Get an app by name.",
         "operationId": "Apps_GetApp",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "responses": {
           "200": {
             "description": "Apps returned.",
@@ -12683,7 +10231,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "getApp"
       },
       "put": {
         "tags": [
@@ -12691,18 +10241,6 @@
         ],
         "summary": "Update the app.",
         "operationId": "Apps_PutApp",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app to update.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "requestBody": {
           "x-name": "request",
           "description": "The values to update.",
@@ -12757,7 +10295,9 @@
               "squidex.apps.{app}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "putApp"
       },
       "delete": {
         "tags": [
@@ -12765,18 +10305,6 @@
         ],
         "summary": "Delete the app.",
         "operationId": "Apps_DeleteApp",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app to delete.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "responses": {
           "204": {
             "description": "App deleted."
@@ -12811,7 +10339,9 @@
               "squidex.apps.{app}.delete"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "deleteApp"
       }
     },
     "/api/apps/{app}/team": {
@@ -12821,18 +10351,6 @@
         ],
         "summary": "Transfer the app.",
         "operationId": "Apps_PutAppTeam",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app to update.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "requestBody": {
           "x-name": "request",
           "description": "The team information.",
@@ -12887,7 +10405,9 @@
               "squidex.apps.{app}.transfer"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "putAppTeam"
       }
     },
     "/api/apps/{app}/settings": {
@@ -12897,18 +10417,6 @@
         ],
         "summary": "Get the app settings.",
         "operationId": "AppSettings_GetSettings",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app to get the settings for.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "responses": {
           "200": {
             "description": "App settings returned.",
@@ -12938,7 +10446,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "getSettings"
       },
       "put": {
         "tags": [
@@ -12946,18 +10456,6 @@
         ],
         "summary": "Update the app settings.",
         "operationId": "AppSettings_PutSettings",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app to update.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "requestBody": {
           "x-name": "request",
           "description": "The values to update.",
@@ -13012,7 +10510,9 @@
               "squidex.apps.{app}.settings"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "putSettings"
       }
     },
     "/api/apps/{app}/workflows": {
@@ -13022,18 +10522,6 @@
         ],
         "summary": "Get app workflow.",
         "operationId": "AppWorkflows_GetWorkflows",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "responses": {
           "200": {
             "description": "Workflows returned.",
@@ -13065,7 +10553,9 @@
               "squidex.apps.{app}.workflows.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "getWorkflows"
       },
       "post": {
         "tags": [
@@ -13073,18 +10563,6 @@
         ],
         "summary": "Create a workflow.",
         "operationId": "AppWorkflows_PostWorkflow",
-        "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
         "requestBody": {
           "x-name": "request",
           "description": "The new workflow.",
@@ -13139,7 +10617,9 @@
               "squidex.apps.{app}.workflows.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "postWorkflow"
       }
     },
     "/api/apps/{app}/workflows/{id}": {
@@ -13150,16 +10630,6 @@
         "summary": "Update a workflow.",
         "operationId": "AppWorkflows_PutWorkflow",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "id",
             "in": "path",
@@ -13225,7 +10695,9 @@
               "squidex.apps.{app}.workflows.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "putWorkflow"
       },
       "delete": {
         "tags": [
@@ -13234,16 +10706,6 @@
         "summary": "Delete a workflow.",
         "operationId": "AppWorkflows_DeleteWorkflow",
         "parameters": [
-          {
-            "name": "app",
-            "in": "path",
-            "required": true,
-            "description": "The name of the app.",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          },
           {
             "name": "id",
             "in": "path",
@@ -13296,7 +10758,9 @@
               "squidex.apps.{app}.workflows.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "deleteWorkflow"
       }
     }
   },
@@ -13393,202 +10857,9 @@
           }
         }
       },
-      "ContentsDto": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Resource"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "required": [
-              "total",
-              "items",
-              "statuses"
-            ],
-            "properties": {
-              "total": {
-                "type": "integer",
-                "description": "The total number of content items.",
-                "format": "int64"
-              },
-              "items": {
-                "type": "array",
-                "description": "The content items.",
-                "items": {
-                  "$ref": "#/components/schemas/ContentDto"
-                }
-              },
-              "statuses": {
-                "type": "array",
-                "description": "The possible statuses.",
-                "items": {
-                  "$ref": "#/components/schemas/StatusInfoDto"
-                }
-              }
-            }
-          }
-        ]
-      },
-      "ContentDto": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Resource"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "required": [
-              "id",
-              "createdBy",
-              "lastModifiedBy",
-              "data",
-              "created",
-              "lastModified",
-              "status",
-              "statusColor",
-              "schemaId",
-              "isDeleted",
-              "version"
-            ],
-            "properties": {
-              "id": {
-                "type": "string",
-                "description": "The if of the content item."
-              },
-              "createdBy": {
-                "type": "string",
-                "description": "The user that has created the content item."
-              },
-              "lastModifiedBy": {
-                "type": "string",
-                "description": "The user that has updated the content item."
-              },
-              "data": {
-                "description": "The data of the content item."
-              },
-              "referenceData": {
-                "description": "The reference data for the frontend UI.",
-                "nullable": true,
-                "$ref": "#/components/schemas/ContentData"
-              },
-              "created": {
-                "type": "string",
-                "description": "The date and time when the content item has been created.",
-                "format": "date-time"
-              },
-              "lastModified": {
-                "type": "string",
-                "description": "The date and time when the content item has been modified last.",
-                "format": "date-time"
-              },
-              "status": {
-                "type": "string",
-                "description": "The status of the content."
-              },
-              "newStatus": {
-                "type": "string",
-                "description": "The new status of the content.",
-                "nullable": true
-              },
-              "statusColor": {
-                "type": "string",
-                "description": "The color of the status."
-              },
-              "newStatusColor": {
-                "type": "string",
-                "description": "The color of the new status.",
-                "nullable": true
-              },
-              "editToken": {
-                "type": "string",
-                "description": "The UI token.",
-                "nullable": true
-              },
-              "scheduleJob": {
-                "description": "The scheduled status.",
-                "nullable": true,
-                "$ref": "#/components/schemas/ScheduleJobDto"
-              },
-              "schemaId": {
-                "type": "string",
-                "description": "The ID of the schema."
-              },
-              "schemaName": {
-                "type": "string",
-                "description": "The name of the schema.",
-                "nullable": true
-              },
-              "schemaDisplayName": {
-                "type": "string",
-                "description": "The display name of the schema.",
-                "nullable": true
-              },
-              "referenceFields": {
-                "type": "array",
-                "description": "The reference fields.",
-                "nullable": true,
-                "items": {
-                  "$ref": "#/components/schemas/FieldDto"
-                }
-              },
-              "isDeleted": {
-                "type": "boolean",
-                "description": "Indicates whether the content is deleted."
-              },
-              "version": {
-                "type": "integer",
-                "description": "The version of the content.",
-                "format": "int64"
-              }
-            }
-          }
-        ]
-      },
-      "ContentData": {
-        "type": "object",
-        "additionalProperties": {
-          "nullable": true,
-          "$ref": "#/components/schemas/ContentFieldData"
-        }
-      },
       "ContentFieldData": {
         "type": "object",
         "additionalProperties": {}
-      },
-      "ScheduleJobDto": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "id",
-          "status",
-          "dueTime",
-          "color",
-          "scheduledBy"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "The ID of the schedule job."
-          },
-          "status": {
-            "type": "string",
-            "description": "The new status."
-          },
-          "dueTime": {
-            "type": "string",
-            "description": "The target date and time when the content should be scheduled.",
-            "format": "date-time"
-          },
-          "color": {
-            "type": "string",
-            "description": "The color of the scheduled status."
-          },
-          "scheduledBy": {
-            "type": "string",
-            "description": "The user who schedule the content."
-          }
-        }
       },
       "FieldDto": {
         "allOf": [
@@ -14722,24 +11993,6 @@
           }
         }
       },
-      "StatusInfoDto": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "status",
-          "color"
-        ],
-        "properties": {
-          "status": {
-            "type": "string",
-            "description": "The name of the status."
-          },
-          "color": {
-            "type": "string",
-            "description": "The color of the status."
-          }
-        }
-      },
       "AllContentsByPostDto": {
         "type": "object",
         "additionalProperties": false,
@@ -14815,205 +12068,6 @@
             "nullable": true
           }
         }
-      },
-      "BulkUpdateContentsDto": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "jobs"
-        ],
-        "properties": {
-          "jobs": {
-            "type": "array",
-            "description": "The contents to update or insert.",
-            "items": {
-              "$ref": "#/components/schemas/BulkUpdateContentsJobDto"
-            }
-          },
-          "publish": {
-            "type": "boolean",
-            "description": "True to automatically publish the content.",
-            "deprecated": true,
-            "x-deprecatedMessage": "Use 'jobs.status' fields now."
-          },
-          "doNotScript": {
-            "type": "boolean",
-            "description": "True to turn off scripting for faster inserts. Default: true."
-          },
-          "doNotValidate": {
-            "type": "boolean",
-            "description": "True to turn off validation for faster inserts. Default: false."
-          },
-          "doNotValidateWorkflow": {
-            "type": "boolean",
-            "description": "True to turn off validation of workflow rules. Default: false."
-          },
-          "checkReferrers": {
-            "type": "boolean",
-            "description": "True to check referrers of deleted contents."
-          },
-          "optimizeValidation": {
-            "type": "boolean",
-            "description": "True to turn off costly validation: Unique checks, asset checks and reference checks. Default: true."
-          }
-        }
-      },
-      "BulkUpdateContentsJobDto": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "query": {
-            "description": "An optional query to identify the content to update.",
-            "nullable": true,
-            "$ref": "#/components/schemas/QueryJsonDto"
-          },
-          "id": {
-            "type": "string",
-            "description": "An optional ID of the content to update.",
-            "nullable": true
-          },
-          "data": {
-            "description": "The data of the content when type is set to 'Upsert', 'Create', 'Update' or 'Patch.",
-            "nullable": true,
-            "$ref": "#/components/schemas/ContentData"
-          },
-          "status": {
-            "type": "string",
-            "description": "The new status when the type is set to 'ChangeStatus' or 'Upsert'.",
-            "nullable": true
-          },
-          "dueTime": {
-            "type": "string",
-            "description": "The due time.",
-            "format": "date-time",
-            "nullable": true
-          },
-          "type": {
-            "description": "The update type.",
-            "$ref": "#/components/schemas/BulkUpdateContentType"
-          },
-          "schema": {
-            "type": "string",
-            "description": "The optional schema id or name.",
-            "nullable": true
-          },
-          "patch": {
-            "type": "boolean",
-            "description": "Makes the update as patch."
-          },
-          "permanent": {
-            "type": "boolean",
-            "description": "True to delete the content permanently."
-          },
-          "expectedCount": {
-            "type": "integer",
-            "description": "The number of expected items. Set it to a higher number to update multiple items when a query is defined.",
-            "format": "int64"
-          },
-          "expectedVersion": {
-            "type": "integer",
-            "description": "The expected version.",
-            "format": "int64"
-          }
-        }
-      },
-      "QueryJsonDto": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "skip",
-          "take",
-          "random",
-          "top"
-        ],
-        "properties": {
-          "filter": {
-            "nullable": true
-          },
-          "fullText": {
-            "type": "string",
-            "nullable": true
-          },
-          "skip": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "take": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "random": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "top": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "sort": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/SortNode"
-            }
-          }
-        }
-      },
-      "SortNode": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "path",
-          "order"
-        ],
-        "properties": {
-          "path": {
-            "$ref": "#/components/schemas/PropertyPath"
-          },
-          "order": {
-            "$ref": "#/components/schemas/SortOrder"
-          }
-        }
-      },
-      "PropertyPath": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        }
-      },
-      "SortOrder": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "Ascending",
-          "Descending"
-        ],
-        "enum": [
-          "Ascending",
-          "Descending"
-        ]
-      },
-      "BulkUpdateContentType": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "Upsert",
-          "ChangeStatus",
-          "Create",
-          "Delete",
-          "Patch",
-          "Update",
-          "Validate"
-        ],
-        "enum": [
-          "Upsert",
-          "ChangeStatus",
-          "Create",
-          "Delete",
-          "Patch",
-          "Update",
-          "Validate"
-        ]
       },
       "UsersDto": {
         "allOf": [
@@ -18282,60 +15336,6 @@
             "type": "string",
             "description": "The parent id (for assets).",
             "nullable": true
-          }
-        }
-      },
-      "ImportContentsDto": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "datas"
-        ],
-        "properties": {
-          "datas": {
-            "type": "array",
-            "description": "The data to import.",
-            "items": {
-              "$ref": "#/components/schemas/ContentData"
-            }
-          },
-          "publish": {
-            "type": "boolean",
-            "description": "True to automatically publish the content.",
-            "deprecated": true,
-            "x-deprecatedMessage": "Use bulk endpoint now."
-          },
-          "doNotScript": {
-            "type": "boolean",
-            "description": "True to turn off scripting for faster inserts. Default: true."
-          },
-          "optimizeValidation": {
-            "type": "boolean",
-            "description": "True to turn off costly validation: Unique checks, asset checks and reference checks. Default: true."
-          }
-        }
-      },
-      "ChangeStatusDto": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "status"
-        ],
-        "properties": {
-          "status": {
-            "type": "string",
-            "description": "The new status.",
-            "minLength": 1
-          },
-          "dueTime": {
-            "type": "string",
-            "description": "The due time.",
-            "format": "date-time",
-            "nullable": true
-          },
-          "checkReferrers": {
-            "type": "boolean",
-            "description": "True to check referrers of this content."
           }
         }
       },
