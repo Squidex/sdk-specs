@@ -2,7 +2,7 @@ groups:
   publish:
     generators:
       - name: fernapi/fern-typescript-sdk
-        version: 0.5.6
+        version: 0.5.19
         output:
           location: npm
           package-name: '@squidex/squidex'
@@ -12,12 +12,12 @@ groups:
         config:
           namespaceExport: Squidex
 
-      - name: fernapi/fern-java-sdk
-        version: 0.0.134
-        output:
-          location: maven
-          coordinate: io.github.squidex:squidex
-          username: ${FERN_MAVEN_USERNAME}
-          password: ${FERN_MAVEN_TOKEN}
-        github:
-          repository: squidex/sdk-java
+      # - name: fernapi/fern-java-sdk
+      #   version: 0.0.134
+      #   output:
+      #     location: maven
+      #     coordinate: io.github.squidex:squidex
+      #     username: ${FERN_MAVEN_USERNAME}
+      #     password: ${FERN_MAVEN_TOKEN}
+      #   github:
+      #     repository: squidex/sdk-java
