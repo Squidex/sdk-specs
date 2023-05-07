@@ -85,7 +85,9 @@
               "squidex.admin.users.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "userManagement",
+        "x-fern-sdk-method-name": "getUsers"
       },
       "post": {
         "tags": [
@@ -144,7 +146,9 @@
               "squidex.admin.users.create"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "userManagement",
+        "x-fern-sdk-method-name": "postUser"
       }
     },
     "/api/user-management/{id}": {
@@ -197,7 +201,9 @@
               "squidex.admin.users.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "userManagement",
+        "x-fern-sdk-method-name": "getUser"
       },
       "put": {
         "tags": [
@@ -271,7 +277,9 @@
               "squidex.admin.users.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "userManagement",
+        "x-fern-sdk-method-name": "putUser"
       },
       "delete": {
         "tags": [
@@ -335,7 +343,9 @@
               "squidex.admin.users.unlock"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "userManagement",
+        "x-fern-sdk-method-name": "deleteUser"
       }
     },
     "/api/user-management/{id}/lock": {
@@ -408,7 +418,9 @@
               "squidex.admin.users.lock"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "userManagement",
+        "x-fern-sdk-method-name": "lockUser"
       }
     },
     "/api/user-management/{id}/unlock": {
@@ -481,7 +493,9 @@
               "squidex.admin.users.unlock"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "userManagement",
+        "x-fern-sdk-method-name": "unlockUser"
       }
     },
     "/api": {
@@ -517,7 +531,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "users",
+        "x-fern-sdk-method-name": "getUserResources"
       }
     },
     "/api/users": {
@@ -568,7 +584,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "users",
+        "x-fern-sdk-method-name": "getUsers"
       }
     },
     "/api/users/{id}": {
@@ -619,7 +637,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "users",
+        "x-fern-sdk-method-name": "getUser"
       }
     },
     "/api/users/{id}/picture": {
@@ -666,7 +686,9 @@
               }
             }
           }
-        }
+        },
+        "x-fern-sdk-group-name": "users",
+        "x-fern-sdk-method-name": "getUserPicture"
       }
     },
     "/api/apps/{app}/translations": {
@@ -739,7 +761,9 @@
               "squidex.apps.{app}.translate"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "translations",
+        "x-fern-sdk-method-name": "postTranslation"
       }
     },
     "/api/templates": {
@@ -775,7 +799,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "templates",
+        "x-fern-sdk-method-name": "getTemplates"
       }
     },
     "/api/templates/{name}": {
@@ -826,7 +852,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "templates",
+        "x-fern-sdk-method-name": "getTemplate"
       }
     },
     "/api/teams/{team}/contributors": {
@@ -879,7 +907,9 @@
               "squidex.teams.{team}.contributors.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "teams",
+        "x-fern-sdk-method-name": "getContributors"
       },
       "post": {
         "tags": [
@@ -953,7 +983,9 @@
               "squidex.teams.{team}.contributors.assign"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "teams",
+        "x-fern-sdk-method-name": "postContributor"
       }
     },
     "/api/teams/{team}/contributors/me": {
@@ -1014,7 +1046,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "teams",
+        "x-fern-sdk-method-name": "deleteMyself"
       }
     },
     "/api/teams/{team}/contributors/{id}": {
@@ -1087,7 +1121,9 @@
               "squidex.teams.{team}.contributors.revoke"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "teams",
+        "x-fern-sdk-method-name": "deleteContributor"
       }
     },
     "/api/teams": {
@@ -1127,7 +1163,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "teams",
+        "x-fern-sdk-method-name": "getTeams"
       },
       "post": {
         "tags": [
@@ -1195,7 +1233,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "teams",
+        "x-fern-sdk-method-name": "postTeam"
       }
     },
     "/api/teams/{team}": {
@@ -1246,7 +1286,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "teams",
+        "x-fern-sdk-method-name": "getTeam"
       },
       "put": {
         "tags": [
@@ -1320,7 +1362,9 @@
               "squidex.teams.{team}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "teams",
+        "x-fern-sdk-method-name": "putTeam"
       }
     },
     "/api/apps/{app}/usages/log": {
@@ -1373,7 +1417,9 @@
               "squidex.apps.{app}.usage"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "statistics",
+        "x-fern-sdk-method-name": "getLog"
       }
     },
     "/api/apps/{app}/usages/calls/{fromDate}/{toDate}": {
@@ -1448,7 +1494,9 @@
               "squidex.apps.{app}.usage"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "statistics",
+        "x-fern-sdk-method-name": "getUsages"
       }
     },
     "/api/teams/{team}/usages/calls/{fromDate}/{toDate}": {
@@ -1523,7 +1571,9 @@
               "squidex.teams.{team}.usage"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "statistics",
+        "x-fern-sdk-method-name": "getUsagesForTeam"
       }
     },
     "/api/apps/{app}/usages/storage/today": {
@@ -1576,7 +1626,9 @@
               "squidex.apps.{app}.usage"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "statistics",
+        "x-fern-sdk-method-name": "getCurrentStorageSize"
       }
     },
     "/api/teams/{team}/usages/storage/today": {
@@ -1629,7 +1681,9 @@
               "squidex.teams.{team}.usage"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "statistics",
+        "x-fern-sdk-method-name": "getTeamCurrentStorageSizeForTeam"
       }
     },
     "/api/apps/{app}/usages/storage/{fromDate}/{toDate}": {
@@ -1707,7 +1761,9 @@
               "squidex.apps.{app}.usage"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "statistics",
+        "x-fern-sdk-method-name": "getStorageSizes"
       }
     },
     "/api/teams/{team}/usages/storage/{fromDate}/{toDate}": {
@@ -1785,7 +1841,9 @@
               "squidex.teams.{team}.usage"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "statistics",
+        "x-fern-sdk-method-name": "getStorageSizesForTeam"
       }
     },
     "/api/apps/{app}/search": {
@@ -1851,7 +1909,9 @@
               "squidex.apps.{app}.search"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "search",
+        "x-fern-sdk-method-name": "getSearchResults"
       }
     },
     "/api/apps/{app}/schemas/{schema}/fields": {
@@ -1947,7 +2007,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "postField"
       }
     },
     "/api/apps/{app}/schemas/{schema}/fields/{parentId}/nested": {
@@ -2054,7 +2116,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "postNestedField"
       }
     },
     "/api/apps/{app}/schemas/{schema}/fields/ui": {
@@ -2140,7 +2204,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "putSchemaUIFields"
       }
     },
     "/api/apps/{app}/schemas/{schema}/fields/ordering": {
@@ -2226,7 +2292,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "putSchemaFieldOrdering"
       }
     },
     "/api/apps/{app}/schemas/{schema}/fields/{parentId}/nested/ordering": {
@@ -2323,7 +2391,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "putNestedFieldOrdering"
       }
     },
     "/api/apps/{app}/schemas/{schema}/fields/{id}": {
@@ -2420,7 +2490,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "putField"
       },
       "delete": {
         "tags": [
@@ -2502,7 +2574,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "deleteField"
       }
     },
     "/api/apps/{app}/schemas/{schema}/fields/{parentId}/nested/{id}": {
@@ -2610,7 +2684,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "putNestedField"
       },
       "delete": {
         "tags": [
@@ -2703,7 +2779,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "deleteNestedField"
       }
     },
     "/api/apps/{app}/schemas/{schema}/fields/{id}/lock": {
@@ -2788,7 +2866,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "lockField"
       }
     },
     "/api/apps/{app}/schemas/{schema}/fields/{parentId}/nested/{id}/lock": {
@@ -2884,7 +2964,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "lockNestedField"
       }
     },
     "/api/apps/{app}/schemas/{schema}/fields/{id}/hide": {
@@ -2969,7 +3051,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "hideField"
       }
     },
     "/api/apps/{app}/schemas/{schema}/fields/{parentId}/nested/{id}/hide": {
@@ -3065,7 +3149,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "hideNestedField"
       }
     },
     "/api/apps/{app}/schemas/{schema}/fields/{id}/show": {
@@ -3150,7 +3236,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "showField"
       }
     },
     "/api/apps/{app}/schemas/{schema}/fields/{parentId}/nested/{id}/show": {
@@ -3246,7 +3334,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "showNestedField"
       }
     },
     "/api/apps/{app}/schemas/{schema}/fields/{id}/enable": {
@@ -3331,7 +3421,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "enableField"
       }
     },
     "/api/apps/{app}/schemas/{schema}/fields/{parentId}/nested/{id}/enable": {
@@ -3427,7 +3519,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "enableNestedField"
       }
     },
     "/api/apps/{app}/schemas/{schema}/fields/{id}/disable": {
@@ -3512,7 +3606,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "disableField"
       }
     },
     "/api/apps/{app}/schemas/{schema}/fields/{parentId}/nested/{id}/disable": {
@@ -3608,7 +3704,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "disableNestedField"
       }
     },
     "/api/apps/{app}/schemas": {
@@ -3661,7 +3759,9 @@
               "squidex.apps.{app}.schemas.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "getSchemas"
       },
       "post": {
         "tags": [
@@ -3742,7 +3842,9 @@
               "squidex.apps.{app}.schemas.create"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "postSchema"
       }
     },
     "/api/apps/{app}/schemas/{schema}": {
@@ -3805,7 +3907,9 @@
               "squidex.apps.{app}.schemas.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "getSchema"
       },
       "put": {
         "tags": [
@@ -3889,7 +3993,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "putSchema"
       },
       "delete": {
         "tags": [
@@ -3953,7 +4059,9 @@
               "squidex.apps.{app}.schemas.{schema}.delete"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "deleteSchema"
       }
     },
     "/api/apps/{app}/schemas/{schema}/sync": {
@@ -4039,7 +4147,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "putSchemaSync"
       }
     },
     "/api/apps/{app}/schemas/{schema}/category": {
@@ -4125,7 +4235,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "putCategory"
       }
     },
     "/api/apps/{app}/schemas/{schema}/preview-urls": {
@@ -4211,7 +4323,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "putPreviewUrls"
       }
     },
     "/api/apps/{app}/schemas/{schema}/scripts": {
@@ -4297,7 +4411,9 @@
               "squidex.apps.{app}.schemas.{schema}.scripts"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "putScripts"
       }
     },
     "/api/apps/{app}/schemas/{schema}/rules": {
@@ -4383,7 +4499,9 @@
               "squidex.apps.{app}.schemas.{schema}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "putRules"
       }
     },
     "/api/apps/{app}/schemas/{schema}/publish": {
@@ -4456,7 +4574,9 @@
               "squidex.apps.{app}.schemas.{schema}.publish"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "publishSchema"
       }
     },
     "/api/apps/{app}/schemas/{schema}/unpublish": {
@@ -4529,7 +4649,9 @@
               "squidex.apps.{app}.schemas.{schema}.publish"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "schemas",
+        "x-fern-sdk-method-name": "unpublishSchema"
       }
     },
     "/api/rules/actions": {
@@ -4568,7 +4690,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "getActions"
       }
     },
     "/api/apps/{app}/rules": {
@@ -4621,7 +4745,9 @@
               "squidex.apps.{app}.rules.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "getRules"
       },
       "post": {
         "tags": [
@@ -4695,7 +4821,9 @@
               "squidex.apps.{app}.rules.create"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "postRule"
       }
     },
     "/api/apps/{app}/rules/run": {
@@ -4748,7 +4876,9 @@
               "squidex.apps.{app}.rules.events.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "deleteRuleRun"
       }
     },
     "/api/apps/{app}/rules/{id}": {
@@ -4834,7 +4964,9 @@
               "squidex.apps.{app}.rules.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "putRule"
       },
       "delete": {
         "tags": [
@@ -4898,7 +5030,9 @@
               "squidex.apps.{app}.rules.delete"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "deleteRule"
       }
     },
     "/api/apps/{app}/rules/{id}/enable": {
@@ -4971,7 +5105,9 @@
               "squidex.apps.{app}.rules.disable"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "enableRule"
       }
     },
     "/api/apps/{app}/rules/{id}/disable": {
@@ -5044,7 +5180,9 @@
               "squidex.apps.{app}.rules.disable"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "disableRule"
       }
     },
     "/api/apps/{app}/rules/{id}/trigger": {
@@ -5110,7 +5248,9 @@
               "squidex.apps.{app}.rules.events.run"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "triggerRule"
       }
     },
     "/api/apps/{app}/rules/{id}/run": {
@@ -5183,7 +5323,9 @@
               "squidex.apps.{app}.rules.events.run"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "putRuleRun"
       }
     },
     "/api/apps/{app}/rules/{id}/events": {
@@ -5246,7 +5388,9 @@
               "squidex.apps.{app}.rules.events.delete"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "deleteRuleEvents"
       }
     },
     "/api/apps/{app}/rules/simulate": {
@@ -5322,7 +5466,9 @@
               "squidex.apps.{app}.rules.events.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "simulatePOST"
       }
     },
     "/api/apps/{app}/rules/{id}/simulate": {
@@ -5385,7 +5531,9 @@
               "squidex.apps.{app}.rules.events.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "simulateGET"
       }
     },
     "/api/apps/{app}/rules/events": {
@@ -5470,7 +5618,9 @@
               "squidex.apps.{app}.rules.events.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "getEvents"
       },
       "delete": {
         "tags": [
@@ -5521,7 +5671,9 @@
               "squidex.apps.{app}.rules.events.delete"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "deleteEvents"
       }
     },
     "/api/apps/{app}/rules/events/{id}": {
@@ -5587,7 +5739,9 @@
               "squidex.apps.{app}.rules.events.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "putEvent"
       },
       "delete": {
         "tags": [
@@ -5651,7 +5805,9 @@
               "squidex.apps.{app}.rules.events.delete"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "deleteEvent"
       }
     },
     "/api/rules/eventtypes": {
@@ -5685,7 +5841,9 @@
               }
             }
           }
-        }
+        },
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "getEventTypes"
       }
     },
     "/api/rules/eventtypes/{type}": {
@@ -5729,7 +5887,9 @@
               }
             }
           }
-        }
+        },
+        "x-fern-sdk-group-name": "rules",
+        "x-fern-sdk-method-name": "getEventSchema"
       }
     },
     "/api/apps/{app}/plans": {
@@ -5782,7 +5942,9 @@
               "squidex.apps.{app}.plans.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "plans",
+        "x-fern-sdk-method-name": "getPlans"
       }
     },
     "/api/apps/{app}/plan": {
@@ -5858,7 +6020,9 @@
               "squidex.apps.{app}.plans.change"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "plans",
+        "x-fern-sdk-method-name": "putPlan"
       }
     },
     "/api/teams/{team}/plans": {
@@ -5911,7 +6075,9 @@
               "squidex.teams.{team}.plans.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "plans",
+        "x-fern-sdk-method-name": "getTeamPlans"
       }
     },
     "/api/teams/{team}/plan": {
@@ -5987,7 +6153,9 @@
               "squidex.teams.{team}.plans.change"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "plans",
+        "x-fern-sdk-method-name": "putTeamPlan"
       }
     },
     "/api/info": {
@@ -6018,7 +6186,9 @@
               }
             }
           }
-        }
+        },
+        "x-fern-sdk-group-name": "ping",
+        "x-fern-sdk-method-name": "getInfo"
       }
     },
     "/api/ping": {
@@ -6043,7 +6213,9 @@
               }
             }
           }
-        }
+        },
+        "x-fern-sdk-group-name": "ping",
+        "x-fern-sdk-method-name": "getPing"
       }
     },
     "/api/ping/{app}": {
@@ -6087,7 +6259,9 @@
               "squidex.apps.{app}.ping"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "ping",
+        "x-fern-sdk-method-name": "getAppPing"
       }
     },
     "/api/news/features": {
@@ -6136,7 +6310,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "news",
+        "x-fern-sdk-method-name": "getNews"
       }
     },
     "/api/languages": {
@@ -6176,7 +6352,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "languages",
+        "x-fern-sdk-method-name": "getLanguages"
       }
     },
     "/api/apps/{app}/history": {
@@ -6241,7 +6419,9 @@
               "squidex.apps.{app}.history"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "history",
+        "x-fern-sdk-method-name": "getAppHistory"
       }
     },
     "/api/teams/{team}/history": {
@@ -6306,7 +6486,9 @@
               "squidex.teams.{team}.history"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "history",
+        "x-fern-sdk-method-name": "getTeamHistory"
       }
     },
     "/api/event-consumers": {
@@ -6344,7 +6526,9 @@
               "squidex.admin.events.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "eventConsumers",
+        "x-fern-sdk-method-name": "getEventConsumers"
       }
     },
     "/api/event-consumers/{consumerName}/start": {
@@ -6407,7 +6591,9 @@
               "squidex.admin.events.manage"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "eventConsumers",
+        "x-fern-sdk-method-name": "startEventConsumer"
       }
     },
     "/api/event-consumers/{consumerName}/stop": {
@@ -6470,7 +6656,9 @@
               "squidex.admin.events.manage"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "eventConsumers",
+        "x-fern-sdk-method-name": "stopEventConsumer"
       }
     },
     "/api/event-consumers/{consumerName}/reset": {
@@ -6533,7 +6721,9 @@
               "squidex.admin.events.manage"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "eventConsumers",
+        "x-fern-sdk-method-name": "resetEventConsumer"
       }
     },
     "/api/diagnostics/dump": {
@@ -6574,7 +6764,9 @@
               "squidex.admin.*"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "diagnostics",
+        "x-fern-sdk-method-name": "getDump"
       }
     },
     "/api/diagnostics/gcdump": {
@@ -6615,7 +6807,9 @@
               "squidex.admin.*"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "diagnostics",
+        "x-fern-sdk-method-name": "getGCDump"
       }
     },
     "/api/content/{app}/{schema}": {
@@ -6697,7 +6891,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "contents",
+        "x-fern-sdk-method-name": "getContents"
       },
       "post": {
         "tags": [
@@ -6811,7 +7007,9 @@
               "squidex.apps.{app}.contents.{schema}.create"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "contents",
+        "x-fern-sdk-method-name": "postContent"
       }
     },
     "/api/content/{app}/{schema}/query": {
@@ -6896,7 +7094,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "contents",
+        "x-fern-sdk-method-name": "getContentsPost"
       }
     },
     "/api/content/{app}/{schema}/{id}": {
@@ -6979,7 +7179,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "contents",
+        "x-fern-sdk-method-name": "getContent"
       },
       "post": {
         "tags": [
@@ -7102,7 +7304,9 @@
               "squidex.apps.{app}.contents.{schema}.upsert"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "contents",
+        "x-fern-sdk-method-name": "postUpsertContent"
       },
       "put": {
         "tags": [
@@ -7197,7 +7401,9 @@
               "squidex.apps.{app}.contents.{schema}.update.own"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "contents",
+        "x-fern-sdk-method-name": "putContent"
       },
       "patch": {
         "tags": [
@@ -7292,7 +7498,9 @@
               "squidex.apps.{app}.contents.{schema}.update.own"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "contents",
+        "x-fern-sdk-method-name": "patchContent"
       },
       "delete": {
         "tags": [
@@ -7385,7 +7593,9 @@
               "squidex.apps.{app}.contents.{schema}.delete.own"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "contents",
+        "x-fern-sdk-method-name": "deleteContent"
       }
     },
     "/api/content/{app}/{schema}/{id}/validity": {
@@ -7460,7 +7670,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "contents",
+        "x-fern-sdk-method-name": "getContentValidity"
       }
     },
     "/api/content/{app}/{schema}/{id}/references": {
@@ -7542,7 +7754,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "contents",
+        "x-fern-sdk-method-name": "getReferences"
       }
     },
     "/api/content/{app}/{schema}/{id}/referencing": {
@@ -7624,7 +7838,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "contents",
+        "x-fern-sdk-method-name": "getReferencing"
       }
     },
     "/api/content/{app}/{schema}/{id}/{version}": {
@@ -7711,7 +7927,9 @@
               "squidex.apps.{app}.contents.{schema}.read.own"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "contents",
+        "x-fern-sdk-method-name": "getContentVersion"
       }
     },
     "/api/content/{app}/{schema}/import": {
@@ -7802,7 +8020,9 @@
               "squidex.apps.{app}.contents.{schema}.create"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "contents",
+        "x-fern-sdk-method-name": "postContents"
       }
     },
     "/api/content/{app}/{schema}/bulk": {
@@ -7892,7 +8112,9 @@
               "squidex.apps.{app}.contents.{schema}.read.own"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "contents",
+        "x-fern-sdk-method-name": "bulkUpdateContents"
       }
     },
     "/api/content/{app}/{schema}/{id}/status": {
@@ -7989,7 +8211,9 @@
               "squidex.apps.{app}.contents.{schema}.changestatus.own"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "contents",
+        "x-fern-sdk-method-name": "putContentStatus"
       },
       "delete": {
         "tags": [
@@ -8071,7 +8295,9 @@
               "squidex.apps.{app}.contents.{schema}.changestatus.own"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "contents",
+        "x-fern-sdk-method-name": "deleteContentStatus"
       }
     },
     "/api/content/{app}/{schema}/{id}/draft": {
@@ -8155,7 +8381,9 @@
               "squidex.apps.{app}.contents.{schema}.version.create.own"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "contents",
+        "x-fern-sdk-method-name": "createDraft"
       },
       "delete": {
         "tags": [
@@ -8237,7 +8465,9 @@
               "squidex.apps.{app}.contents.{schema}.version.delete.own"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "contents",
+        "x-fern-sdk-method-name": "deleteVersion"
       }
     },
     "/api/apps/{app}/watching/{resource}": {
@@ -8302,7 +8532,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "comments",
+        "x-fern-sdk-method-name": "getWatchingUsers"
       }
     },
     "/api/apps/{app}/comments/{commentsId}": {
@@ -8377,7 +8609,9 @@
               "squidex.apps.{app}.comments.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "comments",
+        "x-fern-sdk-method-name": "getComments"
       },
       "post": {
         "tags": [
@@ -8461,7 +8695,9 @@
               "squidex.apps.{app}.comments.create"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "comments",
+        "x-fern-sdk-method-name": "postComment"
       }
     },
     "/api/apps/{app}/comments/{commentsId}/{commentId}": {
@@ -8550,7 +8786,9 @@
               "squidex.apps.{app}.comments.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "comments",
+        "x-fern-sdk-method-name": "putComment"
       },
       "delete": {
         "tags": [
@@ -8624,7 +8862,9 @@
               "squidex.apps.{app}.comments.delete"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "comments",
+        "x-fern-sdk-method-name": "deleteComment"
       }
     },
     "/api/users/{userId}/notifications": {
@@ -8684,7 +8924,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "notifications",
+        "x-fern-sdk-method-name": "getNotifications"
       }
     },
     "/api/users/{userId}/notifications/{commentId}": {
@@ -8748,7 +8990,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "notifications",
+        "x-fern-sdk-method-name": "deleteComment"
       }
     },
     "/api/apps/{app}/backups/{id}": {
@@ -8805,7 +9049,9 @@
               }
             }
           }
-        }
+        },
+        "x-fern-sdk-group-name": "backups",
+        "x-fern-sdk-method-name": "getBackupContent"
       },
       "delete": {
         "tags": [
@@ -8869,7 +9115,9 @@
               "squidex.apps.{app}.backups.delete"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "backups",
+        "x-fern-sdk-method-name": "deleteBackup"
       }
     },
     "/api/apps/backups/{id}": {
@@ -8935,7 +9183,9 @@
               }
             }
           }
-        }
+        },
+        "x-fern-sdk-group-name": "backups",
+        "x-fern-sdk-method-name": "getBackupContentV2"
       }
     },
     "/api/apps/{app}/backups": {
@@ -8988,7 +9238,9 @@
               "squidex.apps.{app}.backups.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "backups",
+        "x-fern-sdk-method-name": "getBackups"
       },
       "post": {
         "tags": [
@@ -9042,7 +9294,9 @@
               "squidex.apps.{app}.backups.create"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "backups",
+        "x-fern-sdk-method-name": "postBackup"
       }
     },
     "/api/apps/restore": {
@@ -9080,7 +9334,9 @@
               "squidex.admin.restore"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "backups",
+        "x-fern-sdk-method-name": "getRestoreJob"
       },
       "post": {
         "tags": [
@@ -9132,7 +9388,9 @@
               "squidex.admin.restore"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "backups",
+        "x-fern-sdk-method-name": "postRestoreJob"
       }
     },
     "/api/assets/{app}/{idOrSlug}/{more}": {
@@ -9346,7 +9604,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "getAssetContentBySlug"
       }
     },
     "/api/assets/{id}": {
@@ -9540,7 +9800,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "getAssetContent"
       }
     },
     "/api/apps/{app}/assets/folders": {
@@ -9614,7 +9876,9 @@
               "squidex.apps.{app}.assets.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "getAssetFolders"
       },
       "post": {
         "tags": [
@@ -9688,7 +9952,9 @@
               "squidex.apps.{app}.assets.folders.create"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "postAssetFolder"
       }
     },
     "/api/apps/{app}/assets/folders/{id}": {
@@ -9774,7 +10040,9 @@
               "squidex.apps.{app}.assets.folders.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "putAssetFolder"
       },
       "delete": {
         "tags": [
@@ -9838,7 +10106,9 @@
               "squidex.apps.{app}.assets.folders.delete"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "deleteAssetFolder"
       }
     },
     "/api/apps/{app}/assets/folders/{id}/parent": {
@@ -9924,7 +10194,9 @@
               "squidex.apps.{app}.assets.folders.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "putAssetFolderParent"
       }
     },
     "/api/apps/{app}/assets/tags": {
@@ -9982,7 +10254,9 @@
               "squidex.apps.{app}.assets.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "getTags"
       }
     },
     "/api/apps/{app}/assets/tags/{name}": {
@@ -10072,7 +10346,9 @@
               "squidex.apps.{app}.assets.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "putTag"
       }
     },
     "/api/apps/{app}/assets": {
@@ -10188,7 +10464,9 @@
               "squidex.apps.{app}.assets.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "getAssets"
       },
       "post": {
         "tags": [
@@ -10303,7 +10581,9 @@
               "squidex.apps.{app}.assets.create"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "postAsset"
       }
     },
     "/api/apps/{app}/assets/query": {
@@ -10380,7 +10660,9 @@
               "squidex.apps.{app}.assets.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "getAssetsPost"
       }
     },
     "/api/apps/{app}/assets/{id}": {
@@ -10443,7 +10725,9 @@
               "squidex.apps.{app}.assets.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "getAsset"
       },
       "post": {
         "tags": [
@@ -10558,7 +10842,9 @@
               "squidex.apps.{app}.assets.create"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "postUpsertAsset"
       },
       "put": {
         "tags": [
@@ -10642,7 +10928,9 @@
               "squidex.apps.{app}.assets.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "putAsset"
       },
       "delete": {
         "tags": [
@@ -10724,7 +11012,9 @@
               "squidex.apps.{app}.assets.delete"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "deleteAsset"
       }
     },
     "/api/apps/{app}/assets/bulk": {
@@ -10803,7 +11093,9 @@
               "squidex.apps.{app}.assets.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "bulkUpdateAssets"
       }
     },
     "/api/apps/{app}/assets/{id}/content": {
@@ -10902,7 +11194,9 @@
               "squidex.apps.{app}.assets.upload"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "putAssetContent"
       }
     },
     "/api/apps/{app}/assets/{id}/parent": {
@@ -10988,7 +11282,9 @@
               "squidex.apps.{app}.assets.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "assets",
+        "x-fern-sdk-method-name": "putAssetParent"
       }
     },
     "/api/apps/{app}/assets/scripts": {
@@ -11041,7 +11337,9 @@
               "squidex.apps.{app}.asset-scripts.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "getAssetScripts"
       },
       "put": {
         "tags": [
@@ -11115,7 +11413,9 @@
               "squidex.apps.{app}.asset-scripts.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "putAssetScripts"
       }
     },
     "/api/apps/{app}/clients": {
@@ -11169,7 +11469,9 @@
               "squidex.apps.{app}.clients.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "getClients"
       },
       "post": {
         "tags": [
@@ -11244,7 +11546,9 @@
               "squidex.apps.{app}.clients.create"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "postClient"
       }
     },
     "/api/apps/{app}/clients/{id}": {
@@ -11331,7 +11635,9 @@
               "squidex.apps.{app}.clients.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "putClient"
       },
       "delete": {
         "tags": [
@@ -11403,7 +11709,9 @@
               "squidex.apps.{app}.clients.delete"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "deleteClient"
       }
     },
     "/api/apps/{app}/contributors": {
@@ -11456,7 +11764,9 @@
               "squidex.apps.{app}.contributors.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "getContributors"
       },
       "post": {
         "tags": [
@@ -11530,7 +11840,9 @@
               "squidex.apps.{app}.contributors.assign"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "postContributor"
       }
     },
     "/api/apps/{app}/contributors/me": {
@@ -11591,7 +11903,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "deleteMyself"
       }
     },
     "/api/apps/{app}/contributors/{id}": {
@@ -11664,7 +11978,9 @@
               "squidex.apps.{app}.contributors.revoke"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "deleteContributor"
       }
     },
     "/api/apps/{app}/image": {
@@ -11711,7 +12027,9 @@
               }
             }
           }
-        }
+        },
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "getImage"
       },
       "post": {
         "tags": [
@@ -11787,7 +12105,9 @@
               "squidex.apps.{app}.image"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "uploadImage"
       },
       "delete": {
         "tags": [
@@ -11848,7 +12168,9 @@
               "squidex.apps.{app}.image"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "deleteImage"
       }
     },
     "/api/apps/{app}/languages": {
@@ -11901,7 +12223,9 @@
               "squidex.apps.{app}.languages.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "getLanguages"
       },
       "post": {
         "tags": [
@@ -11975,7 +12299,9 @@
               "squidex.apps.{app}.languages.create"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "postLanguage"
       }
     },
     "/api/apps/{app}/languages/{language}": {
@@ -12061,7 +12387,9 @@
               "squidex.apps.{app}.languages.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "putLanguage"
       },
       "delete": {
         "tags": [
@@ -12132,7 +12460,9 @@
               "squidex.apps.{app}.languages.delete"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "deleteLanguage"
       }
     },
     "/api/apps/{app}/roles": {
@@ -12185,7 +12515,9 @@
               "squidex.apps.{app}.roles.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "getRoles"
       },
       "post": {
         "tags": [
@@ -12259,7 +12591,9 @@
               "squidex.apps.{app}.roles.create"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "postRole"
       }
     },
     "/api/apps/{app}/roles/permissions": {
@@ -12315,7 +12649,9 @@
               "squidex.apps.{app}.roles.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "getPermissions"
       }
     },
     "/api/apps/{app}/roles/{roleName}": {
@@ -12401,7 +12737,9 @@
               "squidex.apps.{app}.roles.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "putRole"
       },
       "delete": {
         "tags": [
@@ -12472,7 +12810,9 @@
               "squidex.apps.{app}.roles.delete"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "deleteRole"
       }
     },
     "/api/apps": {
@@ -12512,7 +12852,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "getApps"
       },
       "post": {
         "tags": [
@@ -12580,7 +12922,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "postApp"
       }
     },
     "/api/teams/{team}/apps": {
@@ -12632,7 +12976,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "getTeamApps"
       }
     },
     "/api/apps/{app}": {
@@ -12683,7 +13029,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "getApp"
       },
       "put": {
         "tags": [
@@ -12757,7 +13105,9 @@
               "squidex.apps.{app}.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "putApp"
       },
       "delete": {
         "tags": [
@@ -12811,7 +13161,9 @@
               "squidex.apps.{app}.delete"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "deleteApp"
       }
     },
     "/api/apps/{app}/team": {
@@ -12887,7 +13239,9 @@
               "squidex.apps.{app}.transfer"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "putAppTeam"
       }
     },
     "/api/apps/{app}/settings": {
@@ -12938,7 +13292,9 @@
           {
             "squidex-oauth-auth": []
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "getSettings"
       },
       "put": {
         "tags": [
@@ -13012,7 +13368,9 @@
               "squidex.apps.{app}.settings"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "putSettings"
       }
     },
     "/api/apps/{app}/workflows": {
@@ -13065,7 +13423,9 @@
               "squidex.apps.{app}.workflows.read"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "getWorkflows"
       },
       "post": {
         "tags": [
@@ -13139,7 +13499,9 @@
               "squidex.apps.{app}.workflows.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "postWorkflow"
       }
     },
     "/api/apps/{app}/workflows/{id}": {
@@ -13225,7 +13587,9 @@
               "squidex.apps.{app}.workflows.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "putWorkflow"
       },
       "delete": {
         "tags": [
@@ -13296,7 +13660,9 @@
               "squidex.apps.{app}.workflows.update"
             ]
           }
-        ]
+        ],
+        "x-fern-sdk-group-name": "apps",
+        "x-fern-sdk-method-name": "deleteWorkflow"
       }
     }
   },
