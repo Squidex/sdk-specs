@@ -3,8 +3,6 @@
 Tagging a release on this repository will update the:
 
 - [Node.js SDK repo](https://github.com/fern-squidex/squidex-node)
-- [OpenAPI spec repo](https://github.com/fern-squidex/squidex-openapi)
-- [Postman collection repo](https://github.com/fern-squidex/squidex-postman)
 - _More SDKs to come..._
 
 ## What is in this repository?
