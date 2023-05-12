@@ -5,14 +5,14 @@
     "title": "Squidex API",
     "version": "1.0.0.0",
     "x-logo": {
-      "url": "https://localhost:5001/images/logo-white.png",
+      "url": "https://cloud.squidex.io/images/logo-white.png",
       "backgroundStyle": "",
       "backgroundColor": "#3f83df"
     }
   },
   "servers": [
     {
-      "url": "https://localhost:5001"
+      "url": "https://cloud.squidex.io"
     }
   ],
   "paths": {
@@ -20356,8 +20356,8 @@
     "securitySchemes": {
       "squidex-oauth-auth": {
         "type": "openIdConnect",
-        "description": "Squidex uses OpenId Connect (OIDC) with the Client Credentials Flow (defined in OAuth 2.0 RFC 6749, section 4.4).\r\n\r\nThe OpenId Connect Client Credentials flow can be used for machine to machine authentication. In this grant a specific user is not authorized but rather the credentials are verified and a generic `access_token` is returned.\r\n\r\nThe `access_token` is a signed JSON Web Token (JWT) which contains expiry information. \r\n\r\nTo retrieve an access token you must pass the Client ID and Client Secret to the token endpoint to authenticate yourself and get a token:\r\n\r\n    $ curl\r\n        -X POST 'https://localhost:5001/identity-server/connect/token' \r\n        -H 'Content-Type: application/x-www-form-urlencoded' \r\n        -d 'grant_type=client_credentials&\r\n            client_id=[CLIENT_ID]&\r\n            client_secret=[CLIENT_SECRET]&\r\n\t\t\tscope=squidex-api'\r\n\r\nPass this token to all consecutiv requests to the API via the `Authorization` header:\r\n\r\n     Authorization: Bearer <token>",
-        "openIdConnectUrl": "https://localhost:5001/identity-server/.well-known/openid-configuration"
+        "description": "Squidex uses OpenId Connect (OIDC) with the Client Credentials Flow (defined in OAuth 2.0 RFC 6749, section 4.4).\r\n\r\nThe OpenId Connect Client Credentials flow can be used for machine to machine authentication. In this grant a specific user is not authorized but rather the credentials are verified and a generic `access_token` is returned.\r\n\r\nThe `access_token` is a signed JSON Web Token (JWT) which contains expiry information. \r\n\r\nTo retrieve an access token you must pass the Client ID and Client Secret to the token endpoint to authenticate yourself and get a token:\r\n\r\n    $ curl\r\n        -X POST 'https://cloud.squidex.io/identity-server/connect/token' \r\n        -H 'Content-Type: application/x-www-form-urlencoded' \r\n        -d 'grant_type=client_credentials&\r\n            client_id=[CLIENT_ID]&\r\n            client_secret=[CLIENT_SECRET]&\r\n\t\t\tscope=squidex-api'\r\n\r\nPass this token to all consecutiv requests to the API via the `Authorization` header:\r\n\r\n     Authorization: Bearer <token>",
+        "openIdConnectUrl": "https://cloud.squidex.io/identity-server/.well-known/openid-configuration"
       }
     }
   },
