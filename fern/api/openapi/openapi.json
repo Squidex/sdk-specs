@@ -14175,10 +14175,7 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
-          "fieldType",
-          "isRequired",
-          "isRequiredOnPublish",
-          "isHalfWidth"
+          "fieldType"
         ],
         "properties": {
           "label": {
@@ -14273,13 +14270,6 @@
           {
             "type": "object",
             "additionalProperties": false,
-            "required": [
-              "previewMode",
-              "resolveFirst",
-              "mustBeImage",
-              "resolveImage",
-              "allowDuplicates"
-            ],
             "properties": {
               "previewMode": {
                 "description": "The preview mode for the asset.",
@@ -14452,10 +14442,6 @@
           {
             "type": "object",
             "additionalProperties": false,
-            "required": [
-              "inlineEditable",
-              "editor"
-            ],
             "properties": {
               "defaultValues": {
                 "description": "The language specific default value for the field value.",
@@ -14568,9 +14554,6 @@
           {
             "type": "object",
             "additionalProperties": false,
-            "required": [
-              "editor"
-            ],
             "properties": {
               "defaultValues": {
                 "description": "The language specific default value for the field value.",
@@ -14653,9 +14636,6 @@
           {
             "type": "object",
             "additionalProperties": false,
-            "required": [
-              "editor"
-            ],
             "properties": {
               "editor": {
                 "description": "The editor that is used to manage this field.",
@@ -14701,11 +14681,6 @@
           {
             "type": "object",
             "additionalProperties": false,
-            "required": [
-              "isUnique",
-              "inlineEditable",
-              "editor"
-            ],
             "properties": {
               "defaultValues": {
                 "description": "The language specific default value for the field value.",
@@ -14787,12 +14762,6 @@
           {
             "type": "object",
             "additionalProperties": false,
-            "required": [
-              "allowDuplicates",
-              "resolveReference",
-              "mustBePublished",
-              "editor"
-            ],
             "properties": {
               "defaultValues": {
                 "description": "The language specific default value as a list of content ids.",
@@ -14873,14 +14842,6 @@
           {
             "type": "object",
             "additionalProperties": false,
-            "required": [
-              "isUnique",
-              "isEmbeddable",
-              "inlineEditable",
-              "createEnum",
-              "contentType",
-              "editor"
-            ],
             "properties": {
               "defaultValues": {
                 "description": "The language specific default value for the field value.",
@@ -15043,10 +15004,6 @@
           {
             "type": "object",
             "additionalProperties": false,
-            "required": [
-              "createEnum",
-              "editor"
-            ],
             "properties": {
               "defaultValues": {
                 "description": "The language specific default value for the field value.",
@@ -15115,9 +15072,6 @@
           {
             "type": "object",
             "additionalProperties": false,
-            "required": [
-              "editor"
-            ],
             "properties": {
               "editor": {
                 "description": "The editor that is used to manage this field.",
@@ -16667,10 +16621,7 @@
         "additionalProperties": false,
         "required": [
           "name",
-          "properties",
-          "isHidden",
-          "isLocked",
-          "isDisabled"
+          "properties"
         ],
         "properties": {
           "name": {
@@ -16715,10 +16666,7 @@
         "additionalProperties": false,
         "required": [
           "name",
-          "properties",
-          "isHidden",
-          "isLocked",
-          "isDisabled"
+          "properties"
         ],
         "properties": {
           "name": {
@@ -16748,9 +16696,6 @@
       "UpdateSchemaDto": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "validateOnPublish"
-        ],
         "properties": {
           "label": {
             "type": "string",
