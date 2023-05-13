@@ -2,7 +2,7 @@ groups:
   publish:
     generators:
       - name: fernapi/fern-typescript-sdk
-        version: 0.5.21-rc0
+        version: 0.5.23
         output:
           location: npm
           package-name: '@squidex/squidex'
