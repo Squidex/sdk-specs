@@ -16573,9 +16573,7 @@
             "type": "object",
             "additionalProperties": false,
             "required": [
-              "name",
-              "type",
-              "isSingleton"
+              "name"
             ],
             "properties": {
               "name": {
@@ -16602,9 +16600,6 @@
         "type": "object",
         "x-abstract": true,
         "additionalProperties": false,
-        "required": [
-          "isPublished"
-        ],
         "properties": {
           "properties": {
             "description": "The optional properties.",
@@ -16808,10 +16803,6 @@
           {
             "type": "object",
             "additionalProperties": false,
-            "required": [
-              "noFieldDeletion",
-              "noFieldRecreation"
-            ],
             "properties": {
               "noFieldDeletion": {
                 "type": "boolean",
@@ -20351,6 +20342,11 @@
           {
             "type": "object",
             "additionalProperties": false,
+            "required": [
+              "id",
+              "steps",
+              "initial"
+            ],
             "properties": {
               "id": {
                 "type": "string",
