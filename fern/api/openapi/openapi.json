@@ -6918,6 +6918,70 @@
               "nullable": true
             },
             "x-position": 4
+          },
+          {
+            "name": "$search",
+            "in": "query",
+            "description": "Optional number of items to skip.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "description": "Optional number of items to take.",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "$skip",
+            "in": "query",
+            "description": "Optional number of items to skip.",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "description": "Optional OData order definition.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "Optional OData filter.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-NoTotal",
+            "in": "header",
+            "description": "Do not return the total amount.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "X-NoSlowTotal",
+            "in": "header",
+            "description": "Do not return the total amount, if it would be slow.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "X-Unpublished",
+            "in": "header",
+            "description": "Return unpublished content items.",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -7100,6 +7164,30 @@
               "type": "string"
             },
             "x-position": 2
+          },
+          {
+            "name": "X-NoTotal",
+            "in": "header",
+            "description": "Do not return the total amount.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "X-NoSlowTotal",
+            "in": "header",
+            "description": "Do not return the total amount, if it would be slow.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "X-Unpublished",
+            "in": "header",
+            "description": "Return unpublished content items.",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "requestBody": {
@@ -7209,6 +7297,14 @@
               "default": -2
             },
             "x-position": 4
+          },
+          {
+            "name": "X-Unpublished",
+            "in": "header",
+            "description": "Return unpublished content items.",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -7790,6 +7886,30 @@
               "nullable": true
             },
             "x-position": 4
+          },
+          {
+            "name": "X-NoTotal",
+            "in": "header",
+            "description": "Do not return the total amount.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "X-NoSlowTotal",
+            "in": "header",
+            "description": "Do not return the total amount, if it would be slow.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "X-Unpublished",
+            "in": "header",
+            "description": "Return unpublished content items.",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -7875,6 +7995,30 @@
               "nullable": true
             },
             "x-position": 4
+          },
+          {
+            "name": "X-NoTotal",
+            "in": "header",
+            "description": "Do not return the total amount.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "X-NoSlowTotal",
+            "in": "header",
+            "description": "Do not return the total amount, if it would be slow.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "X-Unpublished",
+            "in": "header",
+            "description": "Return unpublished content items.",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -7961,6 +8105,14 @@
               "format": "int32"
             },
             "x-position": 4
+          },
+          {
+            "name": "X-Unpublished",
+            "in": "header",
+            "description": "Return unpublished content items.",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -10524,6 +10676,22 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "X-NoTotal",
+            "in": "header",
+            "description": "Do not return the total amount.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "X-NoSlowTotal",
+            "in": "header",
+            "description": "Do not return the total amount, if it would be slow.",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -10699,6 +10867,22 @@
             },
             "x-position": 1,
             "x-fern-sdk-variable": "appName"
+          },
+          {
+            "name": "X-NoTotal",
+            "in": "header",
+            "description": "Do not return the total amount.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "X-NoSlowTotal",
+            "in": "header",
+            "description": "Do not return the total amount, if it would be slow.",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "requestBody": {
