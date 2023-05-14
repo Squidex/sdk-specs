@@ -7031,7 +7031,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ContentsDto"
+                  "$ref": "#/components/schemas/ContentDto"
                 }
               }
             }
@@ -7429,7 +7429,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ContentsDto"
+                  "$ref": "#/components/schemas/ContentDto"
                 }
               }
             }
@@ -7527,7 +7527,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ContentsDto"
+                  "$ref": "#/components/schemas/ContentDto"
                 }
               }
             }
@@ -8248,7 +8248,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ContentsDto"
+                  "$ref": "#/components/schemas/ContentDto"
                 }
               }
             }
@@ -8333,7 +8333,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ContentsDto"
+                  "$ref": "#/components/schemas/ContentDto"
                 }
               }
             }
@@ -8420,7 +8420,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ContentsDto"
+                  "$ref": "#/components/schemas/ContentDto"
                 }
               }
             }
@@ -8505,7 +8505,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ContentsDto"
+                  "$ref": "#/components/schemas/ContentDto"
                 }
               }
             }
