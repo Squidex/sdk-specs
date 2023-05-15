@@ -6960,11 +6960,19 @@
             }
           },
           {
-            "name": "X-NoTotal",
+            "name": "X-Flatten",
             "in": "header",
-            "description": "Do not return the total amount.",
+            "description": "Provide the data as flat object.",
             "schema": {
               "type": "boolean"
+            }
+          },
+          {
+            "name": "X-Languages",
+            "in": "header",
+            "description": "Only resolve these languages (comma-separated).",
+            "schema": {
+              "type": "string"
             }
           },
           {
@@ -6976,7 +6984,15 @@
             }
           },
           {
-            "name": "X-Unpublished",
+            "name": "X-NoTotal",
+            "in": "header",
+            "description": "Do not return the total amount.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "X-Flatten",
             "in": "header",
             "description": "Return unpublished content items.",
             "schema": {
@@ -7074,6 +7090,22 @@
               "type": "boolean"
             },
             "x-position": 6
+          },
+          {
+            "name": "X-Flatten",
+            "in": "header",
+            "description": "Return unpublished content items.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "X-Languages",
+            "in": "header",
+            "description": "Only resolve these languages (comma-separated).",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -7166,11 +7198,19 @@
             "x-position": 2
           },
           {
-            "name": "X-NoTotal",
+            "name": "X-Flatten",
             "in": "header",
-            "description": "Do not return the total amount.",
+            "description": "Provide the data as flat object.",
             "schema": {
               "type": "boolean"
+            }
+          },
+          {
+            "name": "X-Languages",
+            "in": "header",
+            "description": "Only resolve these languages (comma-separated).",
+            "schema": {
+              "type": "string"
             }
           },
           {
@@ -7182,7 +7222,15 @@
             }
           },
           {
-            "name": "X-Unpublished",
+            "name": "X-NoTotal",
+            "in": "header",
+            "description": "Do not return the total amount.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "X-Flatten",
             "in": "header",
             "description": "Return unpublished content items.",
             "schema": {
@@ -7299,7 +7347,23 @@
             "x-position": 4
           },
           {
-            "name": "X-Unpublished",
+            "name": "X-Flatten",
+            "in": "header",
+            "description": "Provide the data as flat object.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "X-Languages",
+            "in": "header",
+            "description": "Only resolve these languages (comma-separated).",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Flatten",
             "in": "header",
             "description": "Return unpublished content items.",
             "schema": {
@@ -7406,6 +7470,22 @@
               "type": "boolean"
             },
             "x-position": 7
+          },
+          {
+            "name": "X-Flatten",
+            "in": "header",
+            "description": "Return unpublished content items.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "X-Languages",
+            "in": "header",
+            "description": "Only resolve these languages (comma-separated).",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -7427,7 +7507,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ContentsDto"
+                  "$ref": "#/components/schemas/ContentDto"
                 }
               }
             }
@@ -7504,6 +7584,22 @@
               "type": "string"
             },
             "x-position": 3
+          },
+          {
+            "name": "X-Flatten",
+            "in": "header",
+            "description": "Return unpublished content items.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "X-Languages",
+            "in": "header",
+            "description": "Only resolve these languages (comma-separated).",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -7602,6 +7698,22 @@
               "type": "string"
             },
             "x-position": 3
+          },
+          {
+            "name": "X-Flatten",
+            "in": "header",
+            "description": "Return unpublished content items.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "X-Languages",
+            "in": "header",
+            "description": "Only resolve these languages (comma-separated).",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -7888,9 +8000,25 @@
             "x-position": 4
           },
           {
-            "name": "X-NoTotal",
+            "name": "X-Flatten",
             "in": "header",
-            "description": "Do not return the total amount.",
+            "description": "Provide the data as flat object.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "X-Languages",
+            "in": "header",
+            "description": "Only resolve these languages (comma-separated).",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Flatten",
+            "in": "header",
+            "description": "Return unpublished content items.",
             "schema": {
               "type": "boolean"
             }
@@ -7904,9 +8032,9 @@
             }
           },
           {
-            "name": "X-Unpublished",
+            "name": "X-NoTotal",
             "in": "header",
-            "description": "Return unpublished content items.",
+            "description": "Do not return the total amount.",
             "schema": {
               "type": "boolean"
             }
@@ -7997,9 +8125,25 @@
             "x-position": 4
           },
           {
-            "name": "X-NoTotal",
+            "name": "X-Flatten",
             "in": "header",
-            "description": "Do not return the total amount.",
+            "description": "Provide the data as flat object.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "X-Languages",
+            "in": "header",
+            "description": "Only resolve these languages (comma-separated).",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Flatten",
+            "in": "header",
+            "description": "Return unpublished content items.",
             "schema": {
               "type": "boolean"
             }
@@ -8013,9 +8157,9 @@
             }
           },
           {
-            "name": "X-Unpublished",
+            "name": "X-NoTotal",
             "in": "header",
-            "description": "Return unpublished content items.",
+            "description": "Do not return the total amount.",
             "schema": {
               "type": "boolean"
             }
@@ -8107,11 +8251,19 @@
             "x-position": 4
           },
           {
-            "name": "X-Unpublished",
+            "name": "X-Flatten",
             "in": "header",
             "description": "Return unpublished content items.",
             "schema": {
               "type": "boolean"
+            }
+          },
+          {
+            "name": "X-Languages",
+            "in": "header",
+            "description": "Only resolve these languages (comma-separated).",
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -8379,6 +8531,22 @@
               "type": "string"
             },
             "x-position": 3
+          },
+          {
+            "name": "X-Flatten",
+            "in": "header",
+            "description": "Return unpublished content items.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "X-Languages",
+            "in": "header",
+            "description": "Only resolve these languages (comma-separated).",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -8477,6 +8645,22 @@
               "type": "string"
             },
             "x-position": 3
+          },
+          {
+            "name": "X-Flatten",
+            "in": "header",
+            "description": "Return unpublished content items.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "X-Languages",
+            "in": "header",
+            "description": "Only resolve these languages (comma-separated).",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -8564,6 +8748,22 @@
               "type": "string"
             },
             "x-position": 3
+          },
+          {
+            "name": "X-Flatten",
+            "in": "header",
+            "description": "Return unpublished content items.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "X-Languages",
+            "in": "header",
+            "description": "Only resolve these languages (comma-separated).",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -8649,6 +8849,22 @@
               "type": "string"
             },
             "x-position": 3
+          },
+          {
+            "name": "X-Flatten",
+            "in": "header",
+            "description": "Return unpublished content items.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "X-Languages",
+            "in": "header",
+            "description": "Only resolve these languages (comma-separated).",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -17427,9 +17643,7 @@
             "required": [
               "appId",
               "apiKey",
-              "indexName",
-              "document",
-              "delete"
+              "indexName"
             ],
             "properties": {
               "appId": {
@@ -17453,12 +17667,14 @@
               "document": {
                 "title": "Document",
                 "type": "string",
-                "description": "The optional custom document."
+                "description": "The optional custom document.",
+                "nullable": true
               },
               "delete": {
                 "title": "Deletion",
                 "type": "string",
-                "description": "The condition when to delete the entry."
+                "description": "The condition when to delete the entry.",
+                "nullable": true
               }
             }
           }
@@ -17474,8 +17690,7 @@
             "additionalProperties": false,
             "required": [
               "connectionString",
-              "queue",
-              "payload"
+              "queue"
             ],
             "properties": {
               "connectionString": {
@@ -17493,7 +17708,8 @@
               "payload": {
                 "title": "Payload (Optional)",
                 "type": "string",
-                "description": "Leave it empty to use the full event as body."
+                "description": "Leave it empty to use the full event as body.",
+                "nullable": true
               }
             }
           }
@@ -17508,8 +17724,7 @@
             "type": "object",
             "additionalProperties": false,
             "required": [
-              "text",
-              "client"
+              "text"
             ],
             "properties": {
               "text": {
@@ -17521,7 +17736,8 @@
               "client": {
                 "title": "Client",
                 "type": "string",
-                "description": "An optional client name."
+                "description": "An optional client name.",
+                "nullable": true
               }
             }
           }
@@ -17580,8 +17796,7 @@
               "url",
               "apiKey",
               "apiUsername",
-              "text",
-              "title"
+              "text"
             ],
             "properties": {
               "url": {
@@ -17612,7 +17827,8 @@
               "title": {
                 "title": "Title",
                 "type": "string",
-                "description": "The optional title when creating new topics."
+                "description": "The optional title when creating new topics.",
+                "nullable": true
               },
               "topic": {
                 "title": "Topic",
@@ -17642,11 +17858,7 @@
             "additionalProperties": false,
             "required": [
               "host",
-              "indexName",
-              "username",
-              "password",
-              "document",
-              "delete"
+              "indexName"
             ],
             "properties": {
               "host": {
@@ -17665,22 +17877,26 @@
               "username": {
                 "title": "Username",
                 "type": "string",
-                "description": "The optional username."
+                "description": "The optional username.",
+                "nullable": true
               },
               "password": {
                 "title": "Password",
                 "type": "string",
-                "description": "The optional password."
+                "description": "The optional password.",
+                "nullable": true
               },
               "document": {
                 "title": "Document",
                 "type": "string",
-                "description": "The optional custom document."
+                "description": "The optional custom document.",
+                "nullable": true
               },
               "delete": {
                 "title": "Deletion",
                 "type": "string",
-                "description": "The condition when to delete the document."
+                "description": "The condition when to delete the document.",
+                "nullable": true
               }
             }
           }
@@ -17798,9 +18014,6 @@
               "accessToken",
               "title",
               "content",
-              "canonicalUrl",
-              "tags",
-              "publicationId",
               "isHtml"
             ],
             "properties": {
@@ -17825,17 +18038,20 @@
               "canonicalUrl": {
                 "title": "Canonical Url",
                 "type": "string",
-                "description": "The original home of this content, if it was originally published elsewhere."
+                "description": "The original home of this content, if it was originally published elsewhere.",
+                "nullable": true
               },
               "tags": {
                 "title": "Tags",
                 "type": "string",
-                "description": "The optional comma separated list of tags."
+                "description": "The optional comma separated list of tags.",
+                "nullable": true
               },
               "publicationId": {
                 "title": "Publication Id",
                 "type": "string",
-                "description": "Optional publication id."
+                "description": "Optional publication id.",
+                "nullable": true
               },
               "isHtml": {
                 "title": "Is Html",
@@ -17856,9 +18072,7 @@
             "additionalProperties": false,
             "required": [
               "user",
-              "text",
-              "url",
-              "client"
+              "text"
             ],
             "properties": {
               "user": {
@@ -17876,12 +18090,14 @@
               "url": {
                 "title": "Url",
                 "type": "string",
-                "description": "The optional url to attach to the notification."
+                "description": "The optional url to attach to the notification.",
+                "nullable": true
               },
               "client": {
                 "title": "Client",
                 "type": "string",
-                "description": "An optional client name."
+                "description": "An optional client name.",
+                "nullable": true
               }
             }
           }
@@ -17897,11 +18113,7 @@
             "additionalProperties": false,
             "required": [
               "host",
-              "indexName",
-              "username",
-              "password",
-              "document",
-              "delete"
+              "indexName"
             ],
             "properties": {
               "host": {
@@ -17920,22 +18132,26 @@
               "username": {
                 "title": "Username",
                 "type": "string",
-                "description": "The optional username."
+                "description": "The optional username.",
+                "nullable": true
               },
               "password": {
                 "title": "Password",
                 "type": "string",
-                "description": "The optional password."
+                "description": "The optional password.",
+                "nullable": true
               },
               "document": {
                 "title": "Document",
                 "type": "string",
-                "description": "The optional custom document."
+                "description": "The optional custom document.",
+                "nullable": true
               },
               "delete": {
                 "title": "Deletion",
                 "type": "string",
-                "description": "The condition when to delete the document."
+                "description": "The condition when to delete the document.",
+                "nullable": true
               }
             }
           }
@@ -18003,10 +18219,7 @@
             "required": [
               "connectionString",
               "hubName",
-              "action",
-              "methodName",
-              "target",
-              "payload"
+              "action"
             ],
             "properties": {
               "connectionString": {
@@ -18029,17 +18242,20 @@
               "methodName": {
                 "title": "Methode Name",
                 "type": "string",
-                "description": "Set the Name of the hub method received by the customer."
+                "description": "Set the Name of the hub method received by the customer.",
+                "nullable": true
               },
               "target": {
                 "title": "Target (Optional)",
                 "type": "string",
-                "description": "Define target users or groups by id or name. One item per line. Not needed for Broadcast action."
+                "description": "Define target users or groups by id or name. One item per line. Not needed for Broadcast action.",
+                "nullable": true
               },
               "payload": {
                 "title": "Payload (Optional)",
                 "type": "string",
-                "description": "Leave it empty to use the full event as body."
+                "description": "Leave it empty to use the full event as body.",
+                "nullable": true
               }
             }
           }
@@ -18136,9 +18352,7 @@
             "required": [
               "host",
               "indexName",
-              "apiKey",
-              "document",
-              "delete"
+              "apiKey"
             ],
             "properties": {
               "host": {
@@ -18163,12 +18377,14 @@
               "document": {
                 "title": "Document",
                 "type": "string",
-                "description": "The optional custom document."
+                "description": "The optional custom document.",
+                "nullable": true
               },
               "delete": {
                 "title": "Deletion",
                 "type": "string",
-                "description": "The condition when to delete the document."
+                "description": "The condition when to delete the document.",
+                "nullable": true
               }
             }
           }
@@ -18184,11 +18400,7 @@
             "additionalProperties": false,
             "required": [
               "url",
-              "method",
-              "payload",
-              "payloadType",
-              "headers",
-              "sharedSecret"
+              "method"
             ],
             "properties": {
               "url": {
@@ -18206,22 +18418,26 @@
               "payload": {
                 "title": "Payload (Optional)",
                 "type": "string",
-                "description": "Leave it empty to use the full event as body."
+                "description": "Leave it empty to use the full event as body.",
+                "nullable": true
               },
               "payloadType": {
                 "title": "Payload Type",
                 "type": "string",
-                "description": "The mime type of the payload."
+                "description": "The mime type of the payload.",
+                "nullable": true
               },
               "headers": {
                 "title": "Headers (Optional)",
                 "type": "string",
-                "description": "The message headers in the format '[Key]=[Value]', one entry per line."
+                "description": "The message headers in the format '[Key]=[Value]', one entry per line.",
+                "nullable": true
               },
               "sharedSecret": {
                 "title": "Shared Secret",
                 "type": "string",
-                "description": "The shared secret that is used to calculate the payload signature."
+                "description": "The shared secret that is used to calculate the payload signature.",
+                "nullable": true
               }
             }
           }
