@@ -6992,7 +6992,7 @@
             }
           },
           {
-            "name": "X-Flatten",
+            "name": "X-Unpublished",
             "in": "header",
             "description": "Return unpublished content items.",
             "schema": {
@@ -7092,7 +7092,7 @@
             "x-position": 6
           },
           {
-            "name": "X-Flatten",
+            "name": "X-Unpublished",
             "in": "header",
             "description": "Return unpublished content items.",
             "schema": {
@@ -7230,7 +7230,7 @@
             }
           },
           {
-            "name": "X-Flatten",
+            "name": "X-Unpublished",
             "in": "header",
             "description": "Return unpublished content items.",
             "schema": {
@@ -7363,7 +7363,7 @@
             }
           },
           {
-            "name": "X-Flatten",
+            "name": "X-Unpublished",
             "in": "header",
             "description": "Return unpublished content items.",
             "schema": {
@@ -7472,7 +7472,7 @@
             "x-position": 7
           },
           {
-            "name": "X-Flatten",
+            "name": "X-Unpublished",
             "in": "header",
             "description": "Return unpublished content items.",
             "schema": {
@@ -7586,7 +7586,7 @@
             "x-position": 3
           },
           {
-            "name": "X-Flatten",
+            "name": "X-Unpublished",
             "in": "header",
             "description": "Return unpublished content items.",
             "schema": {
@@ -7700,7 +7700,7 @@
             "x-position": 3
           },
           {
-            "name": "X-Flatten",
+            "name": "X-Unpublished",
             "in": "header",
             "description": "Return unpublished content items.",
             "schema": {
@@ -8016,7 +8016,7 @@
             }
           },
           {
-            "name": "X-Flatten",
+            "name": "X-Unpublished",
             "in": "header",
             "description": "Return unpublished content items.",
             "schema": {
@@ -8141,7 +8141,7 @@
             }
           },
           {
-            "name": "X-Flatten",
+            "name": "X-Unpublished",
             "in": "header",
             "description": "Return unpublished content items.",
             "schema": {
@@ -8251,7 +8251,7 @@
             "x-position": 4
           },
           {
-            "name": "X-Flatten",
+            "name": "X-Unpublished",
             "in": "header",
             "description": "Return unpublished content items.",
             "schema": {
@@ -8533,7 +8533,7 @@
             "x-position": 3
           },
           {
-            "name": "X-Flatten",
+            "name": "X-Unpublished",
             "in": "header",
             "description": "Return unpublished content items.",
             "schema": {
@@ -8647,7 +8647,7 @@
             "x-position": 3
           },
           {
-            "name": "X-Flatten",
+            "name": "X-Unpublished",
             "in": "header",
             "description": "Return unpublished content items.",
             "schema": {
@@ -8750,7 +8750,7 @@
             "x-position": 3
           },
           {
-            "name": "X-Flatten",
+            "name": "X-Unpublished",
             "in": "header",
             "description": "Return unpublished content items.",
             "schema": {
@@ -8851,7 +8851,7 @@
             "x-position": 3
           },
           {
-            "name": "X-Flatten",
+            "name": "X-Unpublished",
             "in": "header",
             "description": "Return unpublished content items.",
             "schema": {
