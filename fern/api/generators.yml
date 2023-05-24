@@ -10,6 +10,7 @@ groups:
         github:
           repository: squidex/sdk-node
         config:
+          allowCustomFetcher: true
           namespaceExport: Squidex
 
       # - name: fernapi/fern-java-sdk
