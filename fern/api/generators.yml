@@ -2,7 +2,7 @@ groups:
   publish:
     generators:
       - name: fernapi/fern-typescript-node-sdk
-        version: 0.6.5-rc0
+        version: 0.7.0-rc0
         output:
           location: npm
           package-name: '@squidex/squidex'
@@ -11,6 +11,7 @@ groups:
           repository: squidex/sdk-node
         config:
           allowCustomFetcher: true
+          includeContentHeadersOnFileDownloadResponse: true
           namespaceExport: Squidex
 
       # - name: fernapi/fern-java-sdk
