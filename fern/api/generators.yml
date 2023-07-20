@@ -1,5 +1,5 @@
 groups:
-  publish:
+  ts-sdk:
     generators:
       - name: fernapi/fern-typescript-node-sdk
         version: 0.7.0-rc6
@@ -16,7 +16,7 @@ groups:
   java-sdk: 
     generators:
       - name: fernapi/fern-java-sdk
-        version: 0.3.8-rc6
+        version: 0.3.9-rc0
         output:
           location: maven
           coordinate: io.github.squidex:squidex
