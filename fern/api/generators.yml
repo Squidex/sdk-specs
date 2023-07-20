@@ -13,13 +13,14 @@ groups:
           allowCustomFetcher: true
           includeContentHeadersOnFileDownloadResponse: true
           namespaceExport: Squidex
-
-      # - name: fernapi/fern-java-sdk
-      #   version: 0.0.134
-      #   output:
-      #     location: maven
-      #     coordinate: io.github.squidex:squidex
-      #     username: ${FERN_MAVEN_USERNAME}
-      #     password: ${FERN_MAVEN_TOKEN}
-      #   github:
-      #     repository: squidex/sdk-java
+  java-sdk: 
+    generators:
+      - name: fernapi/fern-java-sdk
+        version: 0.3.8-rc6
+        output:
+          location: maven
+          coordinate: io.github.squidex:squidex
+          username: ${FERN_MAVEN_USERNAME}
+          password: ${FERN_MAVEN_TOKEN}
+        github:
+          repository: squidex/sdk-java
