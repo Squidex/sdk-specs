@@ -19,7 +19,7 @@ groups:
         version: 0.3.9-rc0
         output:
           location: maven
-          coordinate: io.github.squidex:squidex
+          coordinate: io.squidex:squidex
           username: ${FERN_MAVEN_USERNAME}
           password: ${FERN_MAVEN_PASSWORD}
         github:
