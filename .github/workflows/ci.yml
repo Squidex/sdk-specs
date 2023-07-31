@@ -15,9 +15,9 @@ jobs:
       - name: Check Fern API is valid
         run: fern check
 
-  fern-generate-ts: 
+  fern-generate-node: 
     needs: fern-check
-    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/ts@')
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/node@')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -35,7 +35,7 @@ jobs:
           FERN_TOKEN: ${{ secrets.FERN_TOKEN }}
         run: | 
           tag=${{ github.ref_name }}
-          prefix="ts@"
+          prefix="node@"
           SDK_VERSION="${tag#$prefix}"
           fern generate --group ts-sdk --version "$SDK_VERSION" --log-level debug
     
