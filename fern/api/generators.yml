@@ -16,7 +16,7 @@ groups:
   java-sdk: 
     generators:
       - name: fernapi/fern-java-sdk
-        version: 0.3.9-rc0
+        version: 0.4.1-rc0
         output:
           location: maven
           coordinate: io.squidex:squidex
