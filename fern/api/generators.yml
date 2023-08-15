@@ -9,6 +9,7 @@ groups:
           token: ${FERN_NPM_TOKEN}
         github:
           repository: squidex/sdk-node
+          mode: pull-request
         config:
           allowCustomFetcher: true
           includeContentHeadersOnFileDownloadResponse: true
