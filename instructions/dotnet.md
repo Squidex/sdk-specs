@@ -10,9 +10,7 @@ The SDK has no peer dependencies and will add/install all required packages.
 
 ### Version 14 and before: Create a client manager
 
-The `SquidexClientManager` is the main entry point for the SDK. It provides the properties for all endpoints.
-
-You can instantiate the client using the following code snippet:
+The `SquidexClientManager` is the main entry point for the SDK. It provides the properties for all endpoints. You can instantiate the client using the following code snippet:
 
 ```csharp
 using Squidex.ClientLibrary;
@@ -30,9 +28,7 @@ The environment parameter is optional if you are using Squidex Cloud.
 
 ### Version 15 and later: Create a client
 
-The `SquidexClient` is the main entry point for the SDK. It provides the properties for all endpoints.
-
-You can instantiate the client using the following code snippet:
+The `SquidexClient` is the main entry point for the SDK. It provides the properties for all endpoints. You can instantiate the client using the following code snippet:
 
 ```csharp
 using Squidex.ClientLibrary;

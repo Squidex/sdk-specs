@@ -10,9 +10,7 @@ The SDK has no peer dependencies and will add/install all required packages.
 
 ### Instantiate the SDK
 
-The `SquidexClient` is the main entry point for the SDK. It provides the properties for all endpoints.
-
-You can instantiate the client using the following code snippet:
+The `SquidexClient` is the main entry point for the SDK. It provides the properties for all endpoints. You can instantiate the client using the following code snippet:
 
 ```php
 use Squidex\Client\Configuration;
