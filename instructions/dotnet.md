@@ -40,7 +40,7 @@ using Squidex.ClientLibrary;
 var client = new SquidexClient(new SquidexOptions
 {
     AppName = "<APP_NAME>",
-    ClientId = "<CLIENT_ID>,
+    ClientId = "<CLIENT_ID>",
     ClientSecret = "QGgqxd7bDHBTEkpC6fj8sbdPWgZrPrPfr3xzb3LKoec=",
     Url = "<URL>"
 });
@@ -67,4 +67,3 @@ services.AddSquidex(options =>
     options.Url = "<URL>";
 });
 ```
-
