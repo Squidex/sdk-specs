@@ -9158,24 +9158,50 @@
             "x-fern-sdk-variable": "appName"
           },
           {
+            "name": "query",
+            "in": "query",
+            "description": "The query string.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "operationName",
+            "in": "query",
+            "description": "The optional operation name.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
+          },
+          {
+            "name": "variables",
+            "in": "query",
+            "description": "The optional variables.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 3
+          },
+          {
             "name": "X-Unpublished",
             "in": "header",
             "description": "Return unpublished content items.",
             "schema": {
               "type": "boolean"
             },
-            "x-position": 1
+            "x-position": 4
           }
         ],
         "responses": {
           "200": {
             "description": "Contents returned or mutated.",
             "content": {
-              "application/octet-stream": {
-                "schema": {
-                  "type": "string",
-                  "format": "binary"
-                }
+              "application/json": {
+                "schema": {}
               }
             }
           },
@@ -9200,16 +9226,14 @@
         ],
         "x-fern-sdk-group-name": "contents",
         "x-fern-sdk-method-name": "getGraphQL"
-      }
-    },
-    "/api/content/{app}/graphql/batch": {
-      "get": {
+      },
+      "post": {
         "tags": [
           "Contents"
         ],
         "summary": "GraphQL endpoint.",
         "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
-        "operationId": "ContentsShared_GetGraphQL2",
+        "operationId": "ContentsShared_PostGraphQL",
         "parameters": [
           {
             "name": "app",
@@ -9229,18 +9253,127 @@
             "schema": {
               "type": "boolean"
             },
+            "x-position": 2
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "description": "The request object.",
+          "content": {
+            "application/json": {
+              "schema": {}
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Contents returned or mutated.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "404": {
+            "description": "App not found."
+          },
+          "400": {
+            "description": "Validation error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Operation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "squidex-oauth-auth": []
+          }
+        ],
+        "x-fern-sdk-group-name": "contents",
+        "x-fern-sdk-method-name": "postGraphQL"
+      }
+    },
+    "/api/content/{app}/graphql/batch": {
+      "get": {
+        "tags": [
+          "Contents"
+        ],
+        "summary": "GraphQL batch endpoint.",
+        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
+        "operationId": "ContentsShared_GetGraphQLBatch",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 0,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
+            "name": "query",
+            "in": "query",
+            "description": "The query string.",
+            "schema": {
+              "type": "string"
+            },
             "x-position": 1
+          },
+          {
+            "name": "operationName",
+            "in": "query",
+            "description": "The optional operation name.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
+          },
+          {
+            "name": "variables",
+            "in": "query",
+            "description": "The optional variables.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 3
+          },
+          {
+            "name": "X-Unpublished",
+            "in": "header",
+            "description": "Return unpublished content items.",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 4
           }
         ],
         "responses": {
           "200": {
             "description": "Contents returned or mutated.",
             "content": {
-              "application/octet-stream": {
-                "schema": {
-                  "type": "string",
-                  "format": "binary"
-                }
+              "application/json": {
+                "schema": {}
               }
             }
           },
@@ -9264,7 +9397,88 @@
           }
         ],
         "x-fern-sdk-group-name": "contents",
-        "x-fern-sdk-method-name": "getGraphQL2"
+        "x-fern-sdk-method-name": "getGraphQLBatch"
+      },
+      "post": {
+        "tags": [
+          "Contents"
+        ],
+        "summary": "GraphQL batch endpoint.",
+        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
+        "operationId": "ContentsShared_PostGraphQLBatch",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 0,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
+            "name": "X-Unpublished",
+            "in": "header",
+            "description": "Return unpublished content items.",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 2
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "description": "The request object.",
+          "content": {
+            "application/json": {
+              "schema": {}
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Contents returned or mutated.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "404": {
+            "description": "App not found."
+          },
+          "400": {
+            "description": "Validation error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Operation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "squidex-oauth-auth": []
+          }
+        ],
+        "x-fern-sdk-group-name": "contents",
+        "x-fern-sdk-method-name": "postGraphQLBatch"
       }
     },
     "/api/content/{app}": {
