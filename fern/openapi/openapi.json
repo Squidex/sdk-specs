@@ -9575,7 +9575,7 @@
         ],
         "summary": "Bulk update content items.",
         "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
-        "operationId": "ContentsShared_BulkUpdateContents",
+        "operationId": "ContentsShared_BulkUpdateAllContents",
         "parameters": [
           {
             "name": "app",
@@ -9657,7 +9657,7 @@
           }
         ],
         "x-fern-sdk-group-name": "contents",
-        "x-fern-sdk-method-name": "bulkUpdateContents"
+        "x-fern-sdk-method-name": "bulkUpdateAllContents"
       }
     },
     "/api/apps/{app}/watching/{resource}": {

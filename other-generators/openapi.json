@@ -752,6 +752,19 @@
         ],
         "summary": "Translate a text.",
         "operationId": "Translations_PostTranslation",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "requestBody": {
           "x-name": "request",
           "description": "The translation request.",
@@ -815,6 +828,19 @@
         ],
         "summary": "Asks the chatbot a question a text.",
         "operationId": "Translations_PostQuestion",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "requestBody": {
           "x-name": "request",
           "description": "The question request.",
@@ -1482,6 +1508,19 @@
         ],
         "summary": "Get api calls as log file.",
         "operationId": "Usages_GetLog",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Usage tracking results returned.",
@@ -1526,6 +1565,17 @@
         "summary": "Get api calls in date range.",
         "operationId": "Usages_GetUsages",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "fromDate",
             "in": "path",
@@ -1669,6 +1719,19 @@
         ],
         "summary": "Get total asset size.",
         "operationId": "Usages_GetCurrentStorageSize",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Storage usage returned.",
@@ -1768,6 +1831,17 @@
         "summary": "Get asset usage by date.",
         "operationId": "Usages_GetStorageSizes",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "fromDate",
             "in": "path",
@@ -1919,6 +1993,17 @@
         "operationId": "Search_GetSearchResults",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "query",
             "in": "query",
             "description": "The search query.",
@@ -1976,6 +2061,17 @@
         "summary": "Add a schema field.",
         "operationId": "SchemaFields_PostField",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "schema",
             "in": "path",
@@ -2064,6 +2160,17 @@
         "summary": "Add a nested field.",
         "operationId": "SchemaFields_PostNestedField",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "schema",
             "in": "path",
@@ -2164,6 +2271,17 @@
         "operationId": "SchemaFields_PutSchemaUIFields",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "schema",
             "in": "path",
             "required": true,
@@ -2242,6 +2360,17 @@
         "operationId": "SchemaFields_PutSchemaFieldOrdering",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "schema",
             "in": "path",
             "required": true,
@@ -2319,6 +2448,17 @@
         "summary": "Reorder all nested fields.",
         "operationId": "SchemaFields_PutNestedFieldOrdering",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "schema",
             "in": "path",
@@ -2409,6 +2549,17 @@
         "operationId": "SchemaFields_PutField",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "schema",
             "in": "path",
             "required": true,
@@ -2496,6 +2647,17 @@
         "operationId": "SchemaFields_DeleteField",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "schema",
             "in": "path",
             "required": true,
@@ -2571,6 +2733,17 @@
         "summary": "Update a nested field.",
         "operationId": "SchemaFields_PutNestedField",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "schema",
             "in": "path",
@@ -2670,6 +2843,17 @@
         "operationId": "SchemaFields_DeleteNestedField",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "schema",
             "in": "path",
             "required": true,
@@ -2758,6 +2942,17 @@
         "operationId": "SchemaFields_LockField",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "schema",
             "in": "path",
             "required": true,
@@ -2834,6 +3029,17 @@
         "description": "A locked field cannot be edited or deleted.",
         "operationId": "SchemaFields_LockNestedField",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "schema",
             "in": "path",
@@ -2923,6 +3129,17 @@
         "operationId": "SchemaFields_HideField",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "schema",
             "in": "path",
             "required": true,
@@ -2999,6 +3216,17 @@
         "description": "A hidden field is not part of the API response, but can still be edited in the portal.",
         "operationId": "SchemaFields_HideNestedField",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "schema",
             "in": "path",
@@ -3088,6 +3316,17 @@
         "operationId": "SchemaFields_ShowField",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "schema",
             "in": "path",
             "required": true,
@@ -3164,6 +3403,17 @@
         "description": "A hidden field is not part of the API response, but can still be edited in the portal.",
         "operationId": "SchemaFields_ShowNestedField",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "schema",
             "in": "path",
@@ -3253,6 +3503,17 @@
         "operationId": "SchemaFields_EnableField",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "schema",
             "in": "path",
             "required": true,
@@ -3329,6 +3590,17 @@
         "description": "A disabled field cannot not be edited in the squidex portal anymore, but will be part of the API response.",
         "operationId": "SchemaFields_EnableNestedField",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "schema",
             "in": "path",
@@ -3418,6 +3690,17 @@
         "operationId": "SchemaFields_DisableField",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "schema",
             "in": "path",
             "required": true,
@@ -3494,6 +3777,17 @@
         "description": "A disabled field cannot not be edited in the squidex portal anymore, but will be part of the API response.",
         "operationId": "SchemaFields_DisableNestedField",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "schema",
             "in": "path",
@@ -3580,6 +3874,19 @@
         ],
         "summary": "Get schemas.",
         "operationId": "Schemas_GetSchemas",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Schemas returned.",
@@ -3621,6 +3928,19 @@
         ],
         "summary": "Create a new schema.",
         "operationId": "Schemas_PostSchema",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "requestBody": {
           "x-name": "request",
           "description": "The schema object that needs to be added to the app.",
@@ -3696,6 +4016,17 @@
         "operationId": "Schemas_GetSchema",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "schema",
             "in": "path",
             "required": true,
@@ -3748,6 +4079,17 @@
         "summary": "Update a schema.",
         "operationId": "Schemas_PutSchema",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "schema",
             "in": "path",
@@ -3825,6 +4167,17 @@
         "operationId": "Schemas_DeleteSchema",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "schema",
             "in": "path",
             "required": true,
@@ -3882,6 +4235,17 @@
         "summary": "Synchronize a schema.",
         "operationId": "Schemas_PutSchemaSync",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "schema",
             "in": "path",
@@ -3961,6 +4325,17 @@
         "operationId": "Schemas_PutCategory",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "schema",
             "in": "path",
             "required": true,
@@ -4038,6 +4413,17 @@
         "summary": "Update the preview urls.",
         "operationId": "Schemas_PutPreviewUrls",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "schema",
             "in": "path",
@@ -4117,6 +4503,17 @@
         "operationId": "Schemas_PutScripts",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "schema",
             "in": "path",
             "required": true,
@@ -4194,6 +4591,17 @@
         "summary": "Update the rules.",
         "operationId": "Schemas_PutRules",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "schema",
             "in": "path",
@@ -4273,6 +4681,17 @@
         "operationId": "Schemas_PublishSchema",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "schema",
             "in": "path",
             "required": true,
@@ -4337,6 +4756,17 @@
         "summary": "Unpublish a schema.",
         "operationId": "Schemas_UnpublishSchema",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "schema",
             "in": "path",
@@ -4442,6 +4872,19 @@
         ],
         "summary": "Get rules.",
         "operationId": "Rules_GetRules",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Rules returned.",
@@ -4483,6 +4926,19 @@
         ],
         "summary": "Create a new rule.",
         "operationId": "Rules_PostRule",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "requestBody": {
           "x-name": "request",
           "description": "The rule object that needs to be added to the app.",
@@ -4549,6 +5005,19 @@
         ],
         "summary": "Cancel the current run.",
         "operationId": "Rules_DeleteRuleRun",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "responses": {
           "204": {
             "description": "Rule run cancelled."
@@ -4593,6 +5062,17 @@
         "summary": "Update a rule.",
         "operationId": "Rules_PutRule",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "id",
             "in": "path",
@@ -4670,6 +5150,17 @@
         "operationId": "Rules_DeleteRule",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "id",
             "in": "path",
             "required": true,
@@ -4727,6 +5218,17 @@
         "summary": "Enable a rule.",
         "operationId": "Rules_EnableRule",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "id",
             "in": "path",
@@ -4793,6 +5295,17 @@
         "operationId": "Rules_DisableRule",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "id",
             "in": "path",
             "required": true,
@@ -4858,6 +5371,17 @@
         "operationId": "Rules_TriggerRule",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "id",
             "in": "path",
             "required": true,
@@ -4915,6 +5439,17 @@
         "summary": "Run a rule.",
         "operationId": "Rules_PutRuleRun",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "id",
             "in": "path",
@@ -4981,6 +5516,17 @@
         "operationId": "Rules_DeleteRuleEvents",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "id",
             "in": "path",
             "required": true,
@@ -5034,6 +5580,19 @@
         ],
         "summary": "Simulate a rule.",
         "operationId": "Rules_SimulatePOST",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "requestBody": {
           "x-name": "request",
           "description": "The rule to simulate.",
@@ -5102,6 +5661,17 @@
         "operationId": "Rules_SimulateGET",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "id",
             "in": "path",
             "required": true,
@@ -5156,6 +5726,17 @@
         "summary": "Get rule events.",
         "operationId": "Rules_GetEvents",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "ruleId",
             "in": "query",
@@ -5230,6 +5811,19 @@
         ],
         "summary": "Cancels all events.",
         "operationId": "Rules_DeleteEvents",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "responses": {
           "204": {
             "description": "Events cancelled."
@@ -5274,6 +5868,17 @@
         "summary": "Retry the event immediately.",
         "operationId": "Rules_PutEvent",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "id",
             "in": "path",
@@ -5330,6 +5935,17 @@
         "summary": "Cancels an event.",
         "operationId": "Rules_DeleteEvent",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "id",
             "in": "path",
@@ -5469,6 +6085,19 @@
         ],
         "summary": "Get app plan information.",
         "operationId": "AppPlans_GetPlans",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "responses": {
           "200": {
             "description": "App plan information returned.",
@@ -5512,6 +6141,19 @@
         ],
         "summary": "Change the app plan.",
         "operationId": "AppPlans_PutPlan",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "requestBody": {
           "x-name": "request",
           "description": "Plan object that needs to be changed.",
@@ -5772,6 +6414,19 @@
         "summary": "Get ping status.",
         "description": "Can be used to test, if the Squidex API is alive and responding.",
         "operationId": "Ping_GetAppPing",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "responses": {
           "204": {
             "description": "Service ping successful."
@@ -5899,6 +6554,17 @@
         "summary": "Get historical events.",
         "operationId": "History_GetAppHistory",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "channel",
             "in": "query",
@@ -6346,6 +7012,17 @@
         "operationId": "Contents_GetContents",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 0,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "schema",
             "in": "path",
             "required": true,
@@ -6517,6 +7194,17 @@
         "operationId": "Contents_PostContent",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 0,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "schema",
             "in": "path",
             "required": true,
@@ -6642,6 +7330,17 @@
         "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
         "operationId": "Contents_GetContentsPost",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 0,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "schema",
             "in": "path",
@@ -6774,6 +7473,17 @@
         "operationId": "Contents_GetContent",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 0,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "schema",
             "in": "path",
             "required": true,
@@ -6882,6 +7592,17 @@
         "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
         "operationId": "Contents_PostUpsertContent",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 0,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "schema",
             "in": "path",
@@ -7016,6 +7737,17 @@
         "operationId": "Contents_PutContent",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 0,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "schema",
             "in": "path",
             "required": true,
@@ -7120,6 +7852,17 @@
         "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
         "operationId": "Contents_PatchContent",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 0,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "schema",
             "in": "path",
@@ -7226,6 +7969,17 @@
         "operationId": "Contents_DeleteContent",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "schema",
             "in": "path",
             "required": true,
@@ -7313,6 +8067,17 @@
         "operationId": "Contents_GetContentValidity",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "schema",
             "in": "path",
             "required": true,
@@ -7379,6 +8144,17 @@
         "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
         "operationId": "Contents_GetReferences",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 0,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "schema",
             "in": "path",
@@ -7508,6 +8284,17 @@
         "operationId": "Contents_GetReferencing",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 0,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "schema",
             "in": "path",
             "required": true,
@@ -7636,6 +8423,17 @@
         "operationId": "Contents_GetContentVersion",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 0,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "schema",
             "in": "path",
             "required": true,
@@ -7733,6 +8531,17 @@
         "operationId": "Contents_PostContents",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "schema",
             "in": "path",
             "required": true,
@@ -7816,6 +8625,17 @@
         "operationId": "Contents_BulkUpdateContents",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "schema",
             "in": "path",
             "required": true,
@@ -7897,6 +8717,17 @@
         "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
         "operationId": "Contents_PutContentStatus",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 0,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "schema",
             "in": "path",
@@ -8003,6 +8834,17 @@
         "operationId": "Contents_DeleteContentStatus",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 0,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "schema",
             "in": "path",
             "required": true,
@@ -8097,6 +8939,17 @@
         "operationId": "Contents_CreateDraft",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 0,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "schema",
             "in": "path",
             "required": true,
@@ -8188,6 +9041,17 @@
         "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
         "operationId": "Contents_DeleteVersion",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 0,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "schema",
             "in": "path",
@@ -8283,6 +9147,17 @@
         "operationId": "ContentsShared_GetGraphQL",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 0,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "X-Unpublished",
             "in": "header",
             "description": "Return unpublished content items.",
@@ -8337,6 +9212,17 @@
         "operationId": "ContentsShared_GetGraphQL2",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 0,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "X-Unpublished",
             "in": "header",
             "description": "Return unpublished content items.",
@@ -8390,6 +9276,17 @@
         "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
         "operationId": "ContentsShared_GetAllContents",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 0,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "ids",
             "in": "query",
@@ -8549,6 +9446,17 @@
         "operationId": "ContentsShared_GetAllContentsPost",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 0,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "X-Fields",
             "in": "header",
             "description": "The list of content fields (comma-separated).",
@@ -8667,8 +9575,19 @@
         ],
         "summary": "Bulk update content items.",
         "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
-        "operationId": "ContentsShared_BulkUpdateContents",
+        "operationId": "ContentsShared_BulkUpdateAllContents",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "schema",
             "in": "query",
@@ -8738,7 +9657,7 @@
           }
         ],
         "x-fern-sdk-group-name": "contents",
-        "x-fern-sdk-method-name": "bulkUpdateContents"
+        "x-fern-sdk-method-name": "bulkUpdateAllContents"
       }
     },
     "/api/apps/{app}/watching/{resource}": {
@@ -8749,6 +9668,17 @@
         "summary": "Get all watching users..",
         "operationId": "Comments_GetWatchingUsers",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "resource",
             "in": "path",
@@ -8806,6 +9736,17 @@
         "description": "When passing in a version you can retrieve all updates since then.",
         "operationId": "Comments_GetComments",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "commentsId",
             "in": "path",
@@ -8870,6 +9811,17 @@
         "summary": "Create a new comment.",
         "operationId": "Comments_PostComment",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "commentsId",
             "in": "path",
@@ -8949,6 +9901,17 @@
         "operationId": "Comments_PutComment",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "commentsId",
             "in": "path",
             "required": true,
@@ -9027,6 +9990,17 @@
         "summary": "Delete a comment.",
         "operationId": "Comments_DeleteComment",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "commentsId",
             "in": "path",
@@ -9224,6 +10198,17 @@
         "operationId": "BackupContent_GetBackupContent",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "id",
             "in": "path",
             "required": true,
@@ -9270,6 +10255,17 @@
         "summary": "Delete a backup.",
         "operationId": "Backups_DeleteBackup",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "id",
             "in": "path",
@@ -9395,6 +10391,19 @@
         ],
         "summary": "Get all backup jobs.",
         "operationId": "Backups_GetBackups",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Backups returned.",
@@ -9436,6 +10445,19 @@
         ],
         "summary": "Start a new backup.",
         "operationId": "Backups_PostBackup",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "responses": {
           "204": {
             "description": "Backup started."
@@ -9577,6 +10599,17 @@
         "summary": "Get the asset content.",
         "operationId": "AssetContent_GetAssetContentBySlug",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "idOrSlug",
             "in": "path",
@@ -10000,6 +11033,17 @@
         "operationId": "AssetFolders_GetAssetFolders",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "parentId",
             "in": "query",
             "description": "The optional parent folder id.",
@@ -10061,6 +11105,19 @@
         ],
         "summary": "Create an asset folder.",
         "operationId": "AssetFolders_PostAssetFolder",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "requestBody": {
           "x-name": "request",
           "description": "The asset folder object that needs to be added to the App.",
@@ -10128,6 +11185,17 @@
         "summary": "Update an asset folder.",
         "operationId": "AssetFolders_PutAssetFolder",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "id",
             "in": "path",
@@ -10205,6 +11273,17 @@
         "operationId": "AssetFolders_DeleteAssetFolder",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "id",
             "in": "path",
             "required": true,
@@ -10262,6 +11341,17 @@
         "summary": "Move an asset folder.",
         "operationId": "AssetFolders_PutAssetFolderParent",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "id",
             "in": "path",
@@ -10340,6 +11430,19 @@
         "summary": "Get assets tags.",
         "description": "Get all tags for assets.",
         "operationId": "Assets_GetTags",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Assets tags returned.",
@@ -10388,6 +11491,17 @@
         "summary": "Rename an asset tag.",
         "operationId": "Assets_PutTag",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "name",
             "in": "path",
@@ -10471,6 +11585,17 @@
         "description": "Get all assets for the app.",
         "operationId": "Assets_GetAssets",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 0,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "parentId",
             "in": "query",
@@ -10600,6 +11725,17 @@
         "operationId": "Assets_PostAsset",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "parentId",
             "in": "query",
             "description": "The optional parent folder id.",
@@ -10709,6 +11845,17 @@
         "operationId": "Assets_GetAssetsPost",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 0,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "X-NoTotal",
             "in": "header",
             "description": "Do not return the total amount.",
@@ -10795,6 +11942,17 @@
         "operationId": "Assets_GetAsset",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "id",
             "in": "path",
             "required": true,
@@ -10848,6 +12006,17 @@
         "description": "You can only upload one file at a time. The mime type of the file is not calculated by Squidex and is required correctly.",
         "operationId": "Assets_PostUpsertAsset",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "id",
             "in": "path",
@@ -10955,6 +12124,17 @@
         "operationId": "Assets_PutAsset",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "id",
             "in": "path",
             "required": true,
@@ -11031,6 +12211,17 @@
         "operationId": "Assets_DeleteAsset",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "id",
             "in": "path",
             "required": true,
@@ -11105,6 +12296,19 @@
         ],
         "summary": "Bulk update assets.",
         "operationId": "Assets_BulkUpdateAssets",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "requestBody": {
           "x-name": "request",
           "description": "The bulk update request.",
@@ -11176,6 +12380,17 @@
         "description": "Use multipart request to upload an asset.",
         "operationId": "Assets_PutAssetContent",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "id",
             "in": "path",
@@ -11267,6 +12482,17 @@
         "operationId": "Assets_PutAssetParent",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "id",
             "in": "path",
             "required": true,
@@ -11343,6 +12569,19 @@
         ],
         "summary": "Get the app asset scripts.",
         "operationId": "AppAssets_GetAssetScripts",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app to get the asset scripts for.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Asset scripts returned.",
@@ -11384,6 +12623,19 @@
         ],
         "summary": "Update the app asset scripts.",
         "operationId": "AppAssets_PutAssetScripts",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app to update.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "requestBody": {
           "x-name": "request",
           "description": "The values to update.",
@@ -11451,6 +12703,19 @@
         "summary": "Get app clients.",
         "description": "Gets all configured clients for the app with the specified name.",
         "operationId": "AppClients_GetClients",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Clients returned.",
@@ -11493,6 +12758,19 @@
         "summary": "Create a new app client.",
         "description": "Create a new client for the app with the specified name.\nThe client secret is auto generated on the server and returned. The client does not expire, the access token is valid for 30 days.",
         "operationId": "AppClients_PostClient",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "requestBody": {
           "x-name": "request",
           "description": "Client object that needs to be added to the app.",
@@ -11561,6 +12839,17 @@
         "description": "Only the display name can be changed, create a new client if necessary.",
         "operationId": "AppClients_PutClient",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "id",
             "in": "path",
@@ -11639,6 +12928,17 @@
         "operationId": "AppClients_DeleteClient",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "id",
             "in": "path",
             "required": true,
@@ -11702,6 +13002,19 @@
         ],
         "summary": "Get app contributors.",
         "operationId": "AppContributors_GetContributors",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Contributors returned.",
@@ -11743,6 +13056,19 @@
         ],
         "summary": "Assign contributor to app.",
         "operationId": "AppContributors_PostContributor",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "requestBody": {
           "x-name": "request",
           "description": "Contributor object that needs to be added to the app.",
@@ -11809,6 +13135,19 @@
         ],
         "summary": "Remove yourself.",
         "operationId": "AppContributors_DeleteMyself",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Contributor removed.",
@@ -11861,6 +13200,17 @@
         "summary": "Remove contributor.",
         "operationId": "AppContributors_DeleteContributor",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "id",
             "in": "path",
@@ -11925,6 +13275,19 @@
         ],
         "summary": "Get the app image.",
         "operationId": "AppImage_GetImage",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "responses": {
           "200": {
             "description": "App image found and content or (resized) image returned.",
@@ -11960,6 +13323,19 @@
         ],
         "summary": "Upload the app image.",
         "operationId": "Apps_UploadImage",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app to update.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "requestBody": {
           "content": {
             "multipart/form-data": {
@@ -12026,6 +13402,19 @@
         ],
         "summary": "Remove the app image.",
         "operationId": "Apps_DeleteImage",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app to update.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "responses": {
           "200": {
             "description": "App image removed.",
@@ -12079,6 +13468,19 @@
         ],
         "summary": "Get app languages.",
         "operationId": "AppLanguages_GetLanguages",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Languages returned.",
@@ -12120,6 +13522,19 @@
         ],
         "summary": "Attaches an app language.",
         "operationId": "AppLanguages_PostLanguage",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "requestBody": {
           "x-name": "request",
           "description": "The language to add to the app.",
@@ -12187,6 +13602,17 @@
         "summary": "Updates an app language.",
         "operationId": "AppLanguages_PutLanguage",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "language",
             "in": "path",
@@ -12264,6 +13690,17 @@
         "operationId": "AppLanguages_DeleteLanguage",
         "parameters": [
           {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
+          {
             "name": "language",
             "in": "path",
             "required": true,
@@ -12327,6 +13764,19 @@
         ],
         "summary": "Get app roles.",
         "operationId": "AppRoles_GetRoles",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Roles returned.",
@@ -12368,6 +13818,19 @@
         ],
         "summary": "Add role to app.",
         "operationId": "AppRoles_PostRole",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "requestBody": {
           "x-name": "request",
           "description": "Role object that needs to be added to the app.",
@@ -12434,6 +13897,19 @@
         ],
         "summary": "Get app permissions.",
         "operationId": "AppRoles_GetPermissions",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "responses": {
           "200": {
             "description": "App permissions returned.",
@@ -12481,6 +13957,17 @@
         "summary": "Update an app role.",
         "operationId": "AppRoles_PutRole",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "roleName",
             "in": "path",
@@ -12557,6 +14044,17 @@
         "summary": "Remove role from app.",
         "operationId": "AppRoles_DeleteRole",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "roleName",
             "in": "path",
@@ -12787,6 +14285,19 @@
         ],
         "summary": "Get an app by name.",
         "operationId": "Apps_GetApp",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Apps returned.",
@@ -12826,6 +14337,19 @@
         ],
         "summary": "Update the app.",
         "operationId": "Apps_PutApp",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app to update.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "requestBody": {
           "x-name": "request",
           "description": "The values to update.",
@@ -12890,6 +14414,19 @@
         ],
         "summary": "Delete the app.",
         "operationId": "Apps_DeleteApp",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app to delete.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "responses": {
           "204": {
             "description": "App deleted."
@@ -12936,6 +14473,19 @@
         ],
         "summary": "Transfer the app.",
         "operationId": "Apps_PutAppTeam",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app to update.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "requestBody": {
           "x-name": "request",
           "description": "The team information.",
@@ -13002,6 +14552,19 @@
         ],
         "summary": "Get the app settings.",
         "operationId": "AppSettings_GetSettings",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app to get the settings for.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "responses": {
           "200": {
             "description": "App settings returned.",
@@ -13041,6 +14604,19 @@
         ],
         "summary": "Update the app settings.",
         "operationId": "AppSettings_PutSettings",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app to update.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "requestBody": {
           "x-name": "request",
           "description": "The values to update.",
@@ -13107,6 +14683,19 @@
         ],
         "summary": "Get app workflow.",
         "operationId": "AppWorkflows_GetWorkflows",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Workflows returned.",
@@ -13148,6 +14737,19 @@
         ],
         "summary": "Create a workflow.",
         "operationId": "AppWorkflows_PostWorkflow",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          }
+        ],
         "requestBody": {
           "x-name": "request",
           "description": "The new workflow.",
@@ -13215,6 +14817,17 @@
         "summary": "Update a workflow.",
         "operationId": "AppWorkflows_PutWorkflow",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "id",
             "in": "path",
@@ -13291,6 +14904,17 @@
         "summary": "Delete a workflow.",
         "operationId": "AppWorkflows_DeleteWorkflow",
         "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "description": "The name of the app.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1,
+            "x-fern-sdk-variable": "appName"
+          },
           {
             "name": "id",
             "in": "path",

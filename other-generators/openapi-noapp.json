@@ -1,5 +1,5 @@
 {
-  "x-generator": "NSwag v13.18.2.0 (NJsonSchema v10.8.0.0 (Newtonsoft.Json v13.0.0.0))",
+  "x-generator": "NSwag v13.19.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))",
   "openapi": "3.0.0",
   "info": {
     "title": "Squidex API",
@@ -536,6 +536,60 @@
         "x-fern-sdk-method-name": "getUserResources"
       }
     },
+    "/api/user": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Update the user profile.",
+        "operationId": "Users_PostUser",
+        "requestBody": {
+          "x-name": "request",
+          "description": "The values to update.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProfileDto"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "204": {
+            "description": "User updated."
+          },
+          "400": {
+            "description": "Validation error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Operation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "squidex-oauth-auth": []
+          }
+        ],
+        "x-fern-sdk-group-name": "users",
+        "x-fern-sdk-method-name": "postUser"
+      }
+    },
     "/api/users": {
       "get": {
         "tags": [
@@ -752,6 +806,72 @@
         ],
         "x-fern-sdk-group-name": "translations",
         "x-fern-sdk-method-name": "postTranslation"
+      }
+    },
+    "/api/apps/{app}/ask": {
+      "post": {
+        "tags": [
+          "Translations"
+        ],
+        "summary": "Asks the chatbot a question a text.",
+        "operationId": "Translations_PostQuestion",
+        "requestBody": {
+          "x-name": "request",
+          "description": "The question request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AskDto"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "Question asked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Operation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "squidex-oauth-auth": [
+              "squidex.apps.{app}.translate"
+            ]
+          }
+        ],
+        "x-fern-sdk-group-name": "translations",
+        "x-fern-sdk-method-name": "postQuestion"
       }
     },
     "/api/templates": {
@@ -6301,22 +6421,31 @@
             "x-position": 8
           },
           {
+            "name": "X-Fields",
+            "in": "header",
+            "description": "The list of content fields (comma-separated).",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 9
+          },
+          {
             "name": "X-Flatten",
             "in": "header",
             "description": "Provide the data as flat object.",
             "schema": {
               "type": "boolean"
             },
-            "x-position": 9
+            "x-position": 10
           },
           {
             "name": "X-Languages",
             "in": "header",
-            "description": "Only resolve these languages (comma-separated).",
+            "description": "The list of languages to resolve (comma-separated).",
             "schema": {
               "type": "string"
             },
-            "x-position": 10
+            "x-position": 11
           },
           {
             "name": "X-NoSlowTotal",
@@ -6325,7 +6454,7 @@
             "schema": {
               "type": "boolean"
             },
-            "x-position": 11
+            "x-position": 12
           },
           {
             "name": "X-NoTotal",
@@ -6334,7 +6463,7 @@
             "schema": {
               "type": "boolean"
             },
-            "x-position": 12
+            "x-position": 13
           },
           {
             "name": "X-Unpublished",
@@ -6343,7 +6472,7 @@
             "schema": {
               "type": "boolean"
             },
-            "x-position": 13
+            "x-position": 14
           }
         ],
         "responses": {
@@ -6438,7 +6567,7 @@
           {
             "name": "X-Languages",
             "in": "header",
-            "description": "Only resolve these languages (comma-separated).",
+            "description": "The list of languages to resolve (comma-separated).",
             "schema": {
               "type": "string"
             },
@@ -6524,22 +6653,31 @@
             "x-position": 1
           },
           {
+            "name": "X-Fields",
+            "in": "header",
+            "description": "The list of content fields (comma-separated).",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 3
+          },
+          {
             "name": "X-Flatten",
             "in": "header",
             "description": "Provide the data as flat object.",
             "schema": {
               "type": "boolean"
             },
-            "x-position": 3
+            "x-position": 4
           },
           {
             "name": "X-Languages",
             "in": "header",
-            "description": "Only resolve these languages (comma-separated).",
+            "description": "The list of languages to resolve (comma-separated).",
             "schema": {
               "type": "string"
             },
-            "x-position": 4
+            "x-position": 5
           },
           {
             "name": "X-NoSlowTotal",
@@ -6548,7 +6686,7 @@
             "schema": {
               "type": "boolean"
             },
-            "x-position": 5
+            "x-position": 6
           },
           {
             "name": "X-NoTotal",
@@ -6557,7 +6695,7 @@
             "schema": {
               "type": "boolean"
             },
-            "x-position": 6
+            "x-position": 7
           },
           {
             "name": "X-Unpublished",
@@ -6566,7 +6704,7 @@
             "schema": {
               "type": "boolean"
             },
-            "x-position": 7
+            "x-position": 8
           }
         ],
         "requestBody": {
@@ -6667,22 +6805,31 @@
             "x-position": 3
           },
           {
+            "name": "X-Fields",
+            "in": "header",
+            "description": "The list of content fields (comma-separated).",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 4
+          },
+          {
             "name": "X-Flatten",
             "in": "header",
             "description": "Provide the data as flat object.",
             "schema": {
               "type": "boolean"
             },
-            "x-position": 4
+            "x-position": 5
           },
           {
             "name": "X-Languages",
             "in": "header",
-            "description": "Only resolve these languages (comma-separated).",
+            "description": "The list of languages to resolve (comma-separated).",
             "schema": {
               "type": "string"
             },
-            "x-position": 5
+            "x-position": 6
           },
           {
             "name": "X-Unpublished",
@@ -6691,7 +6838,7 @@
             "schema": {
               "type": "boolean"
             },
-            "x-position": 6
+            "x-position": 7
           }
         ],
         "responses": {
@@ -6795,7 +6942,7 @@
           {
             "name": "X-Languages",
             "in": "header",
-            "description": "Only resolve these languages (comma-separated).",
+            "description": "The list of languages to resolve (comma-separated).",
             "schema": {
               "type": "string"
             },
@@ -6900,7 +7047,7 @@
           {
             "name": "X-Languages",
             "in": "header",
-            "description": "Only resolve these languages (comma-separated).",
+            "description": "The list of languages to resolve (comma-separated).",
             "schema": {
               "type": "string"
             },
@@ -7005,7 +7152,7 @@
           {
             "name": "X-Languages",
             "in": "header",
-            "description": "Only resolve these languages (comma-separated).",
+            "description": "The list of languages to resolve (comma-separated).",
             "schema": {
               "type": "string"
             },
@@ -7263,22 +7410,31 @@
             "x-position": 3
           },
           {
+            "name": "X-Fields",
+            "in": "header",
+            "description": "The list of content fields (comma-separated).",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 4
+          },
+          {
             "name": "X-Flatten",
             "in": "header",
             "description": "Provide the data as flat object.",
             "schema": {
               "type": "boolean"
             },
-            "x-position": 4
+            "x-position": 5
           },
           {
             "name": "X-Languages",
             "in": "header",
-            "description": "Only resolve these languages (comma-separated).",
+            "description": "The list of languages to resolve (comma-separated).",
             "schema": {
               "type": "string"
             },
-            "x-position": 5
+            "x-position": 6
           },
           {
             "name": "X-Unpublished",
@@ -7287,7 +7443,7 @@
             "schema": {
               "type": "boolean"
             },
-            "x-position": 6
+            "x-position": 7
           },
           {
             "name": "X-NoSlowTotal",
@@ -7296,7 +7452,7 @@
             "schema": {
               "type": "boolean"
             },
-            "x-position": 7
+            "x-position": 8
           },
           {
             "name": "X-NoTotal",
@@ -7305,7 +7461,7 @@
             "schema": {
               "type": "boolean"
             },
-            "x-position": 8
+            "x-position": 9
           }
         ],
         "responses": {
@@ -7382,22 +7538,31 @@
             "x-position": 3
           },
           {
+            "name": "X-Fields",
+            "in": "header",
+            "description": "The list of content fields (comma-separated).",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 4
+          },
+          {
             "name": "X-Flatten",
             "in": "header",
             "description": "Provide the data as flat object.",
             "schema": {
               "type": "boolean"
             },
-            "x-position": 4
+            "x-position": 5
           },
           {
             "name": "X-Languages",
             "in": "header",
-            "description": "Only resolve these languages (comma-separated).",
+            "description": "The list of languages to resolve (comma-separated).",
             "schema": {
               "type": "string"
             },
-            "x-position": 5
+            "x-position": 6
           },
           {
             "name": "X-Unpublished",
@@ -7406,7 +7571,7 @@
             "schema": {
               "type": "boolean"
             },
-            "x-position": 6
+            "x-position": 7
           },
           {
             "name": "X-NoSlowTotal",
@@ -7415,7 +7580,7 @@
             "schema": {
               "type": "boolean"
             },
-            "x-position": 7
+            "x-position": 8
           },
           {
             "name": "X-NoTotal",
@@ -7424,7 +7589,7 @@
             "schema": {
               "type": "boolean"
             },
-            "x-position": 8
+            "x-position": 9
           }
         ],
         "responses": {
@@ -7513,7 +7678,7 @@
           {
             "name": "X-Languages",
             "in": "header",
-            "description": "Only resolve these languages (comma-separated).",
+            "description": "The list of languages to resolve (comma-separated).",
             "schema": {
               "type": "string"
             },
@@ -7764,7 +7929,7 @@
           {
             "name": "X-Languages",
             "in": "header",
-            "description": "Only resolve these languages (comma-separated).",
+            "description": "The list of languages to resolve (comma-separated).",
             "schema": {
               "type": "string"
             },
@@ -7869,7 +8034,7 @@
           {
             "name": "X-Languages",
             "in": "header",
-            "description": "Only resolve these languages (comma-separated).",
+            "description": "The list of languages to resolve (comma-separated).",
             "schema": {
               "type": "string"
             },
@@ -7963,7 +8128,7 @@
           {
             "name": "X-Languages",
             "in": "header",
-            "description": "Only resolve these languages (comma-separated).",
+            "description": "The list of languages to resolve (comma-separated).",
             "schema": {
               "type": "string"
             },
@@ -8055,7 +8220,7 @@
           {
             "name": "X-Languages",
             "in": "header",
-            "description": "Only resolve these languages (comma-separated).",
+            "description": "The list of languages to resolve (comma-separated).",
             "schema": {
               "type": "string"
             },
@@ -8108,6 +8273,474 @@
         "x-fern-sdk-method-name": "deleteVersion"
       }
     },
+    "/api/content/{app}/graphql": {
+      "get": {
+        "tags": [
+          "Contents"
+        ],
+        "summary": "GraphQL endpoint.",
+        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
+        "operationId": "ContentsShared_GetGraphQL",
+        "parameters": [
+          {
+            "name": "X-Unpublished",
+            "in": "header",
+            "description": "Return unpublished content items.",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Contents returned or mutated.",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "App not found."
+          },
+          "500": {
+            "description": "Operation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "squidex-oauth-auth": []
+          }
+        ],
+        "x-fern-sdk-group-name": "contents",
+        "x-fern-sdk-method-name": "getGraphQL"
+      }
+    },
+    "/api/content/{app}/graphql/batch": {
+      "get": {
+        "tags": [
+          "Contents"
+        ],
+        "summary": "GraphQL endpoint.",
+        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
+        "operationId": "ContentsShared_GetGraphQL2",
+        "parameters": [
+          {
+            "name": "X-Unpublished",
+            "in": "header",
+            "description": "Return unpublished content items.",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Contents returned or mutated.",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "App not found."
+          },
+          "500": {
+            "description": "Operation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "squidex-oauth-auth": []
+          }
+        ],
+        "x-fern-sdk-group-name": "contents",
+        "x-fern-sdk-method-name": "getGraphQL2"
+      }
+    },
+    "/api/content/{app}": {
+      "get": {
+        "tags": [
+          "Contents"
+        ],
+        "summary": "Queries contents.",
+        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
+        "operationId": "ContentsShared_GetAllContents",
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "The list of ids to query.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "scheduleFrom",
+            "in": "query",
+            "description": "The start of the schedule.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-position": 2
+          },
+          {
+            "name": "scheduleTo",
+            "in": "query",
+            "description": "The end of the schedule.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-position": 3
+          },
+          {
+            "name": "referencing",
+            "in": "query",
+            "description": "The ID of the referencing content item.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 4
+          },
+          {
+            "name": "references",
+            "in": "query",
+            "description": "The ID of the reference content item.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 5
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "description": "The optional json query.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 6
+          },
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "description": "The list of content fields (comma-separated).",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 7
+          },
+          {
+            "name": "X-Flatten",
+            "in": "header",
+            "description": "Provide the data as flat object.",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 8
+          },
+          {
+            "name": "X-Languages",
+            "in": "header",
+            "description": "The list of languages to resolve (comma-separated).",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 9
+          },
+          {
+            "name": "X-NoSlowTotal",
+            "in": "header",
+            "description": "Do not return the total amount, if it would be slow.",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 10
+          },
+          {
+            "name": "X-NoTotal",
+            "in": "header",
+            "description": "Do not return the total amount.",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 11
+          },
+          {
+            "name": "X-Unpublished",
+            "in": "header",
+            "description": "Return unpublished content items.",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 12
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Contents returned.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentsDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "App not found."
+          },
+          "500": {
+            "description": "Operation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "squidex-oauth-auth": []
+          }
+        ],
+        "x-fern-sdk-group-name": "contents",
+        "x-fern-sdk-method-name": "getAllContents"
+      },
+      "post": {
+        "tags": [
+          "Contents"
+        ],
+        "summary": "Queries contents.",
+        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
+        "operationId": "ContentsShared_GetAllContentsPost",
+        "parameters": [
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "description": "The list of content fields (comma-separated).",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "X-Flatten",
+            "in": "header",
+            "description": "Provide the data as flat object.",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 3
+          },
+          {
+            "name": "X-Languages",
+            "in": "header",
+            "description": "The list of languages to resolve (comma-separated).",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 4
+          },
+          {
+            "name": "X-NoSlowTotal",
+            "in": "header",
+            "description": "Do not return the total amount, if it would be slow.",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 5
+          },
+          {
+            "name": "X-NoTotal",
+            "in": "header",
+            "description": "Do not return the total amount.",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 6
+          },
+          {
+            "name": "X-Unpublished",
+            "in": "header",
+            "description": "Return unpublished content items.",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 7
+          }
+        ],
+        "requestBody": {
+          "x-name": "query",
+          "description": "The required query object.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AllContentsByPostDto"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Contents returned.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentsDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "App not found."
+          },
+          "400": {
+            "description": "Validation error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Operation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "squidex-oauth-auth": []
+          }
+        ],
+        "x-fern-sdk-group-name": "contents",
+        "x-fern-sdk-method-name": "getAllContentsPost"
+      }
+    },
+    "/api/content/{app}/bulk": {
+      "post": {
+        "tags": [
+          "Contents"
+        ],
+        "summary": "Bulk update content items.",
+        "description": "You can read the generated documentation for your app at /api/content/{appName}/docs.",
+        "operationId": "ContentsShared_BulkUpdateAllContents",
+        "parameters": [
+          {
+            "name": "schema",
+            "in": "query",
+            "description": "The name of the schema.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "description": "The bulk update request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BulkUpdateContentsDto"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 3
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BulkResultDto"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Contents request not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Contents references, schema or app not found."
+          },
+          "500": {
+            "description": "Operation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "squidex-oauth-auth": [
+              "squidex.apps.{app}.contents.{schema}.read.own"
+            ]
+          }
+        ],
+        "x-fern-sdk-group-name": "contents",
+        "x-fern-sdk-method-name": "bulkUpdateAllContents"
+      }
+    },
     "/api/apps/{app}/watching/{resource}": {
       "get": {
         "tags": [
@@ -8122,8 +8755,7 @@
             "required": true,
             "description": "The path to the resource.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           }
@@ -9033,7 +9665,8 @@
             "in": "query",
             "description": "Optional background color.",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             },
             "x-position": 10
           },
@@ -9087,6 +9720,15 @@
             "x-position": 15
           },
           {
+            "name": "deleted",
+            "in": "query",
+            "description": "Also return deleted content items.",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 16
+          },
+          {
             "name": "format",
             "in": "query",
             "description": "True to force a new resize even if it already stored.",
@@ -9094,7 +9736,7 @@
               "nullable": true,
               "$ref": "#/components/schemas/ImageFormat"
             },
-            "x-position": 16
+            "x-position": 17
           },
           {
             "name": "more",
@@ -9102,10 +9744,9 @@
             "required": true,
             "description": "Optional suffix that can be used to seo-optimize the link to the image Has not effect.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
-            "x-position": 17
+            "x-position": 18
           }
         ],
         "responses": {
@@ -9239,7 +9880,8 @@
             "in": "query",
             "description": "Optional background color.",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             },
             "x-position": 9
           },
@@ -9293,6 +9935,15 @@
             "x-position": 14
           },
           {
+            "name": "deleted",
+            "in": "query",
+            "description": "Also return deleted content items.",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 15
+          },
+          {
             "name": "format",
             "in": "query",
             "description": "True to force a new resize even if it already stored.",
@@ -9300,7 +9951,7 @@
               "nullable": true,
               "$ref": "#/components/schemas/ImageFormat"
             },
-            "x-position": 15
+            "x-position": 16
           }
         ],
         "responses": {
@@ -12761,24 +13412,6 @@
           }
         }
       },
-      "UISettingsDto": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "canCreateApps",
-          "canCreateTeams"
-        ],
-        "properties": {
-          "canCreateApps": {
-            "type": "boolean",
-            "description": "True when the user can create apps."
-          },
-          "canCreateTeams": {
-            "type": "boolean",
-            "description": "True when the user can create teams."
-          }
-        }
-      },
       "UpdateSettingDto": {
         "type": "object",
         "additionalProperties": false,
@@ -12790,1587 +13423,6 @@
             "description": "The value for the setting."
           }
         }
-      },
-      "ContentsDto": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Resource"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "required": [
-              "total",
-              "items",
-              "statuses"
-            ],
-            "properties": {
-              "total": {
-                "type": "integer",
-                "description": "The total number of content items.",
-                "format": "int64"
-              },
-              "items": {
-                "type": "array",
-                "description": "The content items.",
-                "items": {
-                  "$ref": "#/components/schemas/ContentDto"
-                }
-              },
-              "statuses": {
-                "type": "array",
-                "description": "The possible statuses.",
-                "items": {
-                  "$ref": "#/components/schemas/StatusInfoDto"
-                }
-              }
-            }
-          }
-        ]
-      },
-      "ContentDto": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Resource"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "required": [
-              "id",
-              "createdBy",
-              "lastModifiedBy",
-              "data",
-              "created",
-              "lastModified",
-              "status",
-              "statusColor",
-              "schemaId",
-              "isDeleted",
-              "version"
-            ],
-            "properties": {
-              "id": {
-                "type": "string",
-                "description": "The if of the content item."
-              },
-              "createdBy": {
-                "type": "string",
-                "description": "The user that has created the content item."
-              },
-              "lastModifiedBy": {
-                "type": "string",
-                "description": "The user that has updated the content item."
-              },
-              "data": {
-                "description": "The data of the content item."
-              },
-              "referenceData": {
-                "description": "The reference data for the frontend UI.",
-                "nullable": true,
-                "$ref": "#/components/schemas/ContentData"
-              },
-              "created": {
-                "type": "string",
-                "description": "The date and time when the content item has been created.",
-                "format": "date-time"
-              },
-              "lastModified": {
-                "type": "string",
-                "description": "The date and time when the content item has been modified last.",
-                "format": "date-time"
-              },
-              "status": {
-                "type": "string",
-                "description": "The status of the content."
-              },
-              "newStatus": {
-                "type": "string",
-                "description": "The new status of the content.",
-                "nullable": true
-              },
-              "statusColor": {
-                "type": "string",
-                "description": "The color of the status."
-              },
-              "newStatusColor": {
-                "type": "string",
-                "description": "The color of the new status.",
-                "nullable": true
-              },
-              "editToken": {
-                "type": "string",
-                "description": "The UI token.",
-                "nullable": true
-              },
-              "scheduleJob": {
-                "description": "The scheduled status.",
-                "nullable": true,
-                "$ref": "#/components/schemas/ScheduleJobDto"
-              },
-              "schemaId": {
-                "type": "string",
-                "description": "The ID of the schema."
-              },
-              "schemaName": {
-                "type": "string",
-                "description": "The name of the schema.",
-                "nullable": true
-              },
-              "schemaDisplayName": {
-                "type": "string",
-                "description": "The display name of the schema.",
-                "nullable": true
-              },
-              "referenceFields": {
-                "type": "array",
-                "description": "The reference fields.",
-                "nullable": true,
-                "items": {
-                  "$ref": "#/components/schemas/FieldDto"
-                }
-              },
-              "isDeleted": {
-                "type": "boolean",
-                "description": "Indicates whether the content is deleted."
-              },
-              "version": {
-                "type": "integer",
-                "description": "The version of the content.",
-                "format": "int64"
-              }
-            }
-          }
-        ]
-      },
-      "ContentData": {
-        "type": "object",
-        "additionalProperties": {
-          "nullable": true,
-          "$ref": "#/components/schemas/ContentFieldData"
-        }
-      },
-      "ContentFieldData": {
-        "type": "object",
-        "additionalProperties": {}
-      },
-      "ScheduleJobDto": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "id",
-          "status",
-          "dueTime",
-          "color",
-          "scheduledBy"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "The ID of the schedule job."
-          },
-          "status": {
-            "type": "string",
-            "description": "The new status."
-          },
-          "dueTime": {
-            "type": "string",
-            "description": "The target date and time when the content should be scheduled.",
-            "format": "date-time"
-          },
-          "color": {
-            "type": "string",
-            "description": "The color of the scheduled status."
-          },
-          "scheduledBy": {
-            "type": "string",
-            "description": "The user who schedule the content."
-          }
-        }
-      },
-      "FieldDto": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Resource"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "required": [
-              "name",
-              "partitioning",
-              "properties",
-              "fieldId",
-              "isHidden",
-              "isLocked",
-              "isDisabled"
-            ],
-            "properties": {
-              "fieldId": {
-                "type": "integer",
-                "description": "The ID of the field.",
-                "format": "int64"
-              },
-              "name": {
-                "type": "string",
-                "description": "The name of the field. Must be unique within the schema.",
-                "minLength": 1,
-                "pattern": "^[a-z0-9]+(\\-[a-z0-9]+)*$"
-              },
-              "isHidden": {
-                "type": "boolean",
-                "description": "Defines if the field is hidden."
-              },
-              "isLocked": {
-                "type": "boolean",
-                "description": "Defines if the field is locked."
-              },
-              "isDisabled": {
-                "type": "boolean",
-                "description": "Defines if the field is disabled."
-              },
-              "partitioning": {
-                "type": "string",
-                "description": "Defines the partitioning of the field.",
-                "minLength": 1
-              },
-              "properties": {
-                "description": "The field properties.",
-                "$ref": "#/components/schemas/FieldPropertiesDto"
-              },
-              "nested": {
-                "type": "array",
-                "description": "The nested fields.",
-                "nullable": true,
-                "items": {
-                  "$ref": "#/components/schemas/NestedFieldDto"
-                }
-              }
-            }
-          }
-        ]
-      },
-      "FieldPropertiesDto": {
-        "type": "object",
-        "discriminator": {
-          "propertyName": "fieldType",
-          "mapping": {
-            "Array": "#/components/schemas/ArrayFieldPropertiesDto",
-            "Assets": "#/components/schemas/AssetsFieldPropertiesDto",
-            "Boolean": "#/components/schemas/BooleanFieldPropertiesDto",
-            "Component": "#/components/schemas/ComponentFieldPropertiesDto",
-            "Components": "#/components/schemas/ComponentsFieldPropertiesDto",
-            "DateTime": "#/components/schemas/DateTimeFieldPropertiesDto",
-            "Geolocation": "#/components/schemas/GeolocationFieldPropertiesDto",
-            "Json": "#/components/schemas/JsonFieldPropertiesDto",
-            "Number": "#/components/schemas/NumberFieldPropertiesDto",
-            "References": "#/components/schemas/ReferencesFieldPropertiesDto",
-            "String": "#/components/schemas/StringFieldPropertiesDto",
-            "Tags": "#/components/schemas/TagsFieldPropertiesDto",
-            "UI": "#/components/schemas/UIFieldPropertiesDto"
-          }
-        },
-        "x-abstract": true,
-        "additionalProperties": false,
-        "required": [
-          "fieldType"
-        ],
-        "properties": {
-          "label": {
-            "type": "string",
-            "description": "Optional label for the editor.",
-            "maxLength": 100,
-            "minLength": 0,
-            "nullable": true
-          },
-          "hints": {
-            "type": "string",
-            "description": "Hints to describe the field.",
-            "maxLength": 1000,
-            "minLength": 0,
-            "nullable": true
-          },
-          "placeholder": {
-            "type": "string",
-            "description": "Placeholder to show when no value has been entered.",
-            "maxLength": 100,
-            "minLength": 0,
-            "nullable": true
-          },
-          "isRequired": {
-            "type": "boolean",
-            "description": "Indicates if the field is required."
-          },
-          "isRequiredOnPublish": {
-            "type": "boolean",
-            "description": "Indicates if the field is required when publishing."
-          },
-          "isHalfWidth": {
-            "type": "boolean",
-            "description": "Indicates if the field should be rendered with half width only."
-          },
-          "editorUrl": {
-            "type": "string",
-            "description": "Optional url to the editor.",
-            "nullable": true
-          },
-          "tags": {
-            "type": "array",
-            "description": "Tags for automation processes.",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "fieldType": {
-            "type": "string"
-          }
-        }
-      },
-      "ArrayFieldPropertiesDto": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/FieldPropertiesDto"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "minItems": {
-                "type": "integer",
-                "description": "The minimum allowed items for the field value.",
-                "format": "int32",
-                "nullable": true
-              },
-              "maxItems": {
-                "type": "integer",
-                "description": "The maximum allowed items for the field value.",
-                "format": "int32",
-                "nullable": true
-              },
-              "uniqueFields": {
-                "type": "array",
-                "description": "The fields that must be unique.",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        ]
-      },
-      "AssetsFieldPropertiesDto": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/FieldPropertiesDto"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "previewMode": {
-                "description": "The preview mode for the asset.",
-                "$ref": "#/components/schemas/AssetPreviewMode"
-              },
-              "defaultValues": {
-                "description": "The language specific default value as a list of asset ids.",
-                "nullable": true,
-                "$ref": "#/components/schemas/LocalizedValueOfReadonlyListOfString"
-              },
-              "defaultValue": {
-                "type": "array",
-                "description": "The default value as a list of asset ids.",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
-              },
-              "folderId": {
-                "type": "string",
-                "description": "The initial id to the folder.",
-                "nullable": true
-              },
-              "previewFormat": {
-                "type": "string",
-                "description": "The preview format.",
-                "nullable": true
-              },
-              "minItems": {
-                "type": "integer",
-                "description": "The minimum allowed items for the field value.",
-                "format": "int32",
-                "nullable": true
-              },
-              "maxItems": {
-                "type": "integer",
-                "description": "The maximum allowed items for the field value.",
-                "format": "int32",
-                "nullable": true
-              },
-              "minSize": {
-                "type": "integer",
-                "description": "The minimum file size in bytes.",
-                "format": "int32",
-                "nullable": true
-              },
-              "maxSize": {
-                "type": "integer",
-                "description": "The maximum file size in bytes.",
-                "format": "int32",
-                "nullable": true
-              },
-              "minWidth": {
-                "type": "integer",
-                "description": "The minimum image width in pixels.",
-                "format": "int32",
-                "nullable": true
-              },
-              "maxWidth": {
-                "type": "integer",
-                "description": "The maximum image width in pixels.",
-                "format": "int32",
-                "nullable": true
-              },
-              "minHeight": {
-                "type": "integer",
-                "description": "The minimum image height in pixels.",
-                "format": "int32",
-                "nullable": true
-              },
-              "maxHeight": {
-                "type": "integer",
-                "description": "The maximum image height in pixels.",
-                "format": "int32",
-                "nullable": true
-              },
-              "aspectWidth": {
-                "type": "integer",
-                "description": "The image aspect width in pixels.",
-                "format": "int32",
-                "nullable": true
-              },
-              "aspectHeight": {
-                "type": "integer",
-                "description": "The image aspect height in pixels.",
-                "format": "int32",
-                "nullable": true
-              },
-              "expectedType": {
-                "description": "The expected type.",
-                "nullable": true,
-                "$ref": "#/components/schemas/AssetType"
-              },
-              "resolveFirst": {
-                "type": "boolean",
-                "description": "True to resolve first asset in the content list."
-              },
-              "mustBeImage": {
-                "type": "boolean",
-                "description": "True to resolve first image in the content list.",
-                "deprecated": true,
-                "x-deprecatedMessage": "Use 'expectedType' field now"
-              },
-              "resolveImage": {
-                "type": "boolean",
-                "description": "True to resolve first image in the content list.",
-                "deprecated": true,
-                "x-deprecatedMessage": "Use 'resolveFirst' field now"
-              },
-              "allowedExtensions": {
-                "type": "array",
-                "description": "The allowed file extensions.",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
-              },
-              "allowDuplicates": {
-                "type": "boolean",
-                "description": "True, if duplicate values are allowed."
-              }
-            }
-          }
-        ]
-      },
-      "AssetPreviewMode": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "ImageAndFileName",
-          "Image",
-          "FileName"
-        ],
-        "enum": [
-          "ImageAndFileName",
-          "Image",
-          "FileName"
-        ]
-      },
-      "LocalizedValueOfReadonlyListOfString": {
-        "type": "object",
-        "additionalProperties": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "AssetType": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "Unknown",
-          "Image",
-          "Audio",
-          "Video"
-        ],
-        "enum": [
-          "Unknown",
-          "Image",
-          "Audio",
-          "Video"
-        ]
-      },
-      "BooleanFieldPropertiesDto": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/FieldPropertiesDto"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "defaultValues": {
-                "description": "The language specific default value for the field value.",
-                "nullable": true,
-                "$ref": "#/components/schemas/LocalizedValueOfNullableBoolean"
-              },
-              "defaultValue": {
-                "type": "boolean",
-                "description": "The default value for the field value.",
-                "nullable": true
-              },
-              "inlineEditable": {
-                "type": "boolean",
-                "description": "Indicates that the inline editor is enabled for this field."
-              },
-              "editor": {
-                "description": "The editor that is used to manage this field.",
-                "$ref": "#/components/schemas/BooleanFieldEditor"
-              }
-            }
-          }
-        ]
-      },
-      "LocalizedValueOfNullableBoolean": {
-        "type": "object",
-        "additionalProperties": {
-          "type": "boolean",
-          "nullable": true
-        }
-      },
-      "BooleanFieldEditor": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "Checkbox",
-          "Toggle"
-        ],
-        "enum": [
-          "Checkbox",
-          "Toggle"
-        ]
-      },
-      "ComponentFieldPropertiesDto": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/FieldPropertiesDto"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "schemaIds": {
-                "type": "array",
-                "description": "The ID of the embedded schemas.",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        ]
-      },
-      "ComponentsFieldPropertiesDto": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/FieldPropertiesDto"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "minItems": {
-                "type": "integer",
-                "description": "The minimum allowed items for the field value.",
-                "format": "int32",
-                "nullable": true
-              },
-              "maxItems": {
-                "type": "integer",
-                "description": "The maximum allowed items for the field value.",
-                "format": "int32",
-                "nullable": true
-              },
-              "schemaIds": {
-                "type": "array",
-                "description": "The ID of the embedded schemas.",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
-              },
-              "uniqueFields": {
-                "type": "array",
-                "description": "The fields that must be unique.",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        ]
-      },
-      "DateTimeFieldPropertiesDto": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/FieldPropertiesDto"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "defaultValues": {
-                "description": "The language specific default value for the field value.",
-                "nullable": true,
-                "$ref": "#/components/schemas/LocalizedValueOfNullableInstant"
-              },
-              "defaultValue": {
-                "type": "string",
-                "description": "The default value for the field value.",
-                "format": "date-time",
-                "nullable": true
-              },
-              "maxValue": {
-                "type": "string",
-                "description": "The maximum allowed value for the field value.",
-                "format": "date-time",
-                "nullable": true
-              },
-              "minValue": {
-                "type": "string",
-                "description": "The minimum allowed value for the field value.",
-                "format": "date-time",
-                "nullable": true
-              },
-              "format": {
-                "type": "string",
-                "description": "The format pattern when displayed in the UI.",
-                "nullable": true
-              },
-              "editor": {
-                "description": "The editor that is used to manage this field.",
-                "$ref": "#/components/schemas/DateTimeFieldEditor"
-              },
-              "calculatedDefaultValue": {
-                "description": "The calculated default value for the field value.",
-                "nullable": true,
-                "$ref": "#/components/schemas/DateTimeCalculatedDefaultValue"
-              }
-            }
-          }
-        ]
-      },
-      "LocalizedValueOfNullableInstant": {
-        "type": "object",
-        "additionalProperties": {
-          "type": "string",
-          "format": "date-time",
-          "nullable": true
-        }
-      },
-      "DateTimeFieldEditor": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "Date",
-          "DateTime"
-        ],
-        "enum": [
-          "Date",
-          "DateTime"
-        ]
-      },
-      "DateTimeCalculatedDefaultValue": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "Now",
-          "Today"
-        ],
-        "enum": [
-          "Now",
-          "Today"
-        ]
-      },
-      "GeolocationFieldPropertiesDto": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/FieldPropertiesDto"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "editor": {
-                "description": "The editor that is used to manage this field.",
-                "$ref": "#/components/schemas/GeolocationFieldEditor"
-              }
-            }
-          }
-        ]
-      },
-      "GeolocationFieldEditor": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "Map"
-        ],
-        "enum": [
-          "Map"
-        ]
-      },
-      "JsonFieldPropertiesDto": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/FieldPropertiesDto"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "graphQLSchema": {
-                "type": "string",
-                "description": "The GraphQL schema.",
-                "nullable": true
-              }
-            }
-          }
-        ]
-      },
-      "NumberFieldPropertiesDto": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/FieldPropertiesDto"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "defaultValues": {
-                "description": "The language specific default value for the field value.",
-                "nullable": true,
-                "$ref": "#/components/schemas/LocalizedValueOfNullableDouble"
-              },
-              "defaultValue": {
-                "type": "number",
-                "description": "The default value for the field value.",
-                "format": "double",
-                "nullable": true
-              },
-              "maxValue": {
-                "type": "number",
-                "description": "The maximum allowed value for the field value.",
-                "format": "double",
-                "nullable": true
-              },
-              "minValue": {
-                "type": "number",
-                "description": "The minimum allowed value for the field value.",
-                "format": "double",
-                "nullable": true
-              },
-              "allowedValues": {
-                "type": "array",
-                "description": "The allowed values for the field value.",
-                "nullable": true,
-                "items": {
-                  "type": "number",
-                  "format": "double"
-                }
-              },
-              "isUnique": {
-                "type": "boolean",
-                "description": "Indicates if the field value must be unique. Ignored for nested fields and localized fields."
-              },
-              "inlineEditable": {
-                "type": "boolean",
-                "description": "Indicates that the inline editor is enabled for this field."
-              },
-              "editor": {
-                "description": "The editor that is used to manage this field.",
-                "$ref": "#/components/schemas/NumberFieldEditor"
-              }
-            }
-          }
-        ]
-      },
-      "LocalizedValueOfNullableDouble": {
-        "type": "object",
-        "additionalProperties": {
-          "type": "number",
-          "format": "double",
-          "nullable": true
-        }
-      },
-      "NumberFieldEditor": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "Input",
-          "Radio",
-          "Dropdown",
-          "Stars"
-        ],
-        "enum": [
-          "Input",
-          "Radio",
-          "Dropdown",
-          "Stars"
-        ]
-      },
-      "ReferencesFieldPropertiesDto": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/FieldPropertiesDto"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "defaultValues": {
-                "description": "The language specific default value as a list of content ids.",
-                "nullable": true,
-                "$ref": "#/components/schemas/LocalizedValueOfReadonlyListOfString"
-              },
-              "defaultValue": {
-                "type": "array",
-                "description": "The default value as a list of content ids.",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
-              },
-              "minItems": {
-                "type": "integer",
-                "description": "The minimum allowed items for the field value.",
-                "format": "int32",
-                "nullable": true
-              },
-              "maxItems": {
-                "type": "integer",
-                "description": "The maximum allowed items for the field value.",
-                "format": "int32",
-                "nullable": true
-              },
-              "allowDuplicates": {
-                "type": "boolean",
-                "description": "True, if duplicate values are allowed."
-              },
-              "resolveReference": {
-                "type": "boolean",
-                "description": "True to resolve references in the content list."
-              },
-              "mustBePublished": {
-                "type": "boolean",
-                "description": "True when all references must be published."
-              },
-              "editor": {
-                "description": "The editor that is used to manage this field.",
-                "$ref": "#/components/schemas/ReferencesFieldEditor"
-              },
-              "schemaIds": {
-                "type": "array",
-                "description": "The ID of the referenced schemas.",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        ]
-      },
-      "ReferencesFieldEditor": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "List",
-          "Dropdown",
-          "Tags",
-          "Checkboxes",
-          "Input"
-        ],
-        "enum": [
-          "List",
-          "Dropdown",
-          "Tags",
-          "Checkboxes",
-          "Input"
-        ]
-      },
-      "StringFieldPropertiesDto": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/FieldPropertiesDto"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "defaultValues": {
-                "description": "The language specific default value for the field value.",
-                "nullable": true,
-                "$ref": "#/components/schemas/LocalizedValueOfString"
-              },
-              "defaultValue": {
-                "type": "string",
-                "description": "The default value for the field value.",
-                "nullable": true
-              },
-              "pattern": {
-                "type": "string",
-                "description": "The pattern to enforce a specific format for the field value.",
-                "nullable": true
-              },
-              "patternMessage": {
-                "type": "string",
-                "description": "The validation message for the pattern.",
-                "nullable": true
-              },
-              "folderId": {
-                "type": "string",
-                "description": "The initial id to the folder when the control supports file uploads.",
-                "nullable": true
-              },
-              "minLength": {
-                "type": "integer",
-                "description": "The minimum allowed length for the field value.",
-                "format": "int32",
-                "nullable": true
-              },
-              "maxLength": {
-                "type": "integer",
-                "description": "The maximum allowed length for the field value.",
-                "format": "int32",
-                "nullable": true
-              },
-              "minCharacters": {
-                "type": "integer",
-                "description": "The minimum allowed of normal characters for the field value.",
-                "format": "int32",
-                "nullable": true
-              },
-              "maxCharacters": {
-                "type": "integer",
-                "description": "The maximum allowed of normal characters for the field value.",
-                "format": "int32",
-                "nullable": true
-              },
-              "minWords": {
-                "type": "integer",
-                "description": "The minimum allowed number of words for the field value.",
-                "format": "int32",
-                "nullable": true
-              },
-              "maxWords": {
-                "type": "integer",
-                "description": "The maximum allowed number of words for the field value.",
-                "format": "int32",
-                "nullable": true
-              },
-              "allowedValues": {
-                "type": "array",
-                "description": "The allowed values for the field value.",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
-              },
-              "schemaIds": {
-                "type": "array",
-                "description": "The allowed schema ids that can be embedded.",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
-              },
-              "isUnique": {
-                "type": "boolean",
-                "description": "Indicates if the field value must be unique. Ignored for nested fields and localized fields."
-              },
-              "isEmbeddable": {
-                "type": "boolean",
-                "description": "Indicates that other content items or references are embedded."
-              },
-              "inlineEditable": {
-                "type": "boolean",
-                "description": "Indicates that the inline editor is enabled for this field."
-              },
-              "createEnum": {
-                "type": "boolean",
-                "description": "Indicates whether GraphQL Enum should be created."
-              },
-              "contentType": {
-                "description": "How the string content should be interpreted.",
-                "$ref": "#/components/schemas/StringContentType"
-              },
-              "editor": {
-                "description": "The editor that is used to manage this field.",
-                "$ref": "#/components/schemas/StringFieldEditor"
-              }
-            }
-          }
-        ]
-      },
-      "LocalizedValueOfString": {
-        "type": "object",
-        "additionalProperties": {
-          "type": "string"
-        }
-      },
-      "StringContentType": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "Unspecified",
-          "Html",
-          "Markdown"
-        ],
-        "enum": [
-          "Unspecified",
-          "Html",
-          "Markdown"
-        ]
-      },
-      "StringFieldEditor": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "Input",
-          "Color",
-          "Markdown",
-          "Dropdown",
-          "Html",
-          "Radio",
-          "RichText",
-          "Slug",
-          "StockPhoto",
-          "TextArea"
-        ],
-        "enum": [
-          "Input",
-          "Color",
-          "Markdown",
-          "Dropdown",
-          "Html",
-          "Radio",
-          "RichText",
-          "Slug",
-          "StockPhoto",
-          "TextArea"
-        ]
-      },
-      "TagsFieldPropertiesDto": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/FieldPropertiesDto"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "defaultValues": {
-                "description": "The language specific default value for the field value.",
-                "nullable": true,
-                "$ref": "#/components/schemas/LocalizedValueOfReadonlyListOfString"
-              },
-              "defaultValue": {
-                "type": "array",
-                "description": "The default value.",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
-              },
-              "minItems": {
-                "type": "integer",
-                "description": "The minimum allowed items for the field value.",
-                "format": "int32",
-                "nullable": true
-              },
-              "maxItems": {
-                "type": "integer",
-                "description": "The maximum allowed items for the field value.",
-                "format": "int32",
-                "nullable": true
-              },
-              "allowedValues": {
-                "type": "array",
-                "description": "The allowed values for the field value.",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
-              },
-              "createEnum": {
-                "type": "boolean",
-                "description": "Indicates whether GraphQL Enum should be created."
-              },
-              "editor": {
-                "description": "The editor that is used to manage this field.",
-                "$ref": "#/components/schemas/TagsFieldEditor"
-              }
-            }
-          }
-        ]
-      },
-      "TagsFieldEditor": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "Tags",
-          "Checkboxes",
-          "Dropdown"
-        ],
-        "enum": [
-          "Tags",
-          "Checkboxes",
-          "Dropdown"
-        ]
-      },
-      "UIFieldPropertiesDto": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/FieldPropertiesDto"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "editor": {
-                "description": "The editor that is used to manage this field.",
-                "$ref": "#/components/schemas/UIFieldEditor"
-              }
-            }
-          }
-        ]
-      },
-      "UIFieldEditor": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "Separator"
-        ],
-        "enum": [
-          "Separator"
-        ]
-      },
-      "NestedFieldDto": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Resource"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "required": [
-              "name",
-              "properties",
-              "fieldId",
-              "isHidden",
-              "isLocked",
-              "isDisabled"
-            ],
-            "properties": {
-              "fieldId": {
-                "type": "integer",
-                "description": "The ID of the field.",
-                "format": "int64"
-              },
-              "name": {
-                "type": "string",
-                "description": "The name of the field. Must be unique within the schema.",
-                "minLength": 1,
-                "pattern": "^[a-z0-9]+(\\-[a-z0-9]+)*$"
-              },
-              "isHidden": {
-                "type": "boolean",
-                "description": "Defines if the field is hidden."
-              },
-              "isLocked": {
-                "type": "boolean",
-                "description": "Defines if the field is locked."
-              },
-              "isDisabled": {
-                "type": "boolean",
-                "description": "Defines if the field is disabled."
-              },
-              "properties": {
-                "description": "The field properties.",
-                "$ref": "#/components/schemas/FieldPropertiesDto"
-              }
-            }
-          }
-        ]
-      },
-      "Resource": {
-        "type": "object",
-        "x-abstract": true,
-        "additionalProperties": false,
-        "required": [
-          "_links"
-        ],
-        "properties": {
-          "_links": {
-            "type": "object",
-            "description": "The links.",
-            "additionalProperties": {
-              "$ref": "#/components/schemas/ResourceLink"
-            }
-          }
-        }
-      },
-      "ResourceLink": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "href",
-          "method"
-        ],
-        "properties": {
-          "href": {
-            "type": "string",
-            "description": "The link url.",
-            "minLength": 1
-          },
-          "method": {
-            "type": "string",
-            "description": "The link method.",
-            "minLength": 1
-          },
-          "metadata": {
-            "type": "string",
-            "description": "Additional data about the link.",
-            "nullable": true
-          }
-        }
-      },
-      "StatusInfoDto": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "status",
-          "color"
-        ],
-        "properties": {
-          "status": {
-            "type": "string",
-            "description": "The name of the status."
-          },
-          "color": {
-            "type": "string",
-            "description": "The color of the status."
-          }
-        }
-      },
-      "AllContentsByPostDto": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "ids": {
-            "type": "array",
-            "description": "The list of ids to query.",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "scheduledFrom": {
-            "type": "string",
-            "description": "The start of the schedule.",
-            "format": "date-time",
-            "nullable": true
-          },
-          "scheduledTo": {
-            "type": "string",
-            "description": "The end of the schedule.",
-            "format": "date-time",
-            "nullable": true
-          },
-          "referencing": {
-            "type": "string",
-            "description": "The ID of the referencing content item.",
-            "nullable": true
-          },
-          "references": {
-            "type": "string",
-            "description": "The ID of the reference content item.",
-            "nullable": true
-          },
-          "oData": {
-            "type": "string",
-            "description": "The optional odata query.",
-            "nullable": true
-          },
-          "q": {
-            "description": "The optional json query.",
-            "nullable": true
-          }
-        }
-      },
-      "BulkResultDto": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "jobIndex"
-        ],
-        "properties": {
-          "error": {
-            "description": "The error when the bulk job failed.",
-            "nullable": true,
-            "$ref": "#/components/schemas/ErrorDto"
-          },
-          "jobIndex": {
-            "type": "integer",
-            "description": "The index of the bulk job where the result belongs to. The order can change.",
-            "format": "int32"
-          },
-          "id": {
-            "type": "string",
-            "description": "The ID of the entity that has been handled successfully or not.",
-            "nullable": true
-          },
-          "contentId": {
-            "type": "string",
-            "description": "The ID of the entity that has been handled successfully or not.",
-            "deprecated": true,
-            "x-deprecatedMessage": "Use 'id' field now.",
-            "nullable": true
-          }
-        }
-      },
-      "BulkUpdateContentsDto": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "jobs"
-        ],
-        "properties": {
-          "jobs": {
-            "type": "array",
-            "description": "The contents to update or insert.",
-            "items": {
-              "$ref": "#/components/schemas/BulkUpdateContentsJobDto"
-            }
-          },
-          "publish": {
-            "type": "boolean",
-            "description": "True to automatically publish the content.",
-            "deprecated": true,
-            "x-deprecatedMessage": "Use 'jobs.status' fields now."
-          },
-          "doNotScript": {
-            "type": "boolean",
-            "description": "True to turn off scripting for faster inserts. Default: true."
-          },
-          "doNotValidate": {
-            "type": "boolean",
-            "description": "True to turn off validation for faster inserts. Default: false."
-          },
-          "doNotValidateWorkflow": {
-            "type": "boolean",
-            "description": "True to turn off validation of workflow rules. Default: false."
-          },
-          "checkReferrers": {
-            "type": "boolean",
-            "description": "True to check referrers of deleted contents."
-          },
-          "optimizeValidation": {
-            "type": "boolean",
-            "description": "True to turn off costly validation: Unique checks, asset checks and reference checks. Default: true."
-          }
-        }
-      },
-      "BulkUpdateContentsJobDto": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "query": {
-            "description": "An optional query to identify the content to update.",
-            "nullable": true,
-            "$ref": "#/components/schemas/QueryJsonDto"
-          },
-          "id": {
-            "type": "string",
-            "description": "An optional ID of the content to update.",
-            "nullable": true
-          },
-          "data": {
-            "description": "The data of the content when type is set to 'Upsert', 'Create', 'Update' or 'Patch.",
-            "nullable": true,
-            "$ref": "#/components/schemas/ContentData"
-          },
-          "status": {
-            "type": "string",
-            "description": "The new status when the type is set to 'ChangeStatus' or 'Upsert'.",
-            "nullable": true
-          },
-          "dueTime": {
-            "type": "string",
-            "description": "The due time.",
-            "format": "date-time",
-            "nullable": true
-          },
-          "type": {
-            "description": "The update type.",
-            "$ref": "#/components/schemas/BulkUpdateContentType"
-          },
-          "schema": {
-            "type": "string",
-            "description": "The optional schema id or name.",
-            "nullable": true
-          },
-          "patch": {
-            "type": "boolean",
-            "description": "Makes the update as patch."
-          },
-          "permanent": {
-            "type": "boolean",
-            "description": "True to delete the content permanently."
-          },
-          "expectedCount": {
-            "type": "integer",
-            "description": "The number of expected items. Set it to a higher number to update multiple items when a query is defined.",
-            "format": "int64"
-          },
-          "expectedVersion": {
-            "type": "integer",
-            "description": "The expected version.",
-            "format": "int64"
-          }
-        }
-      },
-      "QueryJsonDto": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "skip",
-          "take",
-          "random",
-          "top"
-        ],
-        "properties": {
-          "filter": {
-            "nullable": true
-          },
-          "fullText": {
-            "type": "string",
-            "nullable": true
-          },
-          "skip": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "take": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "random": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "top": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "sort": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/SortNode"
-            }
-          }
-        }
-      },
-      "SortNode": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "path",
-          "order"
-        ],
-        "properties": {
-          "path": {
-            "$ref": "#/components/schemas/PropertyPath"
-          },
-          "order": {
-            "$ref": "#/components/schemas/SortOrder"
-          }
-        }
-      },
-      "PropertyPath": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        }
-      },
-      "SortOrder": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "Ascending",
-          "Descending"
-        ],
-        "enum": [
-          "Ascending",
-          "Descending"
-        ]
-      },
-      "BulkUpdateContentType": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "Upsert",
-          "ChangeStatus",
-          "Create",
-          "Delete",
-          "Patch",
-          "Update",
-          "Validate"
-        ],
-        "enum": [
-          "Upsert",
-          "ChangeStatus",
-          "Create",
-          "Delete",
-          "Patch",
-          "Update",
-          "Validate"
-        ]
       },
       "UsersDto": {
         "allOf": [
@@ -14443,6 +13495,48 @@
             }
           }
         ]
+      },
+      "Resource": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "_links"
+        ],
+        "properties": {
+          "_links": {
+            "type": "object",
+            "description": "The links.",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ResourceLink"
+            }
+          }
+        }
+      },
+      "ResourceLink": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "href",
+          "method"
+        ],
+        "properties": {
+          "href": {
+            "type": "string",
+            "description": "The link url.",
+            "minLength": 1
+          },
+          "method": {
+            "type": "string",
+            "description": "The link method.",
+            "minLength": 1
+          },
+          "metadata": {
+            "type": "string",
+            "description": "Additional data about the link.",
+            "nullable": true
+          }
+        }
       },
       "CreateUserDto": {
         "type": "object",
@@ -14522,16 +13616,38 @@
           }
         ]
       },
+      "UpdateProfileDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "answers": {
+            "type": "object",
+            "description": "The answers from a questionaire.",
+            "nullable": true,
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        }
+      },
       "TranslationDto": {
         "type": "object",
         "additionalProperties": false,
         "required": [
+          "status",
           "result"
         ],
         "properties": {
+          "status": {
+            "description": "The result of the translation.",
+            "$ref": "#/components/schemas/TranslationStatus"
+          },
           "result": {
             "description": "The result of the translation.",
-            "$ref": "#/components/schemas/TranslationResultCode"
+            "deprecated": true,
+            "x-deprecatedMessage": "Use Status property now.",
+            "$ref": "#/components/schemas/TranslationStatus"
           },
           "text": {
             "type": "string",
@@ -14540,7 +13656,7 @@
           }
         }
       },
-      "TranslationResultCode": {
+      "TranslationStatus": {
         "type": "string",
         "description": "",
         "x-enumNames": [
@@ -14581,6 +13697,20 @@
           "sourceLanguage": {
             "type": "string",
             "description": "The optional source language."
+          }
+        }
+      },
+      "AskDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "prompt"
+        ],
+        "properties": {
+          "prompt": {
+            "type": "string",
+            "description": "The text to ask.",
+            "minLength": 1
           }
         }
       },
@@ -15314,6 +14444,1080 @@
           "Disable",
           "Hide",
           "Require"
+        ]
+      },
+      "FieldDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Resource"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "name",
+              "partitioning",
+              "properties",
+              "fieldId",
+              "isHidden",
+              "isLocked",
+              "isDisabled"
+            ],
+            "properties": {
+              "fieldId": {
+                "type": "integer",
+                "description": "The ID of the field.",
+                "format": "int64"
+              },
+              "name": {
+                "type": "string",
+                "description": "The name of the field. Must be unique within the schema.",
+                "minLength": 1,
+                "pattern": "^[a-z0-9]+(\\-[a-z0-9]+)*$"
+              },
+              "isHidden": {
+                "type": "boolean",
+                "description": "Defines if the field is hidden."
+              },
+              "isLocked": {
+                "type": "boolean",
+                "description": "Defines if the field is locked."
+              },
+              "isDisabled": {
+                "type": "boolean",
+                "description": "Defines if the field is disabled."
+              },
+              "partitioning": {
+                "type": "string",
+                "description": "Defines the partitioning of the field.",
+                "minLength": 1
+              },
+              "properties": {
+                "description": "The field properties.",
+                "$ref": "#/components/schemas/FieldPropertiesDto"
+              },
+              "nested": {
+                "type": "array",
+                "description": "The nested fields.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/NestedFieldDto"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "FieldPropertiesDto": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "fieldType",
+          "mapping": {
+            "Array": "#/components/schemas/ArrayFieldPropertiesDto",
+            "Assets": "#/components/schemas/AssetsFieldPropertiesDto",
+            "Boolean": "#/components/schemas/BooleanFieldPropertiesDto",
+            "Component": "#/components/schemas/ComponentFieldPropertiesDto",
+            "Components": "#/components/schemas/ComponentsFieldPropertiesDto",
+            "DateTime": "#/components/schemas/DateTimeFieldPropertiesDto",
+            "Geolocation": "#/components/schemas/GeolocationFieldPropertiesDto",
+            "Json": "#/components/schemas/JsonFieldPropertiesDto",
+            "Number": "#/components/schemas/NumberFieldPropertiesDto",
+            "References": "#/components/schemas/ReferencesFieldPropertiesDto",
+            "String": "#/components/schemas/StringFieldPropertiesDto",
+            "Tags": "#/components/schemas/TagsFieldPropertiesDto",
+            "UI": "#/components/schemas/UIFieldPropertiesDto"
+          }
+        },
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "fieldType"
+        ],
+        "properties": {
+          "label": {
+            "type": "string",
+            "description": "Optional label for the editor.",
+            "maxLength": 100,
+            "minLength": 0,
+            "nullable": true
+          },
+          "hints": {
+            "type": "string",
+            "description": "Hints to describe the field.",
+            "maxLength": 1000,
+            "minLength": 0,
+            "nullable": true
+          },
+          "placeholder": {
+            "type": "string",
+            "description": "Placeholder to show when no value has been entered.",
+            "maxLength": 100,
+            "minLength": 0,
+            "nullable": true
+          },
+          "isRequired": {
+            "type": "boolean",
+            "description": "Indicates if the field is required."
+          },
+          "isRequiredOnPublish": {
+            "type": "boolean",
+            "description": "Indicates if the field is required when publishing."
+          },
+          "isHalfWidth": {
+            "type": "boolean",
+            "description": "Indicates if the field should be rendered with half width only."
+          },
+          "editorUrl": {
+            "type": "string",
+            "description": "Optional url to the editor.",
+            "nullable": true
+          },
+          "tags": {
+            "type": "array",
+            "description": "Tags for automation processes.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "fieldType": {
+            "type": "string"
+          }
+        }
+      },
+      "ArrayFieldPropertiesDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FieldPropertiesDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "minItems": {
+                "type": "integer",
+                "description": "The minimum allowed items for the field value.",
+                "format": "int32",
+                "nullable": true
+              },
+              "maxItems": {
+                "type": "integer",
+                "description": "The maximum allowed items for the field value.",
+                "format": "int32",
+                "nullable": true
+              },
+              "calculatedDefaultValue": {
+                "description": "The calculated default value for the field value.",
+                "$ref": "#/components/schemas/ArrayCalculatedDefaultValue"
+              },
+              "uniqueFields": {
+                "type": "array",
+                "description": "The fields that must be unique.",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "ArrayCalculatedDefaultValue": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "EmptyArray",
+          "Null"
+        ],
+        "enum": [
+          "EmptyArray",
+          "Null"
+        ]
+      },
+      "AssetsFieldPropertiesDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FieldPropertiesDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "previewMode": {
+                "description": "The preview mode for the asset.",
+                "$ref": "#/components/schemas/AssetPreviewMode"
+              },
+              "defaultValues": {
+                "description": "The language specific default value as a list of asset ids.",
+                "nullable": true,
+                "$ref": "#/components/schemas/LocalizedValueOfReadonlyListOfString"
+              },
+              "defaultValue": {
+                "type": "array",
+                "description": "The default value as a list of asset ids.",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "folderId": {
+                "type": "string",
+                "description": "The initial id to the folder.",
+                "nullable": true
+              },
+              "previewFormat": {
+                "type": "string",
+                "description": "The preview format.",
+                "nullable": true
+              },
+              "minItems": {
+                "type": "integer",
+                "description": "The minimum allowed items for the field value.",
+                "format": "int32",
+                "nullable": true
+              },
+              "maxItems": {
+                "type": "integer",
+                "description": "The maximum allowed items for the field value.",
+                "format": "int32",
+                "nullable": true
+              },
+              "minSize": {
+                "type": "integer",
+                "description": "The minimum file size in bytes.",
+                "format": "int32",
+                "nullable": true
+              },
+              "maxSize": {
+                "type": "integer",
+                "description": "The maximum file size in bytes.",
+                "format": "int32",
+                "nullable": true
+              },
+              "minWidth": {
+                "type": "integer",
+                "description": "The minimum image width in pixels.",
+                "format": "int32",
+                "nullable": true
+              },
+              "maxWidth": {
+                "type": "integer",
+                "description": "The maximum image width in pixels.",
+                "format": "int32",
+                "nullable": true
+              },
+              "minHeight": {
+                "type": "integer",
+                "description": "The minimum image height in pixels.",
+                "format": "int32",
+                "nullable": true
+              },
+              "maxHeight": {
+                "type": "integer",
+                "description": "The maximum image height in pixels.",
+                "format": "int32",
+                "nullable": true
+              },
+              "aspectWidth": {
+                "type": "integer",
+                "description": "The image aspect width in pixels.",
+                "format": "int32",
+                "nullable": true
+              },
+              "aspectHeight": {
+                "type": "integer",
+                "description": "The image aspect height in pixels.",
+                "format": "int32",
+                "nullable": true
+              },
+              "expectedType": {
+                "description": "The expected type.",
+                "nullable": true,
+                "$ref": "#/components/schemas/AssetType"
+              },
+              "resolveFirst": {
+                "type": "boolean",
+                "description": "True to resolve first asset in the content list."
+              },
+              "mustBeImage": {
+                "type": "boolean",
+                "description": "True to resolve first image in the content list.",
+                "deprecated": true,
+                "x-deprecatedMessage": "Use 'expectedType' field now"
+              },
+              "resolveImage": {
+                "type": "boolean",
+                "description": "True to resolve first image in the content list.",
+                "deprecated": true,
+                "x-deprecatedMessage": "Use 'resolveFirst' field now"
+              },
+              "allowedExtensions": {
+                "type": "array",
+                "description": "The allowed file extensions.",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "allowDuplicates": {
+                "type": "boolean",
+                "description": "True, if duplicate values are allowed."
+              }
+            }
+          }
+        ]
+      },
+      "AssetPreviewMode": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "ImageAndFileName",
+          "Image",
+          "FileName"
+        ],
+        "enum": [
+          "ImageAndFileName",
+          "Image",
+          "FileName"
+        ]
+      },
+      "LocalizedValueOfReadonlyListOfString": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "AssetType": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Unknown",
+          "Image",
+          "Audio",
+          "Video"
+        ],
+        "enum": [
+          "Unknown",
+          "Image",
+          "Audio",
+          "Video"
+        ]
+      },
+      "BooleanFieldPropertiesDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FieldPropertiesDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "defaultValues": {
+                "description": "The language specific default value for the field value.",
+                "nullable": true,
+                "$ref": "#/components/schemas/LocalizedValueOfNullableBoolean"
+              },
+              "defaultValue": {
+                "type": "boolean",
+                "description": "The default value for the field value.",
+                "nullable": true
+              },
+              "inlineEditable": {
+                "type": "boolean",
+                "description": "Indicates that the inline editor is enabled for this field."
+              },
+              "editor": {
+                "description": "The editor that is used to manage this field.",
+                "$ref": "#/components/schemas/BooleanFieldEditor"
+              }
+            }
+          }
+        ]
+      },
+      "LocalizedValueOfNullableBoolean": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "boolean",
+          "nullable": true
+        }
+      },
+      "BooleanFieldEditor": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Checkbox",
+          "Toggle"
+        ],
+        "enum": [
+          "Checkbox",
+          "Toggle"
+        ]
+      },
+      "ComponentFieldPropertiesDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FieldPropertiesDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaIds": {
+                "type": "array",
+                "description": "The ID of the embedded schemas.",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "ComponentsFieldPropertiesDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FieldPropertiesDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "minItems": {
+                "type": "integer",
+                "description": "The minimum allowed items for the field value.",
+                "format": "int32",
+                "nullable": true
+              },
+              "maxItems": {
+                "type": "integer",
+                "description": "The maximum allowed items for the field value.",
+                "format": "int32",
+                "nullable": true
+              },
+              "calculatedDefaultValue": {
+                "description": "The calculated default value for the field value.",
+                "$ref": "#/components/schemas/ArrayCalculatedDefaultValue"
+              },
+              "schemaIds": {
+                "type": "array",
+                "description": "The ID of the embedded schemas.",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "uniqueFields": {
+                "type": "array",
+                "description": "The fields that must be unique.",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "DateTimeFieldPropertiesDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FieldPropertiesDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "defaultValues": {
+                "description": "The language specific default value for the field value.",
+                "nullable": true,
+                "$ref": "#/components/schemas/LocalizedValueOfNullableInstant"
+              },
+              "defaultValue": {
+                "type": "string",
+                "description": "The default value for the field value.",
+                "format": "date-time",
+                "nullable": true
+              },
+              "maxValue": {
+                "type": "string",
+                "description": "The maximum allowed value for the field value.",
+                "format": "date-time",
+                "nullable": true
+              },
+              "minValue": {
+                "type": "string",
+                "description": "The minimum allowed value for the field value.",
+                "format": "date-time",
+                "nullable": true
+              },
+              "format": {
+                "type": "string",
+                "description": "The format pattern when displayed in the UI.",
+                "nullable": true
+              },
+              "editor": {
+                "description": "The editor that is used to manage this field.",
+                "$ref": "#/components/schemas/DateTimeFieldEditor"
+              },
+              "calculatedDefaultValue": {
+                "description": "The calculated default value for the field value.",
+                "nullable": true,
+                "$ref": "#/components/schemas/DateTimeCalculatedDefaultValue"
+              }
+            }
+          }
+        ]
+      },
+      "LocalizedValueOfNullableInstant": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string",
+          "format": "date-time",
+          "nullable": true
+        }
+      },
+      "DateTimeFieldEditor": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Date",
+          "DateTime"
+        ],
+        "enum": [
+          "Date",
+          "DateTime"
+        ]
+      },
+      "DateTimeCalculatedDefaultValue": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Now",
+          "Today"
+        ],
+        "enum": [
+          "Now",
+          "Today"
+        ]
+      },
+      "GeolocationFieldPropertiesDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FieldPropertiesDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "editor": {
+                "description": "The editor that is used to manage this field.",
+                "$ref": "#/components/schemas/GeolocationFieldEditor"
+              }
+            }
+          }
+        ]
+      },
+      "GeolocationFieldEditor": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Map"
+        ],
+        "enum": [
+          "Map"
+        ]
+      },
+      "JsonFieldPropertiesDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FieldPropertiesDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "graphQLSchema": {
+                "type": "string",
+                "description": "The GraphQL schema.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "NumberFieldPropertiesDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FieldPropertiesDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "defaultValues": {
+                "description": "The language specific default value for the field value.",
+                "nullable": true,
+                "$ref": "#/components/schemas/LocalizedValueOfNullableDouble"
+              },
+              "defaultValue": {
+                "type": "number",
+                "description": "The default value for the field value.",
+                "format": "double",
+                "nullable": true
+              },
+              "maxValue": {
+                "type": "number",
+                "description": "The maximum allowed value for the field value.",
+                "format": "double",
+                "nullable": true
+              },
+              "minValue": {
+                "type": "number",
+                "description": "The minimum allowed value for the field value.",
+                "format": "double",
+                "nullable": true
+              },
+              "allowedValues": {
+                "type": "array",
+                "description": "The allowed values for the field value.",
+                "nullable": true,
+                "items": {
+                  "type": "number",
+                  "format": "double"
+                }
+              },
+              "isUnique": {
+                "type": "boolean",
+                "description": "Indicates if the field value must be unique. Ignored for nested fields and localized fields."
+              },
+              "inlineEditable": {
+                "type": "boolean",
+                "description": "Indicates that the inline editor is enabled for this field."
+              },
+              "editor": {
+                "description": "The editor that is used to manage this field.",
+                "$ref": "#/components/schemas/NumberFieldEditor"
+              }
+            }
+          }
+        ]
+      },
+      "LocalizedValueOfNullableDouble": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "number",
+          "format": "double",
+          "nullable": true
+        }
+      },
+      "NumberFieldEditor": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Input",
+          "Radio",
+          "Dropdown",
+          "Stars"
+        ],
+        "enum": [
+          "Input",
+          "Radio",
+          "Dropdown",
+          "Stars"
+        ]
+      },
+      "ReferencesFieldPropertiesDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FieldPropertiesDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "defaultValues": {
+                "description": "The language specific default value as a list of content ids.",
+                "nullable": true,
+                "$ref": "#/components/schemas/LocalizedValueOfReadonlyListOfString"
+              },
+              "defaultValue": {
+                "type": "array",
+                "description": "The default value as a list of content ids.",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "minItems": {
+                "type": "integer",
+                "description": "The minimum allowed items for the field value.",
+                "format": "int32",
+                "nullable": true
+              },
+              "maxItems": {
+                "type": "integer",
+                "description": "The maximum allowed items for the field value.",
+                "format": "int32",
+                "nullable": true
+              },
+              "allowDuplicates": {
+                "type": "boolean",
+                "description": "True, if duplicate values are allowed."
+              },
+              "resolveReference": {
+                "type": "boolean",
+                "description": "True to resolve references in the content list."
+              },
+              "mustBePublished": {
+                "type": "boolean",
+                "description": "True when all references must be published."
+              },
+              "query": {
+                "type": "string",
+                "description": "The initial query that is applied in the UI.",
+                "nullable": true
+              },
+              "editor": {
+                "description": "The editor that is used to manage this field.",
+                "$ref": "#/components/schemas/ReferencesFieldEditor"
+              },
+              "schemaIds": {
+                "type": "array",
+                "description": "The ID of the referenced schemas.",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "ReferencesFieldEditor": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "List",
+          "Dropdown",
+          "Tags",
+          "Checkboxes",
+          "Input"
+        ],
+        "enum": [
+          "List",
+          "Dropdown",
+          "Tags",
+          "Checkboxes",
+          "Input"
+        ]
+      },
+      "StringFieldPropertiesDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FieldPropertiesDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "defaultValues": {
+                "description": "The language specific default value for the field value.",
+                "nullable": true,
+                "$ref": "#/components/schemas/LocalizedValueOfString"
+              },
+              "defaultValue": {
+                "type": "string",
+                "description": "The default value for the field value.",
+                "nullable": true
+              },
+              "pattern": {
+                "type": "string",
+                "description": "The pattern to enforce a specific format for the field value.",
+                "nullable": true
+              },
+              "patternMessage": {
+                "type": "string",
+                "description": "The validation message for the pattern.",
+                "nullable": true
+              },
+              "folderId": {
+                "type": "string",
+                "description": "The initial id to the folder when the control supports file uploads.",
+                "nullable": true
+              },
+              "minLength": {
+                "type": "integer",
+                "description": "The minimum allowed length for the field value.",
+                "format": "int32",
+                "nullable": true
+              },
+              "maxLength": {
+                "type": "integer",
+                "description": "The maximum allowed length for the field value.",
+                "format": "int32",
+                "nullable": true
+              },
+              "minCharacters": {
+                "type": "integer",
+                "description": "The minimum allowed of normal characters for the field value.",
+                "format": "int32",
+                "nullable": true
+              },
+              "maxCharacters": {
+                "type": "integer",
+                "description": "The maximum allowed of normal characters for the field value.",
+                "format": "int32",
+                "nullable": true
+              },
+              "minWords": {
+                "type": "integer",
+                "description": "The minimum allowed number of words for the field value.",
+                "format": "int32",
+                "nullable": true
+              },
+              "maxWords": {
+                "type": "integer",
+                "description": "The maximum allowed number of words for the field value.",
+                "format": "int32",
+                "nullable": true
+              },
+              "allowedValues": {
+                "type": "array",
+                "description": "The allowed values for the field value.",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "schemaIds": {
+                "type": "array",
+                "description": "The allowed schema ids that can be embedded.",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "isUnique": {
+                "type": "boolean",
+                "description": "Indicates if the field value must be unique. Ignored for nested fields and localized fields."
+              },
+              "isEmbeddable": {
+                "type": "boolean",
+                "description": "Indicates that other content items or references are embedded."
+              },
+              "inlineEditable": {
+                "type": "boolean",
+                "description": "Indicates that the inline editor is enabled for this field."
+              },
+              "createEnum": {
+                "type": "boolean",
+                "description": "Indicates whether GraphQL Enum should be created."
+              },
+              "contentType": {
+                "description": "How the string content should be interpreted.",
+                "$ref": "#/components/schemas/StringContentType"
+              },
+              "editor": {
+                "description": "The editor that is used to manage this field.",
+                "$ref": "#/components/schemas/StringFieldEditor"
+              }
+            }
+          }
+        ]
+      },
+      "LocalizedValueOfString": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        }
+      },
+      "StringContentType": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Unspecified",
+          "Html",
+          "Markdown"
+        ],
+        "enum": [
+          "Unspecified",
+          "Html",
+          "Markdown"
+        ]
+      },
+      "StringFieldEditor": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Input",
+          "Color",
+          "Markdown",
+          "Dropdown",
+          "Html",
+          "Radio",
+          "RichText",
+          "Slug",
+          "StockPhoto",
+          "TextArea"
+        ],
+        "enum": [
+          "Input",
+          "Color",
+          "Markdown",
+          "Dropdown",
+          "Html",
+          "Radio",
+          "RichText",
+          "Slug",
+          "StockPhoto",
+          "TextArea"
+        ]
+      },
+      "TagsFieldPropertiesDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FieldPropertiesDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "defaultValues": {
+                "description": "The language specific default value for the field value.",
+                "nullable": true,
+                "$ref": "#/components/schemas/LocalizedValueOfReadonlyListOfString"
+              },
+              "defaultValue": {
+                "type": "array",
+                "description": "The default value.",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "minItems": {
+                "type": "integer",
+                "description": "The minimum allowed items for the field value.",
+                "format": "int32",
+                "nullable": true
+              },
+              "maxItems": {
+                "type": "integer",
+                "description": "The maximum allowed items for the field value.",
+                "format": "int32",
+                "nullable": true
+              },
+              "allowedValues": {
+                "type": "array",
+                "description": "The allowed values for the field value.",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "createEnum": {
+                "type": "boolean",
+                "description": "Indicates whether GraphQL Enum should be created."
+              },
+              "editor": {
+                "description": "The editor that is used to manage this field.",
+                "$ref": "#/components/schemas/TagsFieldEditor"
+              }
+            }
+          }
+        ]
+      },
+      "TagsFieldEditor": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Tags",
+          "Checkboxes",
+          "Dropdown"
+        ],
+        "enum": [
+          "Tags",
+          "Checkboxes",
+          "Dropdown"
+        ]
+      },
+      "UIFieldPropertiesDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FieldPropertiesDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "editor": {
+                "description": "The editor that is used to manage this field.",
+                "$ref": "#/components/schemas/UIFieldEditor"
+              }
+            }
+          }
+        ]
+      },
+      "UIFieldEditor": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Separator"
+        ],
+        "enum": [
+          "Separator"
+        ]
+      },
+      "NestedFieldDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Resource"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "name",
+              "properties",
+              "fieldId",
+              "isHidden",
+              "isLocked",
+              "isDisabled"
+            ],
+            "properties": {
+              "fieldId": {
+                "type": "integer",
+                "description": "The ID of the field.",
+                "format": "int64"
+              },
+              "name": {
+                "type": "string",
+                "description": "The name of the field. Must be unique within the schema.",
+                "minLength": 1,
+                "pattern": "^[a-z0-9]+(\\-[a-z0-9]+)*$"
+              },
+              "isHidden": {
+                "type": "boolean",
+                "description": "Defines if the field is hidden."
+              },
+              "isLocked": {
+                "type": "boolean",
+                "description": "Defines if the field is locked."
+              },
+              "isDisabled": {
+                "type": "boolean",
+                "description": "Defines if the field is disabled."
+              },
+              "properties": {
+                "description": "The field properties.",
+                "$ref": "#/components/schemas/FieldPropertiesDto"
+              }
+            }
+          }
         ]
       },
       "AddFieldDto": {
@@ -16103,6 +16307,7 @@
             "AzureQueue": "#/components/schemas/AzureQueueRuleActionDto",
             "Comment": "#/components/schemas/CommentRuleActionDto",
             "CreateContent": "#/components/schemas/CreateContentRuleActionDto",
+            "DeepDetect": "#/components/schemas/DeepDetectRuleActionDto",
             "Discourse": "#/components/schemas/DiscourseRuleActionDto",
             "ElasticSearch": "#/components/schemas/ElasticSearchRuleActionDto",
             "Email": "#/components/schemas/EmailRuleActionDto",
@@ -16277,6 +16482,35 @@
                 "title": "Publish",
                 "type": "boolean",
                 "description": "Publish the content."
+              }
+            }
+          }
+        ]
+      },
+      "DeepDetectRuleActionDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/RuleActionDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "minimumProbability",
+              "maximumTags"
+            ],
+            "properties": {
+              "minimumProbability": {
+                "title": "Min Probability",
+                "type": "integer",
+                "description": "The minimum probability for objects to be recognized (0 - 100).",
+                "format": "int64"
+              },
+              "maximumTags": {
+                "title": "Max Tags",
+                "type": "integer",
+                "description": "The maximum number of tags to use.",
+                "format": "int64"
               }
             }
           }
@@ -17596,6 +17830,221 @@
           }
         ]
       },
+      "ContentsDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Resource"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "total",
+              "items",
+              "statuses"
+            ],
+            "properties": {
+              "total": {
+                "type": "integer",
+                "description": "The total number of content items.",
+                "format": "int64"
+              },
+              "items": {
+                "type": "array",
+                "description": "The content items.",
+                "items": {
+                  "$ref": "#/components/schemas/ContentDto"
+                }
+              },
+              "statuses": {
+                "type": "array",
+                "description": "The possible statuses.",
+                "items": {
+                  "$ref": "#/components/schemas/StatusInfoDto"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "ContentDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Resource"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "createdBy",
+              "lastModifiedBy",
+              "data",
+              "created",
+              "lastModified",
+              "status",
+              "statusColor",
+              "schemaId",
+              "isDeleted",
+              "version"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "The if of the content item."
+              },
+              "createdBy": {
+                "type": "string",
+                "description": "The user that has created the content item."
+              },
+              "lastModifiedBy": {
+                "type": "string",
+                "description": "The user that has updated the content item."
+              },
+              "data": {
+                "description": "The data of the content item."
+              },
+              "referenceData": {
+                "description": "The reference data for the frontend UI.",
+                "nullable": true,
+                "$ref": "#/components/schemas/ContentData"
+              },
+              "created": {
+                "type": "string",
+                "description": "The date and time when the content item has been created.",
+                "format": "date-time"
+              },
+              "lastModified": {
+                "type": "string",
+                "description": "The date and time when the content item has been modified last.",
+                "format": "date-time"
+              },
+              "status": {
+                "type": "string",
+                "description": "The status of the content."
+              },
+              "newStatus": {
+                "type": "string",
+                "description": "The new status of the content.",
+                "nullable": true
+              },
+              "statusColor": {
+                "type": "string",
+                "description": "The color of the status."
+              },
+              "newStatusColor": {
+                "type": "string",
+                "description": "The color of the new status.",
+                "nullable": true
+              },
+              "editToken": {
+                "type": "string",
+                "description": "The UI token.",
+                "nullable": true
+              },
+              "scheduleJob": {
+                "description": "The scheduled status.",
+                "nullable": true,
+                "$ref": "#/components/schemas/ScheduleJobDto"
+              },
+              "schemaId": {
+                "type": "string",
+                "description": "The ID of the schema."
+              },
+              "schemaName": {
+                "type": "string",
+                "description": "The name of the schema.",
+                "nullable": true
+              },
+              "schemaDisplayName": {
+                "type": "string",
+                "description": "The display name of the schema.",
+                "nullable": true
+              },
+              "referenceFields": {
+                "type": "array",
+                "description": "The reference fields.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/FieldDto"
+                }
+              },
+              "isDeleted": {
+                "type": "boolean",
+                "description": "Indicates whether the content is deleted."
+              },
+              "version": {
+                "type": "integer",
+                "description": "The version of the content.",
+                "format": "int64"
+              }
+            }
+          }
+        ]
+      },
+      "ContentData": {
+        "type": "object",
+        "additionalProperties": {
+          "nullable": true,
+          "$ref": "#/components/schemas/ContentFieldData"
+        }
+      },
+      "ContentFieldData": {
+        "type": "object",
+        "additionalProperties": {}
+      },
+      "ScheduleJobDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "status",
+          "dueTime",
+          "color",
+          "scheduledBy"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The ID of the schedule job."
+          },
+          "status": {
+            "type": "string",
+            "description": "The new status."
+          },
+          "dueTime": {
+            "type": "string",
+            "description": "The target date and time when the content should be scheduled.",
+            "format": "date-time"
+          },
+          "color": {
+            "type": "string",
+            "description": "The color of the scheduled status."
+          },
+          "scheduledBy": {
+            "type": "string",
+            "description": "The user who schedule the content."
+          }
+        }
+      },
+      "StatusInfoDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "status",
+          "color"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The name of the status."
+          },
+          "color": {
+            "type": "string",
+            "description": "The color of the status."
+          }
+        }
+      },
       "QueryDto": {
         "type": "object",
         "additionalProperties": false,
@@ -17620,6 +18069,37 @@
           "parentId": {
             "type": "string",
             "description": "The parent id (for assets).",
+            "nullable": true
+          }
+        }
+      },
+      "BulkResultDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "jobIndex"
+        ],
+        "properties": {
+          "error": {
+            "description": "The error when the bulk job failed.",
+            "nullable": true,
+            "$ref": "#/components/schemas/ErrorDto"
+          },
+          "jobIndex": {
+            "type": "integer",
+            "description": "The index of the bulk job where the result belongs to. The order can change.",
+            "format": "int32"
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the entity that has been handled successfully or not.",
+            "nullable": true
+          },
+          "contentId": {
+            "type": "string",
+            "description": "The ID of the entity that has been handled successfully or not.",
+            "deprecated": true,
+            "x-deprecatedMessage": "Use 'id' field now.",
             "nullable": true
           }
         }
@@ -17654,6 +18134,205 @@
           }
         }
       },
+      "BulkUpdateContentsDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "jobs"
+        ],
+        "properties": {
+          "jobs": {
+            "type": "array",
+            "description": "The contents to update or insert.",
+            "items": {
+              "$ref": "#/components/schemas/BulkUpdateContentsJobDto"
+            }
+          },
+          "publish": {
+            "type": "boolean",
+            "description": "True to automatically publish the content.",
+            "deprecated": true,
+            "x-deprecatedMessage": "Use 'jobs.status' fields now."
+          },
+          "doNotScript": {
+            "type": "boolean",
+            "description": "True to turn off scripting for faster inserts. Default: true."
+          },
+          "doNotValidate": {
+            "type": "boolean",
+            "description": "True to turn off validation for faster inserts. Default: false."
+          },
+          "doNotValidateWorkflow": {
+            "type": "boolean",
+            "description": "True to turn off validation of workflow rules. Default: false."
+          },
+          "checkReferrers": {
+            "type": "boolean",
+            "description": "True to check referrers of deleted contents."
+          },
+          "optimizeValidation": {
+            "type": "boolean",
+            "description": "True to turn off costly validation: Unique checks, asset checks and reference checks. Default: true."
+          }
+        }
+      },
+      "BulkUpdateContentsJobDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "query": {
+            "description": "An optional query to identify the content to update.",
+            "nullable": true,
+            "$ref": "#/components/schemas/QueryJsonDto"
+          },
+          "id": {
+            "type": "string",
+            "description": "An optional ID of the content to update.",
+            "nullable": true
+          },
+          "data": {
+            "description": "The data of the content when type is set to 'Upsert', 'Create', 'Update' or 'Patch.",
+            "nullable": true,
+            "$ref": "#/components/schemas/ContentData"
+          },
+          "status": {
+            "type": "string",
+            "description": "The new status when the type is set to 'ChangeStatus' or 'Upsert'.",
+            "nullable": true
+          },
+          "dueTime": {
+            "type": "string",
+            "description": "The due time.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "type": {
+            "description": "The update type.",
+            "$ref": "#/components/schemas/BulkUpdateContentType"
+          },
+          "schema": {
+            "type": "string",
+            "description": "The optional schema id or name.",
+            "nullable": true
+          },
+          "patch": {
+            "type": "boolean",
+            "description": "Makes the update as patch."
+          },
+          "permanent": {
+            "type": "boolean",
+            "description": "True to delete the content permanently."
+          },
+          "expectedCount": {
+            "type": "integer",
+            "description": "The number of expected items. Set it to a higher number to update multiple items when a query is defined.",
+            "format": "int64"
+          },
+          "expectedVersion": {
+            "type": "integer",
+            "description": "The expected version.",
+            "format": "int64"
+          }
+        }
+      },
+      "QueryJsonDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "skip",
+          "take",
+          "random",
+          "top"
+        ],
+        "properties": {
+          "filter": {
+            "nullable": true
+          },
+          "fullText": {
+            "type": "string",
+            "nullable": true
+          },
+          "skip": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "take": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "random": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "top": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "sort": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/SortNode"
+            }
+          }
+        }
+      },
+      "SortNode": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "order"
+        ],
+        "properties": {
+          "path": {
+            "$ref": "#/components/schemas/PropertyPath"
+          },
+          "order": {
+            "$ref": "#/components/schemas/SortOrder"
+          }
+        }
+      },
+      "PropertyPath": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "SortOrder": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Ascending",
+          "Descending"
+        ],
+        "enum": [
+          "Ascending",
+          "Descending"
+        ]
+      },
+      "BulkUpdateContentType": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Upsert",
+          "ChangeStatus",
+          "Create",
+          "Delete",
+          "Patch",
+          "Update",
+          "Validate"
+        ],
+        "enum": [
+          "Upsert",
+          "ChangeStatus",
+          "Create",
+          "Delete",
+          "Patch",
+          "Update",
+          "Validate"
+        ]
+      },
       "ChangeStatusDto": {
         "type": "object",
         "additionalProperties": false,
@@ -17675,6 +18354,51 @@
           "checkReferrers": {
             "type": "boolean",
             "description": "True to check referrers of this content."
+          }
+        }
+      },
+      "AllContentsByPostDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "ids": {
+            "type": "array",
+            "description": "The list of ids to query.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "scheduledFrom": {
+            "type": "string",
+            "description": "The start of the schedule.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "scheduledTo": {
+            "type": "string",
+            "description": "The end of the schedule.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "referencing": {
+            "type": "string",
+            "description": "The ID of the referencing content item.",
+            "nullable": true
+          },
+          "references": {
+            "type": "string",
+            "description": "The ID of the reference content item.",
+            "nullable": true
+          },
+          "oData": {
+            "type": "string",
+            "description": "The optional odata query.",
+            "nullable": true
+          },
+          "q": {
+            "description": "The optional json query.",
+            "nullable": true
           }
         }
       },
