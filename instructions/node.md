@@ -21,7 +21,7 @@ The `SquidexClient` is the main entry point for the SDK. It provides the propert
 ```ts
 import { SquidexClient } from "@squidex/squidex";
 
-const sdk = new SquidexClient({
+const client = new SquidexClient({
     appName: "<APP_NAME>",
     clientId: "<CLIENT_ID>",
     clientSecret: "<CLIENT_SECRET>",

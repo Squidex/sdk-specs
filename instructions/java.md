@@ -14,11 +14,11 @@ or
 
 #### Maven
 ```xml
-<dependency>
-    <groupId>io.squidex</groupId>
-    <artifactId>squidex</artifactId>
-    <version>1.0.0</version>
-</dependency>
+&lt;dependency&gt;
+    &lt;groupId&gt;io.squidex&lt;/groupId&gt;
+    &lt;artifactId&gt;squidex&lt;/artifactId&gt;
+    &lt;version&gt;1.0.0&lt;/version&gt;
+&lt;/dependency&gt;
 ```
 
 ### Instantiate the SDK
@@ -26,7 +26,7 @@ or
 The `SquidexClient` is the main entry point for the SDK. It provides the properties for all endpoints. You can instantiate the client using the following code snippet:
 
 ```java
-SquidexClient squidex = SquidexClient.builder()
+SquidexClient client = SquidexClient.builder()
     .appName("<APP_NAME>")
     .clientId("<CLIENT_ID>")
     .clientSecret("<CLIENT_SECRET>")
